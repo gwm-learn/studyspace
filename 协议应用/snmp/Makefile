@@ -36,9 +36,8 @@ CONFIGURE_ARGS := \
 	--disable-embedded-perl \
 	--disable-snmptrapd-subagent \
 	--disable-scripts \
-	-enable-mfd-rewrites \
+	--enable-mfd-rewrites \
 	--enable-shared=no \
-	--enable-mini-agent \
 	--with-endianness=little \
 	--with-mib-modules="$(SNMP_MIB_VENDOR_MODULES)"
 

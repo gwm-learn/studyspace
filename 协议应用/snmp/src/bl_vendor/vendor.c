@@ -109,7 +109,9 @@ int handle_SwitchMac(netsnmp_mib_handler *handler, netsnmp_handler_registration 
                 break;
             }
             recv_msg = (cj_ctl_msg_t *)buf;
-            arrayToStr((unsigned char *)(recv_msg->msg.mac), sizeof(recv_msg->msg.mac), mac);
+            mac_array_str(recv_msg->msg.mac, mac);
+            snmp_log(LOG_DEBUG, "handle_SwitchMac mac str:%s hex:%02x%02x%02x%02x%02x%02x\n", mac, \
+            recv_msg->msg.mac[0],recv_msg->msg.mac[1],recv_msg->msg.mac[2],recv_msg->msg.mac[3],recv_msg->msg.mac[4],recv_msg->msg.mac[5]);
             snmp_set_var_typed_value( requests->requestvb, ASN_OCTET_STR, mac, strlen(mac));
             break;
         case MODE_SET_RESERVE1:
@@ -119,16 +121,19 @@ int handle_SwitchMac(netsnmp_mib_handler *handler, netsnmp_handler_registration 
             break;
         case MODE_SET_ACTION:
             snmp_log(LOG_DEBUG, "handle_SwitchMac MODE_SET_ACTION\n");
-            if(requests->requestvb->val_len > 0 && requests->requestvb->val_len <= 16){
+            snmp_log(LOG_DEBUG, "handle_SwitchMac requests->requestvb->val_len is %d\n", requests->requestvb->val_len);
+            if(requests->requestvb->val_len == 12 && mac_str_check(requests->requestvb->val.string)){
                 msg.msg_type  = CJ_MSG_TYPE_SNMP;
                 msg.protorl   = CJ_CLIENT_SNMP;
                 msg.sub_type.snmp_type = CJ_MSG_SNMP_SUB_TYPE_SET_MAC;
-                StringToHex(requests->requestvb->val.string, msg.msg.mac, &(requests->requestvb->val_len));
+                mac_str_array(requests->requestvb->val.string, msg.msg.mac);
                 if (snmp_set_msg(&msg, sizeof(msg)) < 0){
                     snmp_log(LOG_DEBUG, "handle_SwitchMac snmp_set_msg fail\n");
                     netsnmp_set_request_error(reqinfo, requests, SNMP_ERR_GENERR);
                     break;
                 }
+                snmp_log(LOG_DEBUG, "handle_SwitchMac mac str:%s hex:%02x%02x%02x%02x%02x%02x\n", requests->requestvb->val.string, \
+                msg.msg.mac[0],msg.msg.mac[1],msg.msg.mac[2],msg.msg.mac[3],msg.msg.mac[4],msg.msg.mac[5]);
             }else{
                 netsnmp_set_request_error(reqinfo, requests, SNMP_ERR_BADVALUE);
             }

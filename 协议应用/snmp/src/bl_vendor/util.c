@@ -1,38 +1,50 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <net-snmp/net-snmp-config.h>
+#include <net-snmp/net-snmp-includes.h>
+#include <net-snmp/agent/net-snmp-agent-includes.h>
 #include "util.h"
 
-int arrayToStr(unsigned char *buf, unsigned int buflen, char *out)
+void mac_array_str(uint8 *mac_in, char *mac_out)
 {
-    char strBuf[33] = {0};
-    char pbuf[32];
     int i;
-    for(i = 0; i < buflen; i++)
-    {
-        sprintf(pbuf, "%02X", buf[i]);
-        strncat(strBuf, pbuf, 2);
+    char pbuf[4] = {0};
+
+    for (i = 0; i < MAC_ARRAY_LEN; i++) {
+        sprintf(pbuf, "%02x", mac_in[i]);
+        strncat(mac_out, pbuf, 2);
     }
-    strncpy(out, strBuf, buflen * 2);
-    return buflen * 2;
 }
 
-int StringToHex(char *str, unsigned char *out, unsigned int *outlen)
+void mac_str_array(char *mac_in, uint8 *mac_out)
 {
-    char *p = str;
-    char high = 0, low = 0;
-    int tmplen = strlen(p), cnt = 0;
-    tmplen = strlen(p);
-    while(cnt < (tmplen / 2))
-    {
-        high = ((*p > '9') && ((*p <= 'F') || (*p <= 'f'))) ? *p - 48 - 7 : *p - 48;
-        low = (*(++ p) > '9' && ((*p <= 'F') || (*p <= 'f'))) ? *(p) - 48 - 7 : *(p) - 48;
-        out[cnt] = ((high & 0x0f) << 4 | (low & 0x0f));
-        p ++;
-        cnt ++;
-    }
-    if(tmplen % 2 != 0) out[cnt] = ((*p > '9') && ((*p <= 'F') || (*p <= 'f'))) ? *p - 48 - 7 : *p - 48;
+    int i = 0;
+    char *mac_p;
+    char *endptr;
+    char mac_tmp[4] = {0};
 
-    if(outlen != NULL) *outlen = tmplen / 2 + tmplen % 2;
-    return tmplen / 2 + tmplen % 2;
+    mac_p = mac_in;
+    for (i = 0; i < MAC_ARRAY_LEN; i++) {
+        strncpy(mac_tmp, mac_p, 2);
+        mac_out[i] = strtol(mac_tmp, &endptr, 16);
+        memset(mac_tmp, 0, sizeof(mac_tmp));
+        mac_p+=2;
+    }
+}
+
+int mac_str_check(char *mac_in)
+{
+    int i;
+    char *p = mac_in;
+
+    for (i = 0; i < MAC_ARRAY_LEN * 2; i++) {
+        if ((*p >= '0' && *p <= '9') || (*p >= 'a' && *p <= 'f') || (*p >= 'A' && *p <= 'F')) {
+            p++;
+            continue;
+        } else {
+            return 0;
+        }
+    }
+    return 1;
 }
