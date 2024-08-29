@@ -17,3 +17,15 @@ git remote show origin
 ```SHELL
 git log --oneline --graph --decorate --all
 ```
+
+# 修改commit
+```SHELL
+# 修改最近提交的 commit 信息
+$ git commit --amend --message="modify message by daodaotest" --author="jiangliheng <jiang_liheng@163.com>"
+
+# 仅修改 message 信息
+$ git commit --amend --message="modify message by daodaotest"
+
+# 仅修改 author 信息
+$ git commit --amend --author="jiangliheng <jiang_liheng@163.com>"
+```
