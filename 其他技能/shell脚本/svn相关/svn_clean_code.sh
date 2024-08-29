@@ -42,7 +42,7 @@ revert_changed_file(){
 	fi
 }
 
-if [ $# -eq 1 ]; then
+if [ $# -lt 2 ]; then
 	usage_info
 	exit 0
 fi

@@ -102,9 +102,13 @@ if [ $OPTION_TYPE = "file" ]; then
 	sudo chown $USER $OPTION_PARAM
 	sudo chgrp $USER $OPTION_PARAM
 elif [ $OPTION_TYPE = "path" ]; then
-	all_file_in_path $OPTION_PARAM
-	sudo chown $USER $CMD_FILE
-	sudo chgrp $USER $CMD_FILE
+#	all_file_in_path $OPTION_PARAM
+#	sudo chown $USER $CMD_FILE
+#	sudo chgrp $USER $CMD_FILE
+	echo "chown $USER -R $OPTION_PARAM"
+	sudo chown $USER -R $OPTION_PARAM
+	echo "chgrp $USER -R $OPTION_PARAM"
+	sudo chgrp $USER -R $OPTION_PARAM
 else
 	usage_info
 fi
