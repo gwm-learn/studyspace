@@ -4,6 +4,7 @@ SNMP_LOG_DIR := /var/log/snmpd.log
 ROOTFS_SNMP_UCI = /etc/config/snmpd
 ROOTFS_SNMP_CONF = /var/net-snmp/conf
 ROOTFS_SNMP_MIBS = /var/net-snmp/share/snmp/mibs
+SRC_MAKEFILE = $(CURR_DIR)/src/Makefile
 
 EXEC = snmpd
 
@@ -72,7 +73,9 @@ romfs:
 	$(ROMFSINST) $(CURR_DIR)/build/mibs $(ROOTFS_SNMP_MIBS)
 
 clean:
+ifneq ($(wildcard $(SRC_MAKEFILE)),)
 	make -C $(CURR_DIR)/src clean
+endif
 	@rm -rf $(CURR_DIR)/build
 
 

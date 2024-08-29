@@ -64,12 +64,11 @@ typedef struct  cj_ctl_msg
     
 }cj_ctl_msg_t;
 
-extern int sockfd;
-
+void stopSnmpdHandler(int signum);
 int cj_plat_shm_init(void);
 int cj_client_init(void);
-void snmp_ipc_startup(void);
-void snmp_get_msg(cj_ctl_msg_t *send_msg, int msg_len, char *recvbuf, int recvbuf_len, int fd);
-void snmp_set_msg(cj_ctl_msg_t *send_msg, int msg_len, int fd);
+int snmp_ipc_startup(void);
+int snmp_get_msg(cj_ctl_msg_t *send_msg, int msg_len, char *recvbuf, int recvbuf_len);
+int snmp_set_msg(cj_ctl_msg_t *send_msg, int msg_len);
 
 #endif

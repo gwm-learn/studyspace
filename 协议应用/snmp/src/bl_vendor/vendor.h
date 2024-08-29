@@ -7,4 +7,4 @@ Netsnmp_Node_Handler handle_readTest;
 Netsnmp_Node_Handler handle_writeTest;
 Netsnmp_Node_Handler handle_SwitchMac;
 
-#endif //!__VENDOR_H__
+#endif

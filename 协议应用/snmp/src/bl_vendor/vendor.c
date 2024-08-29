@@ -7,11 +7,11 @@
 #include <net-snmp/net-snmp-includes.h>
 #include <net-snmp/agent/net-snmp-agent-includes.h>
 
+#include <signal.h>
 #include <string.h>
 #include "util.h"
 #include "vendor.h"
 #include "ipc_client.h"
-
 
 /** Initializes the vendor module */
 void init_vendor(void)
@@ -24,7 +24,9 @@ void init_vendor(void)
 
     netsnmp_register_scalar(netsnmp_create_handler_registration("readTest", handle_readTest, readTest_oid, OID_LENGTH(readTest_oid), HANDLER_CAN_RONLY));
     netsnmp_register_scalar(netsnmp_create_handler_registration("writeTest", handle_writeTest, writeTest_oid, OID_LENGTH(writeTest_oid), HANDLER_CAN_RWRITE));
-    netsnmp_register_scalar(netsnmp_create_handler_registration("SwitchMac", handle_SwitchMac,SwitchMac_oid, OID_LENGTH(SwitchMac_oid),HANDLER_CAN_RWRITE));
+    netsnmp_register_scalar(netsnmp_create_handler_registration("SwitchMac", handle_SwitchMac, SwitchMac_oid, OID_LENGTH(SwitchMac_oid), HANDLER_CAN_RWRITE));
+
+    signal(SIGUSR1, stopSnmpdHandler);
 
     if ((cj_plat_shm_init() >= 0) && (cj_client_init() >= 0))
         snmp_ipc_startup();
@@ -35,6 +37,7 @@ int handle_readTest(netsnmp_mib_handler *handler, netsnmp_handler_registration *
     int value = 36000;
     switch(reqinfo->mode) {
         case MODE_GET:
+            snmp_log(LOG_DEBUG, "handle_readTest MODE_GET\n");
             snmp_set_var_typed_value(requests->requestvb, ASN_INTEGER, &value, sizeof(value));
             break;
         default:
@@ -57,6 +60,7 @@ int handle_writeTest(netsnmp_mib_handler *handler, netsnmp_handler_registration 
         case MODE_SET_RESERVE2:
             break;
         case MODE_GET:
+            snmp_log(LOG_DEBUG, "handle_writeTest MODE_GET\n");
             snmp_set_var_typed_value(requests->requestvb, ASN_OCTET_STR, buf, strlen(buf));
             break;
         case MODE_SET_RESERVE1:
@@ -65,6 +69,7 @@ int handle_writeTest(netsnmp_mib_handler *handler, netsnmp_handler_registration 
                 netsnmp_set_request_error(reqinfo, requests, ret);
             break;
         case MODE_SET_ACTION:
+            snmp_log(LOG_DEBUG, "handle_writeTest MODE_SET_ACTION\n");
             if(requests->requestvb->val_len > 0 && requests->requestvb->val_len < 1023) {
                 memcpy(buf, requests->requestvb->val.string, requests->requestvb->val_len);
                 buf[requests->requestvb->val_len] = '\0';
@@ -83,11 +88,9 @@ int handle_SwitchMac(netsnmp_mib_handler *handler, netsnmp_handler_registration 
 {
     int ret;
     char mac[16] = {0};
-    static char buf[MSG_LEN] = {0};
+    uint8 buf[MSG_LEN] = {0};
     cj_ctl_msg_t msg;
     cj_ctl_msg_t *recv_msg;
-
-    memset((char *)&msg, 0, sizeof(msg));
 
     switch(reqinfo->mode) {
         case MODE_SET_UNDO:
@@ -96,13 +99,17 @@ int handle_SwitchMac(netsnmp_mib_handler *handler, netsnmp_handler_registration 
         case MODE_SET_RESERVE2:
             break;
         case MODE_GET:
+            snmp_log(LOG_DEBUG, "handle_SwitchMac MODE_GET\n");
             msg.msg_type  = CJ_MSG_TYPE_SNMP;
             msg.protorl   = CJ_CLIENT_SNMP;
             msg.sub_type.snmp_type = CJ_MSG_SNMP_SUB_TYPE_GET_MAC;
-            snmp_get_msg(&msg, sizeof(msg), buf, sizeof(buf), sockfd);
+            if (snmp_get_msg(&msg, sizeof(msg), buf, sizeof(buf)) < 0){
+                snmp_log(LOG_DEBUG, "handle_SwitchMac snmp_get_msg fail\n");
+                netsnmp_set_request_error(reqinfo, requests, SNMP_ERR_GENERR);
+                break;
+            }
             recv_msg = (cj_ctl_msg_t *)buf;
             arrayToStr((unsigned char *)(recv_msg->msg.mac), sizeof(recv_msg->msg.mac), mac);
-            printf("[SNMPD] CJ_MSG_SNMP_SUB_TYPE_GET_MAC\nmac hex:%x\nmac str:%s\n", recv_msg->msg.mac, mac);
             snmp_set_var_typed_value( requests->requestvb, ASN_OCTET_STR, mac, strlen(mac));
             break;
         case MODE_SET_RESERVE1:
@@ -111,13 +118,17 @@ int handle_SwitchMac(netsnmp_mib_handler *handler, netsnmp_handler_registration 
                 netsnmp_set_request_error(reqinfo, requests, ret);
             break;
         case MODE_SET_ACTION:
+            snmp_log(LOG_DEBUG, "handle_SwitchMac MODE_SET_ACTION\n");
             if(requests->requestvb->val_len > 0 && requests->requestvb->val_len <= 16){
                 msg.msg_type  = CJ_MSG_TYPE_SNMP;
                 msg.protorl   = CJ_CLIENT_SNMP;
                 msg.sub_type.snmp_type = CJ_MSG_SNMP_SUB_TYPE_SET_MAC;
                 StringToHex(requests->requestvb->val.string, msg.msg.mac, &(requests->requestvb->val_len));
-                printf("[SNMPD] CJ_MSG_SNMP_SUB_TYPE_SET_MAC\nmac hex:%x\nmac str:%s\n", msg.msg.mac, requests->requestvb->val.string);
-                snmp_set_msg(&msg, sizeof(msg), sockfd);
+                if (snmp_set_msg(&msg, sizeof(msg)) < 0){
+                    snmp_log(LOG_DEBUG, "handle_SwitchMac snmp_set_msg fail\n");
+                    netsnmp_set_request_error(reqinfo, requests, SNMP_ERR_GENERR);
+                    break;
+                }
             }else{
                 netsnmp_set_request_error(reqinfo, requests, SNMP_ERR_BADVALUE);
             }
