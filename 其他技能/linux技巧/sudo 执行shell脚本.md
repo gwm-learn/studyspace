@@ -1,0 +1,1 @@
+sudo vim /etc/sudoers，并在文件内增加这么一行:Defaults secure_path=”/bin:/usr/bin:/usr/local/bin:…”, 把要用的命令path包括进去。
