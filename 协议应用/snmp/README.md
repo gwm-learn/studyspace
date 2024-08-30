@@ -146,4 +146,14 @@ MIB Browser
 链接：https://blog.csdn.net/mayue_web/article/details/126267593   
 
 # 其他说明
-目前c语言只实现了get set 两种方法，trap和inform并未实现
+目前c语言实现了get set trap，inform并未实现
+
+# 添加trap
+运行snmptrapd接收trap消息   
+```
+snmptrapd -C -c /var/net-snmp/conf/snmptrapd.conf -df &
+```
+snmptrapd.conf 配置
+```
+authCommunity log,execute,net secret
+```

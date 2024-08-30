@@ -84,8 +84,8 @@ access_notify=`uci -q get "snmpd.$cfg.notify"`
 [ -n "$access_group" ] && [ -n "$access_context" ] && [ -n "$access_version" ] && [ -n "$access_level" ] && [ -n "$access_prefix" ] && [ -n "$access_read" ] && [ -n "$access_write" ] && [ -n "$access_notify" ] && echo "access $access_group $access_context $access_version $access_level $access_prefix $access_read $access_write $access_notify" >> $CONFIGFILE
 
 echo "[SNMPD] sink_add"
-cfg="@trapsink[0]"
-sink_section="trapsink"
+cfg="@trap2sink[0]"
+sink_section="trap2sink"
 sink_host=`uci -q get "snmpd.$cfg.host"`
 sink_community=`uci -q get "snmpd.$cfg.community"`
 sink_port=`uci -q get "snmpd.$cfg.port"`

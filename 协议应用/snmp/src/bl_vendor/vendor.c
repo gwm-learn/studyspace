@@ -89,13 +89,20 @@ int handle_SwitchMac(netsnmp_mib_handler *handler, netsnmp_handler_registration 
     int ret;
     char mac[16] = {0};
     uint8 buf[MSG_LEN] = {0};
+
     cj_ctl_msg_t msg;
     cj_ctl_msg_t *recv_msg;
+
+    static netsnmp_variable_list var_obj;
+    static netsnmp_variable_list var_trap;
+
+    const oid objid_snmptrap[] = { 1,3,6,1,6,3,1,1,4,1,0 };     /* snmpTrapOID.0 */
+    const oid demo_trap[] = { 1,3,6,1,4,1,2021,13,990 };  /*demo-trap */
+    const oid SwitchMac_oid[] = { 1,3,6,1,4,1,36000,3 };
 
     switch(reqinfo->mode) {
         case MODE_SET_UNDO:
         case MODE_SET_FREE:
-        case MODE_SET_COMMIT:
         case MODE_SET_RESERVE2:
             break;
         case MODE_GET:
@@ -137,6 +144,30 @@ int handle_SwitchMac(netsnmp_mib_handler *handler, netsnmp_handler_registration 
             }else{
                 netsnmp_set_request_error(reqinfo, requests, SNMP_ERR_BADVALUE);
             }
+            break;
+        case MODE_SET_COMMIT:
+            /*
+             * send trap test
+            */
+            snmp_log(LOG_DEBUG, "handle_SwitchMac MODE_SET_COMMIT send trap test\n");
+
+            var_trap.next_variable = &var_obj;
+            var_trap.name = objid_snmptrap;
+            var_trap.name_length = sizeof(objid_snmptrap) / sizeof(oid);
+            var_trap.type = ASN_OBJECT_ID;
+            var_trap.val.objid = demo_trap;
+            var_trap.val_len = sizeof(demo_trap);
+
+            var_obj.next_variable = NULL;
+            var_obj.name = SwitchMac_oid;
+            var_obj.name_length = sizeof(SwitchMac_oid) / sizeof(oid);
+            var_obj.type = ASN_OCTET_STR;
+            var_obj.val.string = (u_char *)requests->requestvb->val.string;
+            var_obj.val_len = requests->requestvb->val_len;
+
+            snmp_log(LOG_DEBUG, "handle_SwitchMac sending the v2 trap\n");
+            send_v2trap(&var_trap);
+            snmp_log(LOG_DEBUG, "handle_SwitchMac v2 trap sent\n");
             break;
         default:
             snmp_log(LOG_ERR, "unknown mode (%d) in handle_writeTest\n", reqinfo->mode );

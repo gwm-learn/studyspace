@@ -13,6 +13,16 @@ CFLAGS +=	-I$(CURR_DIR)/../../../include \
 			-I$(CURR_DIR)/src/bl_vendor \
 			-I$(CURR_DIR)/src/ipc_client 
 
+SNMP_MIB_OUT_MODULES :=	snmpv3mibs \
+						notification \
+						notification-log-mib \
+						target \
+						agent_mibs \
+						agentx \
+						disman/event \
+						disman/schedule \
+						utilities
+
 SNMP_MIB_VENDOR_MODULES :=	../../bl_vendor/vendor \
 							../../bl_vendor/ipc_client \
 							../../bl_vendor/util
@@ -39,6 +49,7 @@ CONFIGURE_ARGS := \
 	--enable-mfd-rewrites \
 	--enable-shared=no \
 	--with-endianness=little \
+	--with-out-mib-modules="$(SNMP_MIB_OUT_MODULES)" \
 	--with-mib-modules="$(SNMP_MIB_VENDOR_MODULES)"
 
 build: clean
