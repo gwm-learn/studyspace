@@ -1,0 +1,343 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+FILE INFORMATION:  
+
+OMA DM Diagnostics and Monitoring (DiagMon) Function Battery V1.0
+
+This DDF prototype describes DiagMon Function Management Object
+Parameters and conforms to the DDF document type definition, 
+version 1.2.
+
+OMA Permanent Document
+   File: OMA-SUP-MO_DiagMon_Function_BatteryInfo-V1_0-20111220-A 
+   Type: Text
+
+Public Reachable Information
+   Path: http://www.openmobilealliance.org/tech/omna/dm_mo/  
+   Name: mo_diagmon_function_battery-v1_0.ddf
+
+NORMATIVE INFORMATION
+
+Information about this file can be found in 
+
+  OMA-TS-DiagMon-Functions-V1_0
+
+This is available at http://www.openmobilealliance.org/
+
+Send comments to technical-comments@mail.openmobilealliance.org
+	
+LEGAL DISCLAIMER
+
+  Use of this document is subject to all of the terms and conditions
+  of the Use Agreement located at
+    http://www.openmobilealliance.org/UseAgreement.html
+
+  You may use this document or any part of the document for internal
+  or educational purposes only, provided you do not modify, edit or
+  take out of context the information in this document in any manner.
+  Information contained in this document may be used, at your sole
+  risk, for any purposes.
+
+  You may not use this document in any other manner without the prior
+  written permission of the Open Mobile Alliance.  The Open Mobile
+  Alliance authorizes you to copy this document, provided that you
+  retain all copyright and other proprietary notices contained in the
+  original materials on any copies of the materials and that you
+  comply strictly with these terms.  This copyright permission does
+  not constitute an endorsement of the products or services.  The
+  Open Mobile Alliance assumes no responsibility for errors or
+  omissions in this document.
+
+  Each Open Mobile Alliance member has agreed to use reasonable
+  endeavors to inform the Open Mobile Alliance in a timely manner of
+  Essential IPR as it becomes aware that the Essential IPR is related
+  to the prepared or published specification.  However, the members
+  do not have an obligation to conduct IPR searches.  The declared
+  Essential IPR is publicly available to members and non-members of
+  the Open Mobile Alliance and may be found on the "OMA IPR
+  Declarations" list at http://www.openmobilealliance.org/ipr.html.
+  The Open Mobile Alliance has not conducted an independent IPR review
+  of this document and the information contained herein, and makes no
+  representations or warranties regarding third party IPR, including
+  without limitation patents, copyrights or trade secret rights.  This
+  document may contain inventions for which you must obtain licenses
+  from third parties before making, using or selling the inventions.
+  Defined terms above are set forth in the schedule to the Open Mobile
+  Alliance Application Form.
+
+  NO REPRESENTATIONS OR WARRANTIES (WHETHER EXPRESS OR IMPLIED) ARE
+  MADE BY THE OPEN MOBILE ALLIANCE OR ANY OPEN MOBILE ALLIANCE MEMBER
+  OR ITS AFFILIATES REGARDING ANY OF THE IPR'S REPRESENTED ON THE "OMA
+  IPR DECLARATIONS" LIST, INCLUDING, BUT NOT LIMITED TO THE ACCURACY,
+  COMPLETENESS, VALIDITY OR RELEVANCE OF THE INFORMATION OR WHETHER OR
+  NOT SUCH RIGHTS ARE ESSENTIAL OR NON-ESSENTIAL.
+
+  THE OPEN MOBILE ALLIANCE IS NOT LIABLE FOR AND HEREBY DISCLAIMS ANY
+  DIRECT, INDIRECT, PUNITIVE, SPECIAL, INCIDENTAL, CONSEQUENTIAL, OR
+  EXEMPLARY DAMAGES ARISING OUT OF OR IN CONNECTION WITH THE USE OF
+  DOCUMENTS AND THE INFORMATION CONTAINED IN THE DOCUMENTS.
+
+  Copyright 2011 Open Mobile Alliance Ltd.  All Rights Reserved.
+  Used with the permission of the Open Mobile Alliance Ltd. under the
+  terms set forth above.
+
+-->
+<!DOCTYPE MgmtTree PUBLIC "-//OMA//DTD-DM-DDF 1.2//EN" "http://www.openmobilealliance.org/tech/DTD/DM_DDF-V1_2.dtd"[<?oma-dm-ddf-ver supported-versions="1.2"?>]>
+<MgmtTree>
+  <!--This file is created with DDFCreator, Ver: 0.93, Server Ver: 0.18               -->
+  <!--Source specification: OMA-DM-Diag-2010-0072R01-CR_Battery_Update.doc            -->
+  <!--Created: 2010-04-14 14:47:52 (yyyy-mm-dd hh:mm:ss UTC)                          -->
+  <VerDTD>1.2</VerDTD>
+  <Node>
+    <NodeName />
+    <!--Status: Optional-->
+    <Path>...</Path>
+    <DFProperties>
+      <AccessType>
+        <Get />
+      </AccessType>
+      <DFFormat>
+        <node />
+      </DFFormat>
+      <Occurrence>
+        <One />
+      </Occurrence>
+      <DFTitle>This interior node is a placeholder for the Battery.</DFTitle>
+      <DFType>
+        <DDFName>urn:oma:mo:oma-diag:batteryinfo:1.0</DDFName>
+      </DFType>
+    </DFProperties>
+    <Node>
+      <NodeName>Description</NodeName>
+      <!--Status: Optional-->
+      <DFProperties>
+        <AccessType>
+          <Get />
+        </AccessType>
+        <DFFormat>
+          <chr />
+        </DFFormat>
+        <Occurrence>
+          <ZeroOrOne />
+        </Occurrence>
+        <DFTitle>See [DiagMonTS] for description of this node.</DFTitle>
+        <DFType>
+          <MIME>text/plain</MIME>
+        </DFType>
+      </DFProperties>
+    </Node>
+    <Node>
+      <NodeName>DiagMonData</NodeName>
+      <!--Status: Required-->
+      <DFProperties>
+        <AccessType>
+          <Get />
+        </AccessType>
+        <DFFormat>
+          <node />
+        </DFFormat>
+        <Occurrence>
+          <One />
+        </Occurrence>
+        <DFTitle>See [DiagMonTS] for description of this node.</DFTitle>
+        <DFType>
+          <DDFName>
+          </DDFName>
+        </DFType>
+      </DFProperties>
+      <Node>
+        <NodeName />
+        <!--Status: Required-->
+        <DFProperties>
+          <AccessType>
+            <Get />
+          </AccessType>
+          <DFFormat>
+            <node />
+          </DFFormat>
+          <Occurrence>
+            <ZeroOrMore />
+          </Occurrence>
+          <DFTitle>This node is a placeholder for zero or more instances of battery data.</DFTitle>
+          <DFType>
+            <DDFName>
+            </DDFName>
+          </DFType>
+        </DFProperties>
+        <Node>
+          <NodeName>BatteryStatus</NodeName>
+          <!--Status: Required-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <int />
+            </DFFormat>
+            <Occurrence>
+              <One />
+            </Occurrence>
+            <DFTitle>This node is used to indicate the status of the battery.</DFTitle>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+        <Node>
+          <NodeName>BatteryLevel</NodeName>
+          <!--Status: Required-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <int />
+            </DFFormat>
+            <Occurrence>
+              <One />
+            </Occurrence>
+            <DFTitle>This node contains the current battery level as a percentage (with a range from 0 to 100).</DFTitle>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+        <Node>
+          <NodeName>BatteryMan</NodeName>
+          <!--Status: Optional-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <chr />
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrOne />
+            </Occurrence>
+            <DFTitle>This node contains the name of the battery manufacturer.</DFTitle>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+        <Node>
+          <NodeName>BatteryVer</NodeName>
+          <!--Status: Optional-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <chr />
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrOne />
+            </Occurrence>
+            <DFTitle>This node contains the version of the battery.</DFTitle>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+        <Node>
+          <NodeName>BatteryDate</NodeName>
+          <!--Status: Optional-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <date />
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrOne />
+            </Occurrence>
+            <DFTitle>This node contains the date of the battery manufacture.</DFTitle>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+        <Node>
+          <NodeName>BatteryID</NodeName>
+          <!--Status: Optional-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <chr />
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrOne />
+            </Occurrence>
+            <DFTitle>This node contains the ID of the battery.</DFTitle>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+        <Node>
+          <NodeName>BatteryType</NodeName>
+          <!--Status: Optional-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <chr />
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrOne />
+            </Occurrence>
+            <DFTitle>This node contains the type of the battery technology (e.g.</DFTitle>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+        <Node>
+          <NodeName>BatteryStandbyTime</NodeName>
+          <!--Status: Required-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <int />
+            </DFFormat>
+            <Occurrence>
+              <One />
+            </Occurrence>
+            <DFTitle>The BatteryStandByTime parameter contains the estimated number of minutes of operation based upon the current drain and charge of all batteries.</DFTitle>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+      </Node>
+    </Node>
+    <Node>
+      <NodeName>Ext</NodeName>
+      <!--Status: Optional-->
+      <DFProperties>
+        <AccessType>
+          <Get />
+        </AccessType>
+        <DFFormat>
+          <node />
+        </DFFormat>
+        <Occurrence>
+          <ZeroOrOne />
+        </Occurrence>
+        <DFTitle>See [DiagMonTS] for description of this node.</DFTitle>
+        <DFType>
+          <DDFName>
+          </DDFName>
+        </DFType>
+      </DFProperties>
+    </Node>
+  </Node>
+</MgmtTree>

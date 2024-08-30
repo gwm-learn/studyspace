@@ -1,0 +1,2169 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+
+Filename:      OMA-SUP-MO_ConnMO_NAP-V1_0-20081107-A.ddf
+
+OMA NAP parameters Management Object
+
+Part of the OMA DM Connectivity Management Objects (ConnMO) V1.0, 07 Nov 2008.
+
+This DDF prototype describes NAP Parameters and conforms to the 
+DDF document type definition, version 1.2.
+
+LEGAL DISCLAIMER
+
+  Use of this document is subject to all of the terms and conditions
+  of the Use Agreement located at
+    http://www.openmobilealliance.org/UseAgreement.html
+
+  You may use this document or any part of the document for internal
+  or educational purposes only, provided you do not modify, edit or
+  take out of context the information in this document in any manner.
+  Information contained in this document may be used, at your sole
+  risk, for any purposes.
+
+  You may not use this document in any other manner without the prior
+  written permission of the Open Mobile Alliance.  The Open Mobile
+  Alliance authorizes you to copy this document, provided that you
+  retain all copyright and other proprietary notices contained in the
+  original materials on any copies of the materials and that you
+  comply strictly with these terms.  This copyright permission does
+  not constitute an endorsement of the products or services.  The
+  Open Mobile Alliance assumes no responsibility for errors or
+  omissions in this document.
+
+  Each Open Mobile Alliance member has agreed to use reasonable
+  endeavors to inform the Open Mobile Alliance in a timely manner of
+  Essential IPR as it becomes aware that the Essential IPR is related
+  to the prepared or published specification.  However, the members
+  do not have an obligation to conduct IPR searches.  The declared
+  Essential IPR is publicly available to members and non-members of
+  the Open Mobile Alliance and may be found on the "OMA IPR
+  Declarations" list at http://www.openmobilealliance.org/ipr.html.
+  The Open Mobile Alliance has not conducted an independent IPR review
+  of this document and the information contained herein, and makes no
+  representations or warranties regarding third party IPR, including
+  without limitation patents, copyrights or trade secret rights.  This
+  document may contain inventions for which you must obtain licenses
+  from third parties before making, using or selling the inventions.
+  Defined terms above are set forth in the schedule to the Open Mobile
+  Alliance Application Form.
+
+  NO REPRESENTATIONS OR WARRANTIES (WHETHER EXPRESS OR IMPLIED) ARE
+  MADE BY THE OPEN MOBILE ALLIANCE OR ANY OPEN MOBILE ALLIANCE MEMBER
+  OR ITS AFFILIATES REGARDING ANY OF THE IPR'S REPRESENTED ON THE "OMA
+  IPR DECLARATIONS" LIST, INCLUDING, BUT NOT LIMITED TO THE ACCURACY,
+  COMPLETENESS, VALIDITY OR RELEVANCE OF THE INFORMATION OR WHETHER OR
+  NOT SUCH RIGHTS ARE ESSENTIAL OR NON-ESSENTIAL.
+
+  THE OPEN MOBILE ALLIANCE IS NOT LIABLE FOR AND HEREBY DISCLAIMS ANY
+  DIRECT, INDIRECT, PUNITIVE, SPECIAL, INCIDENTAL, CONSEQUENTIAL, OR
+  EXEMPLARY DAMAGES ARISING OUT OF OR IN CONNECTION WITH THE USE OF
+  DOCUMENTS AND THE INFORMATION CONTAINED IN THE DOCUMENTS.
+
+  Copyright 2008 Open Mobile Alliance Ltd.  All Rights Reserved.
+  Used with the permission of the Open Mobile Alliance Ltd. under the
+  terms set forth above.
+
+-->
+
+<!DOCTYPE MgmtTree PUBLIC "-//OMA//DTD-DM-DDF 1.2//EN"
+    "http://www.openmobilealliance.org/tech/DTD/DM_DDF-V1_2.dtd"
+    [<?oma-dm-ddf-ver supported-versions="1.2"?>]>
+
+<MgmtTree>
+  <!--This file is created with DDFCreator, Ver: 0.8                                  -->
+  <!--Source specification: OMA-DDS-DM_ConnMO-V1_0-20081107-A.doc                     -->
+  <!--Created: 2008-10-21 23:17:43 (yyyy-mm-dd hh:mm:ss UTC)                          -->
+  <VerDTD>1.2</VerDTD>
+  <Node>
+    <NodeName />
+    <!--Status: Required-->
+    <Path>...</Path>
+    <DFProperties>
+      <AccessType>
+        <Get />
+      </AccessType>
+      <DFFormat>
+        <node />
+      </DFFormat>
+      <Occurrence>
+        <ZeroOrMore />
+      </Occurrence>
+      <DFTitle>This interior node specifies the unique object id of a network access point, or NAP, management object.</DFTitle>
+      <DFType>
+        <DDFName>urn:oma:mo:oma-connmo-nap:1.0</DDFName>
+      </DFType>
+    </DFProperties>
+    <Node>
+      <NodeName>ID</NodeName>
+      <!--Status: Required-->
+      <DFProperties>
+        <AccessType>
+          <Get />
+        </AccessType>
+        <DFFormat>
+          <chr />
+        </DFFormat>
+        <Occurrence>
+          <One />
+        </Occurrence>
+        <DFTitle>This leaf node defines the identity of the one specific network access point which an instance of this management object represents.</DFTitle>
+        <DFType>
+          <MIME>text/plain</MIME>
+        </DFType>
+      </DFProperties>
+    </Node>
+    <Node>
+      <NodeName>Name</NodeName>
+      <!--Status: Optional-->
+      <DFProperties>
+        <AccessType>
+          <Get />
+        </AccessType>
+        <DFFormat>
+          <chr />
+        </DFFormat>
+        <Occurrence>
+          <ZeroOrOne />
+        </Occurrence>
+        <DFTitle>This leaf node provides an optional human readable name for the network access point.</DFTitle>
+        <DFType>
+          <MIME>text/plain</MIME>
+        </DFType>
+      </DFProperties>
+    </Node>
+    <Node>
+      <NodeName>AddrType</NodeName>
+      <!--Status: Optional-->
+      <DFProperties>
+        <AccessType>
+          <Get />
+        </AccessType>
+        <DFFormat>
+          <chr />
+        </DFFormat>
+        <Occurrence>
+          <ZeroOrOne />
+        </Occurrence>
+        <DFTitle>This leaf node specifies the type of NAP address supplied as the Addr leaf node value.</DFTitle>
+        <DFType>
+          <MIME>text/plain</MIME>
+        </DFType>
+      </DFProperties>
+    </Node>
+    <Node>
+      <NodeName>Addr</NodeName>
+      <!--Status: Required-->
+      <DFProperties>
+        <AccessType>
+          <Get />
+        </AccessType>
+        <DFFormat>
+          <chr />
+        </DFFormat>
+        <Occurrence>
+          <One />
+        </Occurrence>
+        <DFTitle>This leaf node represents the address of the network access point.</DFTitle>
+        <DFType>
+          <MIME>text/plain</MIME>
+        </DFType>
+      </DFProperties>
+    </Node>
+    <Node>
+      <NodeName>IP</NodeName>
+      <!--Status: Required-->
+      <DFProperties>
+        <AccessType>
+          <Get />
+        </AccessType>
+        <DFFormat>
+          <node />
+        </DFFormat>
+        <Occurrence>
+          <One />
+        </Occurrence>
+        <DFTitle>This interior node is parent node of the IP configuration sub-tree.</DFTitle>
+      </DFProperties>
+      <Node>
+        <NodeName>IPv4</NodeName>
+        <!--Status: Optional-->
+        <DFProperties>
+          <AccessType>
+            <Get />
+          </AccessType>
+          <DFFormat>
+            <node />
+          </DFFormat>
+          <Occurrence>
+            <ZeroOrOne />
+          </Occurrence>
+          <DFTitle>This optional interior node defines the IPv4 address configuration of the local terminal when this network access point is used.</DFTitle>
+        </DFProperties>
+        <Node>
+          <NodeName>AutoConfig</NodeName>
+          <!--Status: Optional-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <bool />
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrOne />
+            </Occurrence>
+            <DFTitle>If TRUE (or if this optional leaf node is absent), the terminal’s IPv4 configuration SHOULD be generated automatically.</DFTitle>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+        <Node>
+          <NodeName>IPAddr</NodeName>
+          <!--Status: Optional-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <chr />
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrOne />
+            </Occurrence>
+            <DFTitle>This leaf node specifies the IPv4 address [RFC791] of the device when connected using this network access point as a string in dotted-decimal notation.</DFTitle>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+        <Node>
+          <NodeName>NetMask</NodeName>
+          <!--Status: Optional-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <chr />
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrOne />
+            </Occurrence>
+            <DFTitle>This leaf node specifies the IPv4 network address mask [RFC791] of the device when connected using this network access point as a string in dotted-decimal notation.</DFTitle>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+        <Node>
+          <NodeName>Gateway</NodeName>
+          <!--Status: Optional-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <chr />
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrOne />
+            </Occurrence>
+            <DFTitle>This optional leaf node specifies the IPv4 address [RFC791] of the Internet gateway accessible when the device is connected using this network access point as a string in dotted-decimal notation.</DFTitle>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+        <Node>
+          <NodeName>AutoDNS</NodeName>
+          <!--Status: Optional-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <bool />
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrOne />
+            </Occurrence>
+            <DFTitle>If TRUE (or if this optional leaf node is absent), the DNS addresses are to be configured automatically (for example using DHCP [RFC2132] protocol).</DFTitle>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+        <Node>
+          <NodeName>DNS</NodeName>
+          <!--Status: Optional-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <node />
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrOne />
+            </Occurrence>
+            <DFTitle>This interior node optionally specifies the DNS configuration for use while the device is connected using this network access point [RFC1034][RFC1035].</DFTitle>
+          </DFProperties>
+          <Node>
+            <NodeName>Servers</NodeName>
+            <!--Status: Optional-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <node />
+              </DFFormat>
+              <Occurrence>
+                <ZeroOrOne />
+              </Occurrence>
+              <DFTitle>This interior node lists the DNS name servers [RFC1034] that should be used while the device is connected using this network access point.</DFTitle>
+            </DFProperties>
+            <Node>
+              <NodeName />
+              <!--Status: Required-->
+              <DFProperties>
+                <AccessType>
+                  <Get />
+                </AccessType>
+                <DFFormat>
+                  <node />
+                </DFFormat>
+                <Occurrence>
+                  <OneOrMore />
+                </Occurrence>
+                <DFTitle>This interior node distinguishes DNS server addresses [RFC1034].</DFTitle>
+              </DFProperties>
+              <Node>
+                <NodeName>Addr</NodeName>
+                <!--Status: Required-->
+                <DFProperties>
+                  <AccessType>
+                    <Get />
+                  </AccessType>
+                  <DFFormat>
+                    <chr />
+                  </DFFormat>
+                  <Occurrence>
+                    <One />
+                  </Occurrence>
+                  <DFTitle>This leaf node defines a single DNS server address [RFC791] as a string in dotted-decimal notation.</DFTitle>
+                  <DFType>
+                    <MIME>text/plain</MIME>
+                  </DFType>
+                </DFProperties>
+              </Node>
+            </Node>
+          </Node>
+          <Node>
+            <NodeName>SearchList</NodeName>
+            <!--Status: Optional-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <node />
+              </DFFormat>
+              <Occurrence>
+                <ZeroOrOne />
+              </Occurrence>
+              <DFTitle>This interior node optionally lists the DNS domains [RFC1034] that should be added to unqualified domain names when performing name service queries while the device is connected using this network access point.</DFTitle>
+            </DFProperties>
+            <Node>
+              <NodeName />
+              <!--Status: Required-->
+              <DFProperties>
+                <AccessType>
+                  <Get />
+                </AccessType>
+                <DFFormat>
+                  <node />
+                </DFFormat>
+                <Occurrence>
+                  <OneOrMore />
+                </Occurrence>
+                <DFTitle>This interior node distinguishes items in the DNS search list.</DFTitle>
+              </DFProperties>
+              <Node>
+                <NodeName>Domain</NodeName>
+                <!--Status: Required-->
+                <DFProperties>
+                  <AccessType>
+                    <Get />
+                  </AccessType>
+                  <DFFormat>
+                    <chr />
+                  </DFFormat>
+                  <Occurrence>
+                    <One />
+                  </Occurrence>
+                  <DFTitle>This leaf node defines a DNS domain [RFC1034] to be used in the domain search list.</DFTitle>
+                  <DFType>
+                    <MIME>text/plain</MIME>
+                  </DFType>
+                </DFProperties>
+              </Node>
+              <Node>
+                <NodeName>Priority</NodeName>
+                <!--Status: Required-->
+                <DFProperties>
+                  <AccessType>
+                    <Get />
+                  </AccessType>
+                  <DFFormat>
+                    <int />
+                  </DFFormat>
+                  <Occurrence>
+                    <One />
+                  </Occurrence>
+                  <DFTitle>This leaf node defines the priority of a DNS domain in the domain [RFC1034] search list.</DFTitle>
+                  <DFType>
+                    <MIME>text/plain</MIME>
+                  </DFType>
+                </DFProperties>
+              </Node>
+            </Node>
+          </Node>
+        </Node>
+        <Node>
+          <NodeName>Ext</NodeName>
+          <!--Status: Optional-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <node />
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrOne />
+            </Occurrence>
+            <DFTitle>This optional interior node designates the single top-level branch of this management object tree into which vendor extensions MAY be supported, permanently or dynamically.</DFTitle>
+          </DFProperties>
+          <Node>
+            <NodeName>UniqueVendorName</NodeName>
+            <!--Status: Optional-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <node />
+              </DFFormat>
+              <Occurrence>
+                <ZeroOrMore />
+              </Occurrence>
+              <DFTitle>This interior node is supplied by a vendor to distinguish their extension from those of other vendors.</DFTitle>
+            </DFProperties>
+          </Node>
+        </Node>
+      </Node>
+      <Node>
+        <NodeName>IPv6</NodeName>
+        <!--Status: Optional-->
+        <DFProperties>
+          <AccessType>
+            <Get />
+          </AccessType>
+          <DFFormat>
+            <node />
+          </DFFormat>
+          <Occurrence>
+            <ZeroOrOne />
+          </Occurrence>
+          <DFTitle>This optional interior node defines the IPv6 address configuration of the device when this network access point is used.</DFTitle>
+        </DFProperties>
+        <Node>
+          <NodeName>AutoConfig</NodeName>
+          <!--Status: Optional-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <bool />
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrOne />
+            </Occurrence>
+            <DFTitle>If TRUE (or if this optional leaf node is absent), the devices’s IPv6 configuration is generated automatically.</DFTitle>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+        <Node>
+          <NodeName>IPAddr</NodeName>
+          <!--Status: Optional-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <chr />
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrOne />
+            </Occurrence>
+            <DFTitle>This leaf node specifies the IPv6 address, defined and formatted as string as specified in [RFC4291].</DFTitle>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+        <Node>
+          <NodeName>PrefixLength</NodeName>
+          <!--Status: Optional-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <int />
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrOne />
+            </Occurrence>
+            <DFTitle>This leaf node specifies the IPv6 network address prefix length [RFC4291] of the device as an 7-bit unsigned integer when connected using this network access point as a string as specified in [RFC4291].</DFTitle>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+        <Node>
+          <NodeName>Gateway</NodeName>
+          <!--Status: Optional-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <chr />
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrOne />
+            </Occurrence>
+            <DFTitle>This optional leaf node specifies the IPv6 address [RFC4291] of the Internet gateway accessible when the device is connected using this network access point as a string as specified in [RFC4291].</DFTitle>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+        <Node>
+          <NodeName>AutoDNS</NodeName>
+          <!--Status: Optional-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <bool />
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrOne />
+            </Occurrence>
+            <DFTitle>If TRUE (or if this optional leaf node is absent), the DNS addresses are to be configured automatically (for example using following references [RFC3736] and [RFC3646].</DFTitle>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+        <Node>
+          <NodeName>DNS</NodeName>
+          <!--Status: Optional-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <node />
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrOne />
+            </Occurrence>
+            <DFTitle>This interior node optionally lists one or more DNS server addresses [RFC3596] for use while the device is connected using this network access point.</DFTitle>
+          </DFProperties>
+          <Node>
+            <NodeName>Servers</NodeName>
+            <!--Status: Optional-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <node />
+              </DFFormat>
+              <Occurrence>
+                <ZeroOrOne />
+              </Occurrence>
+              <DFTitle>This interior node lists the DNS name servers [RFC3596] that should be used while the device is connected using this network access point.</DFTitle>
+            </DFProperties>
+            <Node>
+              <NodeName />
+              <!--Status: Required-->
+              <DFProperties>
+                <AccessType>
+                  <Get />
+                </AccessType>
+                <DFFormat>
+                  <node />
+                </DFFormat>
+                <Occurrence>
+                  <OneOrMore />
+                </Occurrence>
+                <DFTitle>This interior node distinguishes DNS server addresses [RFC3596].</DFTitle>
+              </DFProperties>
+              <Node>
+                <NodeName>Addr</NodeName>
+                <!--Status: Required-->
+                <DFProperties>
+                  <AccessType>
+                    <Get />
+                  </AccessType>
+                  <DFFormat>
+                    <chr />
+                  </DFFormat>
+                  <Occurrence>
+                    <One />
+                  </Occurrence>
+                  <DFTitle>This leaf node defines a single DNS server address [RFC4291] as a string as specified in [RFC4291].</DFTitle>
+                  <DFType>
+                    <MIME>text/plain</MIME>
+                  </DFType>
+                </DFProperties>
+              </Node>
+            </Node>
+          </Node>
+          <Node>
+            <NodeName>SearchList</NodeName>
+            <!--Status: Optional-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <node />
+              </DFFormat>
+              <Occurrence>
+                <ZeroOrOne />
+              </Occurrence>
+              <DFTitle>This interior node optionally lists the DNS domains that should be added to unqualified domain names when performing name service queries while the device is connected using this network access point [RFC1034].</DFTitle>
+            </DFProperties>
+            <Node>
+              <NodeName />
+              <!--Status: Required-->
+              <DFProperties>
+                <AccessType>
+                  <Get />
+                </AccessType>
+                <DFFormat>
+                  <node />
+                </DFFormat>
+                <Occurrence>
+                  <OneOrMore />
+                </Occurrence>
+                <DFTitle>This interior node distinguishes items in the DNS search list.</DFTitle>
+              </DFProperties>
+              <Node>
+                <NodeName>Domain</NodeName>
+                <!--Status: Required-->
+                <DFProperties>
+                  <AccessType>
+                    <Get />
+                  </AccessType>
+                  <DFFormat>
+                    <chr />
+                  </DFFormat>
+                  <Occurrence>
+                    <One />
+                  </Occurrence>
+                  <DFTitle>This leaf node defines a DNS domain to be used in the domain search list [RFC3646].</DFTitle>
+                  <DFType>
+                    <MIME>text/plain</MIME>
+                  </DFType>
+                </DFProperties>
+              </Node>
+              <Node>
+                <NodeName>Priority</NodeName>
+                <!--Status: Required-->
+                <DFProperties>
+                  <AccessType>
+                    <Get />
+                  </AccessType>
+                  <DFFormat>
+                    <int />
+                  </DFFormat>
+                  <Occurrence>
+                    <One />
+                  </Occurrence>
+                  <DFTitle>This leaf node defines the priority of a DNS domain in the domain search list [RFC1034] as an unsigned 8-bit unsigned integer.</DFTitle>
+                  <DFType>
+                    <MIME>text/plain</MIME>
+                  </DFType>
+                </DFProperties>
+              </Node>
+            </Node>
+          </Node>
+        </Node>
+        <Node>
+          <NodeName>Ext</NodeName>
+          <!--Status: Optional-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <node />
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrOne />
+            </Occurrence>
+            <DFTitle>This optional interior node designates the single top-level branch of this management object tree into which vendor extensions MAY be supported, permanently or dynamically.</DFTitle>
+          </DFProperties>
+          <Node>
+            <NodeName>UniqueVendorName</NodeName>
+            <!--Status: Optional-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <node />
+              </DFFormat>
+              <Occurrence>
+                <ZeroOrMore />
+              </Occurrence>
+              <DFTitle>This interior node is supplied by a vendor to distinguish their extension from those of other vendors.</DFTitle>
+            </DFProperties>
+          </Node>
+        </Node>
+      </Node>
+      <Node>
+        <NodeName>MIPv4</NodeName>
+        <!--Status: Optional-->
+        <DFProperties>
+          <AccessType>
+            <Get />
+          </AccessType>
+          <DFFormat>
+            <node />
+          </DFFormat>
+          <Occurrence>
+            <ZeroOrOne />
+          </Occurrence>
+          <DFTitle>This optional interior node defined the Mobile IP Version 4 (MIPv4) configurations [RFC3344].</DFTitle>
+        </DFProperties>
+        <Node>
+          <NodeName>SharedSecret</NodeName>
+          <!--Status: Optional-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <node />
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrOne />
+            </Occurrence>
+            <DFTitle>This interior node defines the shared secrets used for securing the MIPv4 signaling  [RFC3344].</DFTitle>
+          </DFProperties>
+          <Node>
+            <NodeName>AAAKey</NodeName>
+            <!--Status: Optional-->
+            <DFProperties>
+              <AccessType />
+              <DFFormat>
+                <chr />
+              </DFFormat>
+              <Occurrence>
+                <ZeroOrOne />
+              </Occurrence>
+              <DFTitle>This leaf node defines the shared secret key between the Mobile Phone and the Authorization, Authentication and Accounting (AAA) or Radius Server [RFC3012].</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>NAI</NodeName>
+            <!--Status: Optional-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <node />
+              </DFFormat>
+              <Occurrence>
+                <ZeroOrOne />
+              </Occurrence>
+              <DFTitle>This interior node lists all the Network Access Identifiers (NAI) [RFC4282] to be used in MIP registration.</DFTitle>
+            </DFProperties>
+            <Node>
+              <NodeName />
+              <!--Status: Required-->
+              <DFProperties>
+                <AccessType>
+                  <Get />
+                </AccessType>
+                <DFFormat>
+                  <node />
+                </DFFormat>
+                <Occurrence>
+                  <OneOrMore />
+                </Occurrence>
+                <DFTitle>This interior node distinguishes the Network Access Identifiers [RFC4282].</DFTitle>
+              </DFProperties>
+              <Node>
+                <NodeName>Username</NodeName>
+                <!--Status: Optional-->
+                <DFProperties>
+                  <AccessType>
+                    <Get />
+                  </AccessType>
+                  <DFFormat>
+                    <chr />
+                  </DFFormat>
+                  <Occurrence>
+                    <ZeroOrOne />
+                  </Occurrence>
+                  <DFTitle>This leaf node defines the user name portion of Network Access Identifier (NAI), encoded in UTF-8 string, refer to [RFC4282].</DFTitle>
+                  <DFType>
+                    <MIME>text/plain</MIME>
+                  </DFType>
+                </DFProperties>
+              </Node>
+              <Node>
+                <NodeName>Realm</NodeName>
+                <!--Status: Required-->
+                <DFProperties>
+                  <AccessType>
+                    <Get />
+                  </AccessType>
+                  <DFFormat>
+                    <chr />
+                  </DFFormat>
+                  <Occurrence>
+                    <One />
+                  </Occurrence>
+                  <DFTitle>This leaf node defines the realm portion of Network Access Identifier (NAI), encoded in UTF-8 string, refer to [RFC4282].</DFTitle>
+                  <DFType>
+                    <MIME>text/plain</MIME>
+                  </DFType>
+                </DFProperties>
+              </Node>
+              <Node>
+                <NodeName>UsePseudo</NodeName>
+                <!--Status: Optional-->
+                <DFProperties>
+                  <AccessType>
+                    <Get />
+                  </AccessType>
+                  <DFFormat>
+                    <bool />
+                  </DFFormat>
+                  <Occurrence>
+                    <ZeroOrOne />
+                  </Occurrence>
+                  <DFTitle>This leaf node defines if the user portion is pseudo generated.</DFTitle>
+                  <DFType>
+                    <MIME>text/plain</MIME>
+                  </DFType>
+                </DFProperties>
+              </Node>
+            </Node>
+          </Node>
+        </Node>
+        <Node>
+          <NodeName>UserProfile</NodeName>
+          <!--Status: Optional-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <node />
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrOne />
+            </Occurrence>
+            <DFTitle>This interior node defines the parameters needed for establishing a mobility session with a Home Agent [RFC3344].</DFTitle>
+          </DFProperties>
+          <Node>
+            <NodeName>HomeAddr</NodeName>
+            <!--Status: Optional-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <chr />
+              </DFFormat>
+              <Occurrence>
+                <ZeroOrOne />
+              </Occurrence>
+              <DFTitle>This leaf node defines the home address of the device.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>HA</NodeName>
+            <!--Status: Optional-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <node />
+              </DFFormat>
+              <Occurrence>
+                <ZeroOrOne />
+              </Occurrence>
+              <DFTitle>This interior node lists Home Agent (HA) parameters.</DFTitle>
+            </DFProperties>
+            <Node>
+              <NodeName />
+              <!--Status: Required-->
+              <DFProperties>
+                <AccessType>
+                  <Get />
+                </AccessType>
+                <DFFormat>
+                  <node />
+                </DFFormat>
+                <Occurrence>
+                  <OneOrMore />
+                </Occurrence>
+                <DFTitle>This interior node defines the Home Agents used for MIPv4 registration.</DFTitle>
+              </DFProperties>
+              <Node>
+                <NodeName>HAKey</NodeName>
+                <!--Status: Optional-->
+                <DFProperties>
+                  <AccessType />
+                  <DFFormat>
+                    <chr />
+                  </DFFormat>
+                  <Occurrence>
+                    <ZeroOrOne />
+                  </Occurrence>
+                  <DFTitle>This leaf node defines the shared secret key between the Mobile Phone and the Home Agent (HA) [RFC3344].</DFTitle>
+                  <DFType>
+                    <MIME>text/plain</MIME>
+                  </DFType>
+                </DFProperties>
+              </Node>
+              <Node>
+                <NodeName>HAAddr</NodeName>
+                <!--Status: Required-->
+                <DFProperties>
+                  <AccessType>
+                    <Get />
+                  </AccessType>
+                  <DFFormat>
+                    <chr />
+                  </DFFormat>
+                  <Occurrence>
+                    <One />
+                  </Occurrence>
+                  <DFTitle>This leaf node specifies the Home Agent (HA) address.</DFTitle>
+                  <DFType>
+                    <MIME>text/plain</MIME>
+                  </DFType>
+                </DFProperties>
+              </Node>
+              <Node>
+                <NodeName>HAPrefixLen</NodeName>
+                <!--Status: Required-->
+                <DFProperties>
+                  <AccessType>
+                    <Get />
+                  </AccessType>
+                  <DFFormat>
+                    <int />
+                  </DFFormat>
+                  <Occurrence>
+                    <One />
+                  </Occurrence>
+                  <DFTitle>This leaf node specifies the home network prefix length of the Home Agent (HA) [RFC3344] as an 32-bit unsigned integer.</DFTitle>
+                  <DFType>
+                    <MIME>text/plain</MIME>
+                  </DFType>
+                </DFProperties>
+              </Node>
+              <Node>
+                <NodeName>HASpi</NodeName>
+                <!--Status: Optional-->
+                <DFProperties>
+                  <AccessType>
+                    <Get />
+                  </AccessType>
+                  <DFFormat>
+                    <int />
+                  </DFFormat>
+                  <Occurrence>
+                    <ZeroOrOne />
+                  </Occurrence>
+                  <DFTitle>This leaf node defines the Security Parameter Index (SPI) for the MIP authentication of registration between the device and the Home Agent (HA) [RFC3344] as a 32-bit unsigned integer.</DFTitle>
+                  <DFType>
+                    <MIME>text/plain</MIME>
+                  </DFType>
+                </DFProperties>
+              </Node>
+            </Node>
+          </Node>
+          <Node>
+            <NodeName>AAASpi</NodeName>
+            <!--Status: Optional-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <int />
+              </DFFormat>
+              <Occurrence>
+                <ZeroOrOne />
+              </Occurrence>
+              <DFTitle>This leaf node defines the SPI for the MIP authentication of registration between the device and the AAA or Radius Server [RFC3012] as a 32-bit unsigned integer.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+        </Node>
+        <Node>
+          <NodeName>Protocol</NodeName>
+          <!--Status: Optional-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <node />
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrOne />
+            </Occurrence>
+            <DFTitle>This interior node defines the specific parameters for tuning the MIPv4 protocol behaviour [RFC3344].</DFTitle>
+          </DFProperties>
+          <Node>
+            <NodeName>RevTun</NodeName>
+            <!--Status: Optional-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <bool />
+              </DFFormat>
+              <Occurrence>
+                <ZeroOrOne />
+              </Occurrence>
+              <DFTitle>This leaf node defines if reverse tunneling between a) in FA mode, the FA and the HA b) in CoA mode, the MN and the HA [RFC3024].</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>RetryCount</NodeName>
+            <!--Status: Optional-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <int />
+              </DFFormat>
+              <Occurrence>
+                <ZeroOrOne />
+              </Occurrence>
+              <DFTitle>This leaf node defines the maximum number of registration retry attempts [RFC3344] as an 8 bit unsigned integer.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>RetryTimer</NodeName>
+            <!--Status: Optional-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <int />
+              </DFFormat>
+              <Occurrence>
+                <ZeroOrOne />
+              </Occurrence>
+              <DFTitle>This leaf node defines the initial registration timer used in before new registration attempt as an unsigned integer.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>RegPeriodRel</NodeName>
+            <!--Status: Optional-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <int />
+              </DFFormat>
+              <Occurrence>
+                <ZeroOrOne />
+              </Occurrence>
+              <DFTitle>This leaf node defines the relative re-registration period.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>RegPeriod</NodeName>
+            <!--Status: Optional-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <int />
+              </DFFormat>
+              <Occurrence>
+                <ZeroOrOne />
+              </Occurrence>
+              <DFTitle>This leaf node defines the registration period.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>NatTraversal</NodeName>
+            <!--Status: Optional-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <bool />
+              </DFFormat>
+              <Occurrence>
+                <ZeroOrOne />
+              </Occurrence>
+              <DFTitle>This leaf node defines if Network Address Translation (NAT) traversal (UDP tunneling) is used.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>Mode</NodeName>
+            <!--Status: Optional-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <chr />
+              </DFFormat>
+              <Occurrence>
+                <ZeroOrOne />
+              </Occurrence>
+              <DFTitle>This leaf node defines the MIP mode that is used.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+        </Node>
+        <Node>
+          <NodeName>Ext</NodeName>
+          <!--Status: Optional-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <node />
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrOne />
+            </Occurrence>
+            <DFTitle>This optional interior node designates the single top-level branch of this management object tree into which vendor extensions MAY be supported, permanently or dynamically.</DFTitle>
+          </DFProperties>
+          <Node>
+            <NodeName>UniqueVendorName</NodeName>
+            <!--Status: Optional-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <node />
+              </DFFormat>
+              <Occurrence>
+                <ZeroOrMore />
+              </Occurrence>
+              <DFTitle>This interior node is supplied by a vendor to distinguish their extension from those of other vendors.</DFTitle>
+            </DFProperties>
+          </Node>
+        </Node>
+      </Node>
+      <Node>
+        <NodeName>MIPv6</NodeName>
+        <!--Status: Optional-->
+        <DFProperties>
+          <AccessType>
+            <Get />
+          </AccessType>
+          <DFFormat>
+            <node />
+          </DFFormat>
+          <Occurrence>
+            <ZeroOrOne />
+          </Occurrence>
+          <DFTitle>This optional interior node defined the Mobile IP Version 6 (MIPv6) configurations [RFC3775].</DFTitle>
+        </DFProperties>
+        <Node>
+          <NodeName>SharedSecret</NodeName>
+          <!--Status: Optional-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <node />
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrOne />
+            </Occurrence>
+            <DFTitle>This interior node defines the shared secrets used for securing the MIPv6 signaling [RFC3775].</DFTitle>
+          </DFProperties>
+          <Node>
+            <NodeName>AAAKey</NodeName>
+            <!--Status: Optional-->
+            <DFProperties>
+              <AccessType />
+              <DFFormat>
+                <chr />
+              </DFFormat>
+              <Occurrence>
+                <ZeroOrOne />
+              </Occurrence>
+              <DFTitle>This leaf node defines the shared secret key between the Mobile Phone and the Authorization, Authentication and Accounting (AAA) or Radius Server [RFC4285].</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>NAI</NodeName>
+            <!--Status: Optional-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <node />
+              </DFFormat>
+              <Occurrence>
+                <ZeroOrOne />
+              </Occurrence>
+              <DFTitle>This interior node lists all the Network Access Identifiers (NAI) [RFC4283] to be used in MIP registration.</DFTitle>
+            </DFProperties>
+            <Node>
+              <NodeName />
+              <!--Status: Required-->
+              <DFProperties>
+                <AccessType />
+                <DFFormat>
+                  <node />
+                </DFFormat>
+                <Occurrence>
+                  <ZeroOrMore />
+                </Occurrence>
+                <DFTitle>This interior node distinguishes the Network Access Identifiers [RFC4283].</DFTitle>
+              </DFProperties>
+              <Node>
+                <NodeName>Username</NodeName>
+                <!--Status: Optional-->
+                <DFProperties>
+                  <AccessType>
+                    <Get />
+                  </AccessType>
+                  <DFFormat>
+                    <chr />
+                  </DFFormat>
+                  <Occurrence>
+                    <ZeroOrOne />
+                  </Occurrence>
+                  <DFTitle>This leaf node defines the user name portion of Network Access Identifier (NAI), encoded in UTF-8 string, refer to [RFC4282].</DFTitle>
+                  <DFType>
+                    <MIME>text/plain</MIME>
+                  </DFType>
+                </DFProperties>
+              </Node>
+              <Node>
+                <NodeName>Realm</NodeName>
+                <!--Status: Required-->
+                <DFProperties>
+                  <AccessType>
+                    <Get />
+                  </AccessType>
+                  <DFFormat>
+                    <chr />
+                  </DFFormat>
+                  <Occurrence>
+                    <One />
+                  </Occurrence>
+                  <DFTitle>This leaf node defines the realm portion of Network Access Identifier (NAI), encoded in UTF-8 string, refer to [RFC4282].</DFTitle>
+                  <DFType>
+                    <MIME>text/plain</MIME>
+                  </DFType>
+                </DFProperties>
+              </Node>
+              <Node>
+                <NodeName>UsePseudo</NodeName>
+                <!--Status: Optional-->
+                <DFProperties>
+                  <AccessType>
+                    <Get />
+                  </AccessType>
+                  <DFFormat>
+                    <bool />
+                  </DFFormat>
+                  <Occurrence>
+                    <ZeroOrOne />
+                  </Occurrence>
+                  <DFTitle>This leaf node defines if the user portion is pseudo generated.</DFTitle>
+                  <DFType>
+                    <MIME>text/plain</MIME>
+                  </DFType>
+                </DFProperties>
+              </Node>
+            </Node>
+          </Node>
+        </Node>
+        <Node>
+          <NodeName>UserProfile</NodeName>
+          <!--Status: Optional-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <node />
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrOne />
+            </Occurrence>
+            <DFTitle>This interior node defines the parameters needed for establishing a mobility session with a Home Agent [RFC3775].</DFTitle>
+          </DFProperties>
+          <Node>
+            <NodeName>HomeAddr</NodeName>
+            <!--Status: Optional-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <chr />
+              </DFFormat>
+              <Occurrence>
+                <ZeroOrOne />
+              </Occurrence>
+              <DFTitle>This leaf node defines the home address of the device.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>HomePrefixLen</NodeName>
+            <!--Status: Optional-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <int />
+              </DFFormat>
+              <Occurrence>
+                <ZeroOrOne />
+              </Occurrence>
+              <DFTitle>This leaf node defines the prefix length of the home address as an 7-bit unsigned integer.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>HA</NodeName>
+            <!--Status: Optional-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <node />
+              </DFFormat>
+              <Occurrence>
+                <ZeroOrOne />
+              </Occurrence>
+              <DFTitle>This interior node lists Home Agent (HA) parameters [RFC3775].</DFTitle>
+            </DFProperties>
+            <Node>
+              <NodeName />
+              <!--Status: Required-->
+              <DFProperties>
+                <AccessType>
+                  <Get />
+                </AccessType>
+                <DFFormat>
+                  <node />
+                </DFFormat>
+                <Occurrence>
+                  <OneOrMore />
+                </Occurrence>
+                <DFTitle>This interior node defines the Home Agents used for MIPv6 registration [RFC3775].</DFTitle>
+              </DFProperties>
+              <Node>
+                <NodeName>HAKey</NodeName>
+                <!--Status: Optional-->
+                <DFProperties>
+                  <AccessType />
+                  <DFFormat>
+                    <chr />
+                  </DFFormat>
+                  <Occurrence>
+                    <ZeroOrOne />
+                  </Occurrence>
+                  <DFTitle>This leaf node defines the shared secret key between the Mobile Phone and the HA [RFC4285].</DFTitle>
+                  <DFType>
+                    <MIME>text/plain</MIME>
+                  </DFType>
+                </DFProperties>
+              </Node>
+              <Node>
+                <NodeName>HAAddr</NodeName>
+                <!--Status: Required-->
+                <DFProperties>
+                  <AccessType>
+                    <Get />
+                  </AccessType>
+                  <DFFormat>
+                    <chr />
+                  </DFFormat>
+                  <Occurrence>
+                    <One />
+                  </Occurrence>
+                  <DFTitle>This leaf node specifies the Home Agent (HA) address.</DFTitle>
+                  <DFType>
+                    <MIME>text/plain</MIME>
+                  </DFType>
+                </DFProperties>
+              </Node>
+              <Node>
+                <NodeName>HAPrefixLen</NodeName>
+                <!--Status: Required-->
+                <DFProperties>
+                  <AccessType>
+                    <Get />
+                  </AccessType>
+                  <DFFormat>
+                    <int />
+                  </DFFormat>
+                  <Occurrence>
+                    <One />
+                  </Occurrence>
+                  <DFTitle>This leaf node specifies the home network prefix length of the HA [RFC3775] as an 7-bit unsigned integer.</DFTitle>
+                  <DFType>
+                    <MIME>text/plain</MIME>
+                  </DFType>
+                </DFProperties>
+              </Node>
+              <Node>
+                <NodeName>HASpi</NodeName>
+                <!--Status: Optional-->
+                <DFProperties>
+                  <AccessType>
+                    <Get />
+                  </AccessType>
+                  <DFFormat>
+                    <int />
+                  </DFFormat>
+                  <Occurrence>
+                    <ZeroOrOne />
+                  </Occurrence>
+                  <DFTitle>This leaf node defines the unsigned 32-bit SPI for the MIP authentication of registration between the device and the HA [RFC4285].</DFTitle>
+                  <DFType>
+                    <MIME>text/plain</MIME>
+                  </DFType>
+                </DFProperties>
+              </Node>
+            </Node>
+          </Node>
+          <Node>
+            <NodeName>AAASpi</NodeName>
+            <!--Status: Optional-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <int />
+              </DFFormat>
+              <Occurrence>
+                <ZeroOrOne />
+              </Occurrence>
+              <DFTitle>This leaf node defines the unsigned 32-bit SPI for the MIP authentication of registration between the device and the AAA or Radius Server [RFC4285].</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+        </Node>
+        <Node>
+          <NodeName>Protocol</NodeName>
+          <!--Status: Optional-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <node />
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrOne />
+            </Occurrence>
+            <DFTitle>This interior node defines the specific parameters for tuning the MIPv6 protocol behaviour.</DFTitle>
+          </DFProperties>
+          <Node>
+            <NodeName>RouteOpt</NodeName>
+            <!--Status: Optional-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <bool />
+              </DFFormat>
+              <Occurrence>
+                <ZeroOrOne />
+              </Occurrence>
+              <DFTitle>This leaf node defines whether the route optimization feature is enabled [RFC3775].</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>RetryCount</NodeName>
+            <!--Status: Optional-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <int />
+              </DFFormat>
+              <Occurrence>
+                <ZeroOrOne />
+              </Occurrence>
+              <DFTitle>This leaf node defines the maximum number of binding update retry attempts [RFC3775].</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>RetryTimer</NodeName>
+            <!--Status: Optional-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <int />
+              </DFFormat>
+              <Occurrence>
+                <ZeroOrOne />
+              </Occurrence>
+              <DFTitle>This leaf node defines the initial binding update timer used in before new binding attempt.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>BindingLifeTimeRel</NodeName>
+            <!--Status: Optional-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <int />
+              </DFFormat>
+              <Occurrence>
+                <ZeroOrOne />
+              </Occurrence>
+              <DFTitle>This leaf node defines the binding period.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>BindingLifeTime</NodeName>
+            <!--Status: Optional-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <int />
+              </DFFormat>
+              <Occurrence>
+                <ZeroOrOne />
+              </Occurrence>
+              <DFTitle>This leaf node defines the binding lifetime [RFC3775] in seconds proposed to the Home Agent in a binding update.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>SignalingProtection</NodeName>
+            <!--Status: Optional-->
+            <DFProperties>
+              <AccessType />
+              <DFFormat>
+                <chr />
+              </DFFormat>
+              <Occurrence>
+                <ZeroOrOne />
+              </Occurrence>
+              <DFTitle>This leaf node defines what type of protection is used for MIPv6 signaling messages between MN-HA.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+        </Node>
+        <Node>
+          <NodeName>Ext</NodeName>
+          <!--Status: Optional-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <node />
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrOne />
+            </Occurrence>
+            <DFTitle>This optional interior node designates the single top-level branch of this management object tree into which vendor extensions MAY be supported, permanently or dynamically.</DFTitle>
+          </DFProperties>
+          <Node>
+            <NodeName>UniqueVendorName</NodeName>
+            <!--Status: Optional-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <node />
+              </DFFormat>
+              <Occurrence>
+                <ZeroOrMore />
+              </Occurrence>
+              <DFTitle>This interior node is supplied by a vendor to distinguish their extension from those of other vendors.</DFTitle>
+            </DFProperties>
+          </Node>
+        </Node>
+      </Node>
+    </Node>
+    <Node>
+      <NodeName>Linger</NodeName>
+      <!--Status: Optional-->
+      <DFProperties>
+        <AccessType>
+          <Get />
+        </AccessType>
+        <DFFormat>
+          <int />
+        </DFFormat>
+        <Occurrence>
+          <ZeroOrOne />
+        </Occurrence>
+        <DFTitle>This optional leaf node, if present, defines how long a connection should be kept active without any traffic.</DFTitle>
+        <DFType>
+          <MIME>text/plain</MIME>
+        </DFType>
+      </DFProperties>
+    </Node>
+    <Node>
+      <NodeName>AuthInfo</NodeName>
+      <!--Status: Optional-->
+      <DFProperties>
+        <AccessType>
+          <Get />
+        </AccessType>
+        <DFFormat>
+          <node />
+        </DFFormat>
+        <Occurrence>
+          <ZeroOrOne />
+        </Occurrence>
+        <DFTitle>This interior node optionally provides authentication credentials to support various forms of network access point authentication.</DFTitle>
+      </DFProperties>
+      <Node>
+        <NodeName>AuthType</NodeName>
+        <!--Status: Required-->
+        <DFProperties>
+          <AccessType>
+            <Get />
+          </AccessType>
+          <DFFormat>
+            <chr />
+          </DFFormat>
+          <Occurrence>
+            <One />
+          </Occurrence>
+          <DFTitle>This leaf node identifies one type of authentication protocol used by the represented network access point.</DFTitle>
+          <DFType>
+            <MIME>text/plain</MIME>
+          </DFType>
+        </DFProperties>
+      </Node>
+      <Node>
+        <NodeName>AuthName</NodeName>
+        <!--Status: Required-->
+        <DFProperties>
+          <AccessType>
+            <Get />
+          </AccessType>
+          <DFFormat>
+            <chr />
+          </DFFormat>
+          <Occurrence>
+            <ZeroOrOne />
+          </Occurrence>
+          <DFTitle>The name (or user id) credential.</DFTitle>
+          <DFType>
+            <MIME>text/plain</MIME>
+          </DFType>
+        </DFProperties>
+      </Node>
+      <Node>
+        <NodeName>AuthSecret</NodeName>
+        <!--Status: Required-->
+        <DFProperties>
+          <AccessType />
+          <DFFormat>
+            <chr />
+          </DFFormat>
+          <Occurrence>
+            <ZeroOrOne />
+          </Occurrence>
+          <DFTitle>The secret (or password) credential.</DFTitle>
+          <DFType>
+            <MIME>text/plain</MIME>
+          </DFType>
+        </DFProperties>
+      </Node>
+    </Node>
+    <Node>
+      <NodeName>Validity</NodeName>
+      <!--Status: Optional-->
+      <DFProperties>
+        <AccessType>
+          <Get />
+        </AccessType>
+        <DFFormat>
+          <node />
+        </DFFormat>
+        <Occurrence>
+          <ZeroOrOne />
+        </Occurrence>
+        <DFTitle>This optional interior node is used to indicate where this NAP is valid.</DFTitle>
+      </DFProperties>
+      <Node>
+        <NodeName />
+        <!--Status: Required-->
+        <DFProperties>
+          <AccessType>
+            <Get />
+          </AccessType>
+          <DFFormat>
+            <node />
+          </DFFormat>
+          <Occurrence>
+            <OneOrMore />
+          </Occurrence>
+          <DFTitle>This interior node distinguishes different Validity rules.</DFTitle>
+        </DFProperties>
+        <Node>
+          <NodeName>Country</NodeName>
+          <!--Status: Optional-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <chr />
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrOne />
+            </Occurrence>
+            <DFTitle>This optional leaf node indicates a Mobile Country Code as defined by ITU-T [E212].</DFTitle>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+        <Node>
+          <NodeName>Network</NodeName>
+          <!--Status: Optional-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <chr />
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrOne />
+            </Occurrence>
+            <DFTitle>This optional leaf node indicates a list of comma separated Mobile Network Codes in decimal format as defined by ITU-T [E212].</DFTitle>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+        <Node>
+          <NodeName>SID</NodeName>
+          <!--Status: Optional-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <chr />
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrOne />
+            </Occurrence>
+            <DFTitle>This optional leaf node indicates a list of comma separated System IDs in decimal format as defined by [TIA/EIA-136-005A].</DFTitle>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+        <Node>
+          <NodeName>SOC</NodeName>
+          <!--Status: Optional-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <chr />
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrOne />
+            </Occurrence>
+            <DFTitle>This optional leaf node indicates a System Operator Code as defined by [TIA/EIA-136-005A].</DFTitle>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+        <Node>
+          <NodeName>ValidUntil</NodeName>
+          <!--Status: Optional-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <int />
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrOne />
+            </Occurrence>
+            <DFTitle>This optional leaf node defines the end of the (time) period of validity.</DFTitle>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+      </Node>
+    </Node>
+    <Node>
+      <NodeName>NetworkCategory</NodeName>
+      <!--Status: Optional-->
+      <DFProperties>
+        <AccessType>
+          <Get />
+        </AccessType>
+        <DFFormat>
+          <chr />
+        </DFFormat>
+        <Occurrence>
+          <ZeroOrOne />
+        </Occurrence>
+        <DFTitle>This optional leaf node describes the network category name that can be used to categorize NAP definitions.</DFTitle>
+        <DFType>
+          <MIME>text/plain</MIME>
+        </DFType>
+      </DFProperties>
+    </Node>
+    <Node>
+      <NodeName>BearerType</NodeName>
+      <!--Status: Required-->
+      <DFProperties>
+        <AccessType>
+          <Get />
+        </AccessType>
+        <DFFormat>
+          <chr />
+        </DFFormat>
+        <Occurrence>
+          <One />
+        </Occurrence>
+        <DFTitle>This leaf node is used to define the bearer type used to reach this network access point.</DFTitle>
+        <DFType>
+          <MIME>text/plain</MIME>
+        </DFType>
+      </DFProperties>
+    </Node>
+    <Node>
+      <NodeName>BearerParams</NodeName>
+      <!--Status: Optional-->
+      <DFProperties>
+        <AccessType>
+          <Get />
+        </AccessType>
+        <DFFormat>
+          <node />
+        </DFFormat>
+        <Occurrence>
+          <ZeroOrOne />
+        </Occurrence>
+        <DFTitle>This optional interior node defines the specific parameters of the bearer concerned with BearerType.</DFTitle>
+      </DFProperties>
+      <Node>
+        <NodeName>3GPPCS</NodeName>
+        <!--Status: Optional-->
+        <DFProperties>
+          <AccessType>
+            <Get />
+          </AccessType>
+          <DFFormat>
+            <node />
+          </DFFormat>
+          <Occurrence>
+            <ZeroOrOne />
+          </Occurrence>
+          <DFTitle>The Names of BeararParams child nodes (eg.</DFTitle>
+        </DFProperties>
+        <Node>
+          <NodeName>...</NodeName>
+          <!--Status: Optional-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <node />
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrOne />
+            </Occurrence>
+            <DFTitle>The Names of BeararParams child nodes (eg.</DFTitle>
+          </DFProperties>
+        </Node>
+      </Node>
+      <Node>
+        <NodeName>3GPPPS</NodeName>
+        <!--Status: Optional-->
+        <DFProperties>
+          <AccessType>
+            <Get />
+          </AccessType>
+          <DFFormat>
+            <node />
+          </DFFormat>
+          <Occurrence>
+            <ZeroOrOne />
+          </Occurrence>
+          <DFTitle>The Names of BeararParams child nodes (eg.</DFTitle>
+        </DFProperties>
+        <Node>
+          <NodeName>...</NodeName>
+          <!--Status: Optional-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <node />
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrOne />
+            </Occurrence>
+            <DFTitle>The Names of BeararParams child nodes (eg.</DFTitle>
+          </DFProperties>
+        </Node>
+      </Node>
+      <Node>
+        <NodeName>CDMA</NodeName>
+        <!--Status: Optional-->
+        <DFProperties>
+          <AccessType>
+            <Get />
+          </AccessType>
+          <DFFormat>
+            <node />
+          </DFFormat>
+          <Occurrence>
+            <ZeroOrOne />
+          </Occurrence>
+          <DFTitle>The Names of BeararParams child nodes (eg.</DFTitle>
+        </DFProperties>
+        <Node>
+          <NodeName>...</NodeName>
+          <!--Status: Optional-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <node />
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrOne />
+            </Occurrence>
+            <DFTitle>The Names of BeararParams child nodes (eg.</DFTitle>
+          </DFProperties>
+        </Node>
+      </Node>
+      <Node>
+        <NodeName>WLAN</NodeName>
+        <!--Status: Optional-->
+        <DFProperties>
+          <AccessType>
+            <Get />
+          </AccessType>
+          <DFFormat>
+            <node />
+          </DFFormat>
+          <Occurrence>
+            <ZeroOrOne />
+          </Occurrence>
+          <DFTitle>The Names of BeararParams child nodes (eg.</DFTitle>
+        </DFProperties>
+        <Node>
+          <NodeName>...</NodeName>
+          <!--Status: Optional-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <node />
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrOne />
+            </Occurrence>
+            <DFTitle>The Names of BeararParams child nodes (eg.</DFTitle>
+          </DFProperties>
+        </Node>
+      </Node>
+      <Node>
+        <NodeName>...</NodeName>
+        <!--Status: Optional-->
+        <DFProperties>
+          <AccessType>
+            <Get />
+          </AccessType>
+          <DFFormat>
+            <node />
+          </DFFormat>
+          <Occurrence>
+            <ZeroOrOne />
+          </Occurrence>
+          <DFTitle>The Names of BeararParams child nodes (eg.</DFTitle>
+        </DFProperties>
+        <Node>
+          <NodeName>...</NodeName>
+          <!--Status: Optional-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <node />
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrOne />
+            </Occurrence>
+            <DFTitle>The Names of BeararParams child nodes (eg.</DFTitle>
+          </DFProperties>
+        </Node>
+      </Node>
+    </Node>
+    <Node>
+      <NodeName>Ext</NodeName>
+      <!--Status: Optional-->
+      <DFProperties>
+        <AccessType>
+          <Get />
+        </AccessType>
+        <DFFormat>
+          <node />
+        </DFFormat>
+        <Occurrence>
+          <ZeroOrOne />
+        </Occurrence>
+        <DFTitle>This optional interior node designates the single top-level branch of the NAP DM management object tree into which vendor extensions MAY be supported, permanently or dynamically.</DFTitle>
+      </DFProperties>
+      <Node>
+        <NodeName>UniqueVendorName</NodeName>
+        <!--Status: Optional-->
+        <DFProperties>
+          <AccessType>
+            <Get />
+          </AccessType>
+          <DFFormat>
+            <node />
+          </DFFormat>
+          <Occurrence>
+            <ZeroOrMore />
+          </Occurrence>
+          <DFTitle>This interior node is supplied by a vendor to distinguish their extension from those of other vendors.</DFTitle>
+        </DFProperties>
+      </Node>
+    </Node>
+  </Node>
+</MgmtTree>

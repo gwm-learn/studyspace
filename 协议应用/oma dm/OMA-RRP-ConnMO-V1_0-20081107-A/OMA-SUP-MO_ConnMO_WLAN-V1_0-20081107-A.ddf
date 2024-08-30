@@ -1,0 +1,487 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+
+Filename:      OMA-SUP-MO_ConnMO_WLAN-V1_0-20081107-A.ddf
+
+OMA WLAN Bearer Parameters Management Object
+
+Part of the OMA DM Connectivity Management Objects (ConnMO)) V1.0, 07 Nov 2008.
+
+This DDF prototype describes WLAN Bearer Parameters and conforms to the 
+DDF document type definition, version 1.2.
+
+LEGAL DISCLAIMER
+
+  Use of this document is subject to all of the terms and conditions
+  of the Use Agreement located at
+    http://www.openmobilealliance.org/UseAgreement.html
+
+  You may use this document or any part of the document for internal
+  or educational purposes only, provided you do not modify, edit or
+  take out of context the information in this document in any manner.
+  Information contained in this document may be used, at your sole
+  risk, for any purposes.
+
+  You may not use this document in any other manner without the prior
+  written permission of the Open Mobile Alliance.  The Open Mobile
+  Alliance authorizes you to copy this document, provided that you
+  retain all copyright and other proprietary notices contained in the
+  original materials on any copies of the materials and that you
+  comply strictly with these terms.  This copyright permission does
+  not constitute an endorsement of the products or services.  The
+  Open Mobile Alliance assumes no responsibility for errors or
+  omissions in this document.
+
+  Each Open Mobile Alliance member has agreed to use reasonable
+  endeavors to inform the Open Mobile Alliance in a timely manner of
+  Essential IPR as it becomes aware that the Essential IPR is related
+  to the prepared or published specification.  However, the members
+  do not have an obligation to conduct IPR searches.  The declared
+  Essential IPR is publicly available to members and non-members of
+  the Open Mobile Alliance and may be found on the "OMA IPR
+  Declarations" list at http://www.openmobilealliance.org/ipr.html.
+  The Open Mobile Alliance has not conducted an independent IPR review
+  of this document and the information contained herein, and makes no
+  representations or warranties regarding third party IPR, including
+  without limitation patents, copyrights or trade secret rights.  This
+  document may contain inventions for which you must obtain licenses
+  from third parties before making, using or selling the inventions.
+  Defined terms above are set forth in the schedule to the Open Mobile
+  Alliance Application Form.
+
+  NO REPRESENTATIONS OR WARRANTIES (WHETHER EXPRESS OR IMPLIED) ARE
+  MADE BY THE OPEN MOBILE ALLIANCE OR ANY OPEN MOBILE ALLIANCE MEMBER
+  OR ITS AFFILIATES REGARDING ANY OF THE IPR'S REPRESENTED ON THE "OMA
+  IPR DECLARATIONS" LIST, INCLUDING, BUT NOT LIMITED TO THE ACCURACY,
+  COMPLETENESS, VALIDITY OR RELEVANCE OF THE INFORMATION OR WHETHER OR
+  NOT SUCH RIGHTS ARE ESSENTIAL OR NON-ESSENTIAL.
+
+  THE OPEN MOBILE ALLIANCE IS NOT LIABLE FOR AND HEREBY DISCLAIMS ANY
+  DIRECT, INDIRECT, PUNITIVE, SPECIAL, INCIDENTAL, CONSEQUENTIAL, OR
+  EXEMPLARY DAMAGES ARISING OUT OF OR IN CONNECTION WITH THE USE OF
+  DOCUMENTS AND THE INFORMATION CONTAINED IN THE DOCUMENTS.
+
+  Copyright 2008 Open Mobile Alliance Ltd.  All Rights Reserved.
+  Used with the permission of the Open Mobile Alliance Ltd. under the
+  terms set forth above.
+
+-->
+
+<!DOCTYPE MgmtTree PUBLIC "-//OMA//DTD-DM-DDF 1.2//EN"
+    "http://www.openmobilealliance.org/tech/DTD/DM_DDF-V1_2.dtd"
+    [<?oma-dm-ddf-ver supported-versions="1.2"?>]>
+
+<MgmtTree>
+  <!--This file is created with DDFCreator, Ver: 0.8                                  -->
+  <!--Source specification: OMA-DDS-DM_ConnMO_WLAN-V1_0-20081024-A.doc                -->
+  <!--Created: 2008-10-24 11:36:09 (yyyy-mm-dd hh:mm:ss UTC)                          -->
+  <VerDTD>1.2</VerDTD>
+  <Node>
+    <NodeName>WLAN</NodeName>
+    <!--Status: Required-->
+    <Path>.../BearerParams</Path>
+    <DFProperties>
+      <AccessType>
+        <Get />
+      </AccessType>
+      <DFFormat>
+        <node />
+      </DFFormat>
+      <Occurrence>
+        <One />
+      </Occurrence>
+      <DFTitle>This interior node specifies the bearer-specific parameters for a Network Access Point management object which describes a WLAN access point or ad hoc WLAN.</DFTitle>
+      <DFType>
+        <DDFName>urn:oma:mo:oma-connmo-wlan:1.0</DDFName>
+      </DFType>
+    </DFProperties>
+    <Node>
+      <NodeName>SSIDHidden</NodeName>
+      <!--Status: Optional-->
+      <DFProperties>
+        <AccessType>
+          <Get />
+        </AccessType>
+        <DFFormat>
+          <bool />
+        </DFFormat>
+        <Occurrence>
+          <ZeroOrOne />
+        </Occurrence>
+        <DFTitle>The SSIDHidden parameter indicates that the all SSID’s in this NAP are hidden.</DFTitle>
+        <DFType>
+          <MIME>text/plain</MIME>
+        </DFType>
+      </DFProperties>
+    </Node>
+    <Node>
+      <NodeName>SSIDList</NodeName>
+      <!--Status: Optional-->
+      <DFProperties>
+        <AccessType>
+          <Get />
+        </AccessType>
+        <DFFormat>
+          <node />
+        </DFFormat>
+        <Occurrence>
+          <ZeroOrOne />
+        </Occurrence>
+        <DFTitle>SSIDList interior node defines the parameter list of additional SSIDs.</DFTitle>
+      </DFProperties>
+      <Node>
+        <NodeName />
+        <!--Status: Required-->
+        <DFProperties>
+          <AccessType>
+            <Get />
+          </AccessType>
+          <DFFormat>
+            <node />
+          </DFFormat>
+          <Occurrence>
+            <OneOrMore />
+          </Occurrence>
+          <DFTitle>This interior node distinguishes different additional SSIDs.</DFTitle>
+        </DFProperties>
+        <Node>
+          <NodeName>SSID</NodeName>
+          <!--Status: Required-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <chr />
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrOne />
+            </Occurrence>
+            <DFTitle>This node holds the SSID of a single additional SSID.</DFTitle>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+      </Node>
+    </Node>
+    <Node>
+      <NodeName>NetMode</NodeName>
+      <!--Status: Optional-->
+      <DFProperties>
+        <AccessType>
+          <Get />
+        </AccessType>
+        <DFFormat>
+          <chr />
+        </DFFormat>
+        <Occurrence>
+          <ZeroOrOne />
+        </Occurrence>
+        <DFTitle>The NetMode node indicates the operational mode of the WLAN.</DFTitle>
+        <DFType>
+          <MIME>text/plain</MIME>
+        </DFType>
+      </DFProperties>
+    </Node>
+    <Node>
+      <NodeName>SecMode</NodeName>
+      <!--Status: Optional-->
+      <DFProperties>
+        <AccessType>
+          <Get />
+        </AccessType>
+        <DFFormat>
+          <chr />
+        </DFFormat>
+        <Occurrence>
+          <ZeroOrOne />
+        </Occurrence>
+        <DFTitle>The SecMode [WPA] parameter indicates security mode for the WLAN network.</DFTitle>
+        <DFType>
+          <MIME>text/plain</MIME>
+        </DFType>
+      </DFProperties>
+    </Node>
+    <Node>
+      <NodeName>Cipher</NodeName>
+      <!--Status: Optional-->
+      <DFProperties>
+        <AccessType>
+          <Get />
+        </AccessType>
+        <DFFormat>
+          <chr />
+        </DFFormat>
+        <Occurrence>
+          <ZeroOrOne />
+        </Occurrence>
+        <DFTitle>The Cipher parameter specifies the encryption cipher to be used with this network access point.</DFTitle>
+        <DFType>
+          <MIME>text/plain</MIME>
+        </DFType>
+      </DFProperties>
+    </Node>
+    <Node>
+      <NodeName>ToEAPRef</NodeName>
+      <!--Status: Optional-->
+      <DFProperties>
+        <AccessType>
+          <Get />
+        </AccessType>
+        <DFFormat>
+          <node />
+        </DFFormat>
+        <Occurrence>
+          <ZeroOrOne />
+        </Occurrence>
+        <DFTitle>The ToEAPRef interior node is used for references to EAP MO definitions.</DFTitle>
+      </DFProperties>
+      <Node>
+        <NodeName />
+        <!--Status: Required-->
+        <DFProperties>
+          <AccessType>
+            <Get />
+          </AccessType>
+          <DFFormat>
+            <node />
+          </DFFormat>
+          <Occurrence>
+            <ZeroOrMore />
+          </Occurrence>
+          <DFTitle>This interior node distinguishes different EAP references.</DFTitle>
+        </DFProperties>
+        <Node>
+          <NodeName>EAPRef</NodeName>
+          <!--Status: Required-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <chr />
+            </DFFormat>
+            <Occurrence>
+              <One />
+            </Occurrence>
+            <DFTitle>The EAPRef leaf indicates the linkage to EAP parameters.</DFTitle>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+      </Node>
+    </Node>
+    <Node>
+      <NodeName>WpaPsk</NodeName>
+      <!--Status: Optional-->
+      <DFProperties>
+        <AccessType>
+          <Get />
+        </AccessType>
+        <DFFormat>
+          <node />
+        </DFFormat>
+        <Occurrence>
+          <ZeroOrOne />
+        </Occurrence>
+        <DFTitle>This interior node groups together the parameters of WpaPsk.</DFTitle>
+      </DFProperties>
+      <Node>
+        <NodeName>KeyTypeHex</NodeName>
+        <!--Status: Required-->
+        <DFProperties>
+          <AccessType>
+            <Get />
+          </AccessType>
+          <DFFormat>
+            <bool />
+          </DFFormat>
+          <Occurrence>
+            <ZeroOrOne />
+          </Occurrence>
+          <DFTitle>The KeyTypeHex parameter indicates whether the following PSK Data is provided as an ASCII string or as a hexadecimal digit sequence.</DFTitle>
+          <DFType>
+            <MIME>text/plain</MIME>
+          </DFType>
+        </DFProperties>
+      </Node>
+      <Node>
+        <NodeName>Data</NodeName>
+        <!--Status: Required-->
+        <DFProperties>
+          <AccessType />
+          <DFFormat>
+            <chr />
+          </DFFormat>
+          <Occurrence>
+            <One />
+          </Occurrence>
+          <DFTitle>The Data parameter is used to deliver the PSK data.</DFTitle>
+          <DFType>
+            <MIME>text/plain</MIME>
+          </DFType>
+        </DFProperties>
+      </Node>
+    </Node>
+    <Node>
+      <NodeName>WepKeyInd</NodeName>
+      <!--Status: Optional-->
+      <DFProperties>
+        <AccessType>
+          <Get />
+        </AccessType>
+        <DFFormat>
+          <int />
+        </DFFormat>
+        <Occurrence>
+          <ZeroOrOne />
+        </Occurrence>
+        <DFTitle>The WepKeyInd [WPA] indicates the value of the Index node in the WepKey sub-tree representing the default WEP key (0-3).</DFTitle>
+        <DFType>
+          <MIME>text/plain</MIME>
+        </DFType>
+      </DFProperties>
+    </Node>
+    <Node>
+      <NodeName>WepAuthMode</NodeName>
+      <!--Status: Optional-->
+      <DFProperties>
+        <AccessType>
+          <Get />
+        </AccessType>
+        <DFFormat>
+          <chr />
+        </DFFormat>
+        <Occurrence>
+          <ZeroOrOne />
+        </Occurrence>
+        <DFTitle>The WepAuthMode [WPA] indicates WEP authentication mode.</DFTitle>
+        <DFType>
+          <MIME>text/plain</MIME>
+        </DFType>
+      </DFProperties>
+    </Node>
+    <Node>
+      <NodeName>WepKey</NodeName>
+      <!--Status: Optional-->
+      <DFProperties>
+        <AccessType>
+          <Get />
+        </AccessType>
+        <DFFormat>
+          <node />
+        </DFFormat>
+        <Occurrence>
+          <ZeroOrOne />
+        </Occurrence>
+        <DFTitle>This interior node defines the length and the data for the WepKey [WPA].</DFTitle>
+      </DFProperties>
+      <Node>
+        <NodeName />
+        <!--Status: Required-->
+        <DFProperties>
+          <AccessType>
+            <Get />
+          </AccessType>
+          <DFFormat>
+            <node />
+          </DFFormat>
+          <Occurrence>
+            <ZeroOrN>4</ZeroOrN>
+          </Occurrence>
+          <DFTitle>This interior node distinguishes different WepKeys.</DFTitle>
+        </DFProperties>
+        <Node>
+          <NodeName>Index</NodeName>
+          <!--Status: Required-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <int />
+            </DFFormat>
+            <Occurrence>
+              <One />
+            </Occurrence>
+            <DFTitle>Specifies the index of this WEP key as an integer value between 0 and 3.</DFTitle>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+        <Node>
+          <NodeName>Data</NodeName>
+          <!--Status: Required-->
+          <DFProperties>
+            <AccessType />
+            <DFFormat>
+              <chr />
+            </DFFormat>
+            <Occurrence>
+              <One />
+            </Occurrence>
+            <DFTitle>The Data parameter indicates the WEP key data.</DFTitle>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+      </Node>
+    </Node>
+    <Node>
+      <NodeName>Handover</NodeName>
+      <!--Status: Optional-->
+      <DFProperties>
+        <AccessType>
+          <Get />
+        </AccessType>
+        <DFFormat>
+          <bool />
+        </DFFormat>
+        <Occurrence>
+          <ZeroOrOne />
+        </Occurrence>
+        <DFTitle>The Handover parameter, if true, indicates if handover from this access point to another access point with the same SSID is allowed.</DFTitle>
+        <DFType>
+          <MIME>text/plain</MIME>
+        </DFType>
+      </DFProperties>
+    </Node>
+    <Node>
+      <NodeName>Ext</NodeName>
+      <!--Status: Optional-->
+      <DFProperties>
+        <AccessType>
+          <Get />
+        </AccessType>
+        <DFFormat>
+          <node />
+        </DFFormat>
+        <Occurrence>
+          <ZeroOrOne />
+        </Occurrence>
+        <DFTitle>This optional interior node designates the single top-level branch of the WLAN management object tree into which vendor extensions MAY be added, permanently or dynamically.</DFTitle>
+      </DFProperties>
+      <Node>
+        <NodeName>UniqueVendorName</NodeName>
+        <!--Status: Optional-->
+        <DFProperties>
+          <AccessType>
+            <Get />
+          </AccessType>
+          <DFFormat>
+            <node />
+          </DFFormat>
+          <Occurrence>
+            <ZeroOrMore />
+          </Occurrence>
+          <DFTitle>This interior node is supplied by a vendor to distinguish their extension from those of other vendors.</DFTitle>
+        </DFProperties>
+      </Node>
+    </Node>
+  </Node>
+</MgmtTree>

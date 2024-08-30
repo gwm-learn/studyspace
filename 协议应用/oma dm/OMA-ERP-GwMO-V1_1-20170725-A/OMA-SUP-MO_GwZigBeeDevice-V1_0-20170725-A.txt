@@ -1,0 +1,2722 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE MgmtTree PUBLIC "-//OMA//DTD-DM-DDF 1.2//EN"
+    "http://www.openmobilealliance.org/tech/DTD/DM_DDF-V1_2.dtd"
+    [<?oma-dm-ddf-ver supported-versions="1.2"?>]>
+<!--
+
+DDF for Gw ZigBee Device MO
+   version - 1.0
+   date    - 25 Jul 2017
+
+FILE INFORMATION
+
+  OMA Permanent Document
+    File: OMA-SUP-MO_GwZigBeeDevice-V1_0-20170725-A
+    Type: Text
+
+  Public Reachable Information
+    Path: http://www.openmobilealliance.org/Tech/omna/dm_mo
+    Name: MO_GwZigBeeDevice-v1_0.ddf
+
+NORMATIVE INFORMATION
+
+  Information about this file can be found in the latest revision of
+
+    OMA-TS-GwMO_ZigBeeMO-V1_0
+
+  This is available at http://www.openmobilealliance.org/
+
+  Send comments to technical-comments@mail.openmobilealliance.org
+
+CHANGE HISTORY
+
+25072017 Status changed to Approved by TP, TP Ref # OMA-TP-2017-0031-INP_GwMO-V1_1_ERP_for_Final_Approval
+
+LEGAL DISCLAIMER
+
+  Copyright 2017 Open Mobile Alliance  All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  1. Redistributions of source code must retain the above copyright
+  notice, this list of conditions and the following disclaimer.
+  2. Redistributions in binary form must reproduce the above copyright
+  notice, this list of conditions and the following disclaimer in the
+  documentation and/or other materials provided with the distribution.
+  3. Neither the name of the copyright holder nor the names of its
+  contributors may be used to endorse or promote products derived
+  from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+  FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+  COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+  INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+  BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+  LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+  CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+  LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
+  ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  POSSIBILITY OF SUCH DAMAGE.
+
+  The above license is used as a license under copyright only.  Please
+  reference the OMA IPR Policy for patent licensing terms:
+  http://www.openmobilealliance.org/ipr.html
+
+-->
+<MgmtTree>
+  <!--This file is created with DDFCreator, Ver: 0.93, Server Ver: 0.20               -->
+  <!--Source specification: Test doc v8c.docx (OMA-TS-GwMO_ZigBeeMO-V1_0-20140307-D plus OMA-DM-GwMO-2014-0029)                                          -->
+  <!--Created: 2014-05-05 13:52:14 (yyyy-mm-dd hh:mm:ss UTC)                          -->
+  <VerDTD>1.2</VerDTD>
+  <Node>
+    <NodeName />
+    <!--Status: Required-->
+    <DFProperties>
+      <AccessType>
+        <Get />
+      </AccessType>
+      <DFFormat>
+        <node />
+      </DFFormat>
+      <Occurrence>
+        <One />
+      </Occurrence>
+      <DFTitle>This placeholder node is for storing information regarding the ZigBee End Device is deployed.</DFTitle>
+      <DFType>
+        <DDFName>urn:oma:mo: oma-dm-zigbee:1.0</DDFName>
+      </DFType>
+    </DFProperties>
+    <Node>
+      <NodeName>InterfaceNumberOfEntries</NodeName>
+      <!--Status: Required-->
+      <DFProperties>
+        <AccessType>
+          <Get />
+        </AccessType>
+        <DFFormat>
+          <int />
+        </DFFormat>
+        <Occurrence>
+          <One />
+        </Occurrence>
+        <DFTitle>The number of entries in the Interface table.</DFTitle>
+        <DFType>
+          <MIME>text/plain</MIME>
+        </DFType>
+      </DFProperties>
+    </Node>
+    <Node>
+      <NodeName>ZDONumberOfEntries</NodeName>
+      <!--Status: Required-->
+      <DFProperties>
+        <AccessType>
+          <Get />
+        </AccessType>
+        <DFFormat>
+          <int />
+        </DFFormat>
+        <Occurrence>
+          <One />
+        </Occurrence>
+        <DFTitle>The number of entries in the ZDO table.</DFTitle>
+        <DFType>
+          <MIME>text/plain</MIME>
+        </DFType>
+      </DFProperties>
+    </Node>
+    <Node>
+      <NodeName>Discovery</NodeName>
+      <!--Status: Required-->
+      <DFProperties>
+        <AccessType>
+          <Get />
+        </AccessType>
+        <DFFormat>
+          <node />
+        </DFFormat>
+        <Occurrence>
+          <One />
+        </Occurrence>
+        <DFTitle>This object is used for managing the discovery of ZigBee devices within a ZigBee Area Network.</DFTitle>
+        <DFType>
+          <DDFName>
+          </DDFName>
+        </DFType>
+      </DFProperties>
+      <Node>
+        <NodeName>AreaNetworkNumberOfEntries</NodeName>
+        <!--Status: Required-->
+        <DFProperties>
+          <AccessType>
+            <Get />
+          </AccessType>
+          <DFFormat>
+            <int />
+          </DFFormat>
+          <Occurrence>
+            <One />
+          </Occurrence>
+          <DFTitle>The number of entries in the AreaNetwork table.</DFTitle>
+          <DFType>
+            <MIME>text/plain</MIME>
+          </DFType>
+        </DFProperties>
+      </Node>
+      <Node>
+        <NodeName>AreaNetwork</NodeName>
+        <!--Status: Required-->
+        <DFProperties>
+          <AccessType>
+            <Get />
+          </AccessType>
+          <DFFormat>
+            <node />
+          </DFFormat>
+          <Occurrence>
+            <One />
+          </Occurrence>
+          <DFTitle>This object specifies the ZigBee devices that are discovered by the Coordinator.</DFTitle>
+          <DFType>
+            <DDFName>
+            </DDFName>
+          </DFType>
+        </DFProperties>
+        <Node>
+          <NodeName />
+          <!--Status: Required-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+              <Replace />
+            </AccessType>
+            <DFFormat>
+              <node />
+            </DFFormat>
+            <Occurrence>
+              <OneOrMore />
+            </Occurrence>
+            <DFTitle>This placeholder node is for OneOrMore AreaNetwork entries.</DFTitle>
+            <DFType>
+              <DDFName>
+              </DDFName>
+            </DFType>
+          </DFProperties>
+          <Node>
+            <NodeName>Enable</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+                <Replace />
+              </AccessType>
+              <DFFormat>
+                <bool />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>Enables or disables discovery of the ZigBee devices in this AreaNetwork.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>LastUpdate</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <chr />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>The date and time when this AreaNetwork or its member devices (i.e., the devices with ZDOs listed in ZDOList) were updated due to a discovery operation.  The representation of this node MUST follow the [YYYY]-[MM]-[DD] T[hh]:[mm]Z format, as defined by [ISO 8601].</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>Status</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <chr />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>The status of the current discovery operation.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>Alias</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+                <Replace />
+              </AccessType>
+              <DFFormat>
+                <chr />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>A non-volatile handle used to reference this instance.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>Coordinator</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+                <Replace />
+              </AccessType>
+              <DFFormat>
+                <chr />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>The Fully Qualified Domain Name (FQDN) or IP address of the ZigBee Coordinator.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>ZDOReference</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <chr />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>The ZDO object for this device that is used to discover the ZigBee capabilities of attached devices.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>ZDOList</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <chr />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>Comma-separated list of strings (maximum length 256).</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+        </Node>
+      </Node>
+    </Node>
+    <Node>
+      <NodeName>Interface</NodeName>
+      <!--Status: Required-->
+      <DFProperties>
+        <AccessType>
+          <Get />
+        </AccessType>
+        <DFFormat>
+          <node />
+        </DFFormat>
+        <Occurrence>
+          <One />
+        </Occurrence>
+        <DFTitle>ZigBee interface table is a stackable interface object.</DFTitle>
+        <DFType>
+          <DDFName>
+          </DDFName>
+        </DFType>
+      </DFProperties>
+      <Node>
+        <NodeName />
+        <!--Status: Required-->
+        <DFProperties>
+          <AccessType>
+            <Get />
+            <Replace />
+          </AccessType>
+          <DFFormat>
+            <node />
+          </DFFormat>
+          <Occurrence>
+            <OneOrMore />
+          </Occurrence>
+          <DFTitle>This placeholder node is for OneOrMore Interface entries.</DFTitle>
+          <DFType>
+            <DDFName>
+            </DDFName>
+          </DFType>
+        </DFProperties>
+        <Node>
+          <NodeName>Enable</NodeName>
+          <!--Status: Required-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+              <Replace />
+            </AccessType>
+            <DFFormat>
+              <bool />
+            </DFFormat>
+            <Occurrence>
+              <One />
+            </Occurrence>
+            <DFTitle>Enables or disables the interface.</DFTitle>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+        <Node>
+          <NodeName>Status</NodeName>
+          <!--Status: Required-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <chr />
+            </DFFormat>
+            <Occurrence>
+              <One />
+            </Occurrence>
+            <DFTitle>The current operational state of the interface Enumeration of: 
+Up 
+Down 
+Unknown 
+Dormant 
+NotPresent 
+LowerLayerDown 
+Error (OPTIONAL) 
+When Enable is false then Status SHOULD normally be Down (or NotPresent or Error if there is a fault condition on the interface).</DFTitle>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+        <Node>
+          <NodeName>Alias</NodeName>
+          <!--Status: Required-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+              <Replace />
+            </AccessType>
+            <DFFormat>
+              <chr />
+            </DFFormat>
+            <Occurrence>
+              <One />
+            </Occurrence>
+            <DFTitle>A non-volatile handle used to reference this instance.</DFTitle>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+        <Node>
+          <NodeName>Name</NodeName>
+          <!--Status: Required-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <chr />
+            </DFFormat>
+            <Occurrence>
+              <One />
+            </Occurrence>
+            <DFTitle>The textual name of the interface as assigned by the Device.
+The string length of this node MUST NOT exceed 64.</DFTitle>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+        <Node>
+          <NodeName>LastChange</NodeName>
+          <!--Status: Required-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <int />
+            </DFFormat>
+            <Occurrence>
+              <One />
+            </Occurrence>
+            <DFTitle>The accumulated time in seconds since the interface entered its current operational state.
+The node value MUST be positive.</DFTitle>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+        <Node>
+          <NodeName>LowerLayers</NodeName>
+          <!--Status: Required-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+              <Replace />
+            </AccessType>
+            <DFFormat>
+              <chr />
+            </DFFormat>
+            <Occurrence>
+              <One />
+            </Occurrence>
+            <DFTitle>Comma-separated list (maximum length 1024) of strings.</DFTitle>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+        <Node>
+          <NodeName>IEEEAddress</NodeName>
+          <!--Status: Required-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <chr />
+            </DFFormat>
+            <Occurrence>
+              <One />
+            </Occurrence>
+            <DFTitle>[IEEE_EUI64] The IEEE address assigned to this interface.</DFTitle>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+        <Node>
+          <NodeName>NetworkAddress</NodeName>
+          <!--Status: Required-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <chr />
+            </DFFormat>
+            <Occurrence>
+              <One />
+            </Occurrence>
+            <DFTitle>[ZigBeeNetworkAddress] The ZigBee network address assigned to this interface.</DFTitle>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+        <Node>
+          <NodeName>ZDOReference</NodeName>
+          <!--Status: Required-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <chr />
+            </DFFormat>
+            <Occurrence>
+              <One />
+            </Occurrence>
+            <DFTitle>The value MUST be the path name of a row in the ZigBee.ZDO table.</DFTitle>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+        <Node>
+          <NodeName>AssociatedDeviceNumberOfEntries</NodeName>
+          <!--Status: Required-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <int />
+            </DFFormat>
+            <Occurrence>
+              <One />
+            </Occurrence>
+            <DFTitle>The number of entries in the AssociatedDevice table.</DFTitle>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+        <Node>
+          <NodeName>AssociatedDevice</NodeName>
+          <!--Status: Required-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <node />
+            </DFFormat>
+            <Occurrence>
+              <One />
+            </Occurrence>
+            <DFTitle>This table provides information about other ZigBee devices that are directly accessible via this interface.</DFTitle>
+            <DFType>
+              <DDFName>
+              </DDFName>
+            </DFType>
+          </DFProperties>
+          <Node>
+            <NodeName />
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <node />
+              </DFFormat>
+              <Occurrence>
+                <OneOrMore />
+              </Occurrence>
+              <DFTitle>This is placeholder node for OneOrMore AssociatedDevice.</DFTitle>
+              <DFType>
+                <DDFName>
+                </DDFName>
+              </DFType>
+            </DFProperties>
+            <Node>
+              <NodeName>IEEEAddress</NodeName>
+              <!--Status: Required-->
+              <DFProperties>
+                <AccessType>
+                  <Get />
+                </AccessType>
+                <DFFormat>
+                  <chr />
+                </DFFormat>
+                <Occurrence>
+                  <One />
+                </Occurrence>
+                <DFTitle>IEEE_EUI64] The IEEE address assigned to this device.</DFTitle>
+                <DFType>
+                  <MIME>text/plain</MIME>
+                </DFType>
+              </DFProperties>
+            </Node>
+            <Node>
+              <NodeName>NetworkAddress</NodeName>
+              <!--Status: Required-->
+              <DFProperties>
+                <AccessType>
+                  <Get />
+                </AccessType>
+                <DFFormat>
+                  <chr />
+                </DFFormat>
+                <Occurrence>
+                  <One />
+                </Occurrence>
+                <DFTitle>[ZigBeeNetworkAddress] The ZigBee network address assigned to this device.
+The string length of this node MUST NOT exceed 4.</DFTitle>
+                <DFType>
+                  <MIME>text/plain</MIME>
+                </DFType>
+              </DFProperties>
+            </Node>
+            <Node>
+              <NodeName>Active</NodeName>
+              <!--Status: Required-->
+              <DFProperties>
+                <AccessType>
+                  <Get />
+                </AccessType>
+                <DFFormat>
+                  <bool />
+                </DFFormat>
+                <Occurrence>
+                  <One />
+                </Occurrence>
+                <DFTitle>Whether or not this device is currently present in the ZigBee network as defined in [Section 2.4.4.1[ZigBee2007].</DFTitle>
+                <DFType>
+                  <MIME>text/plain</MIME>
+                </DFType>
+              </DFProperties>
+            </Node>
+            <Node>
+              <NodeName>ZDOReference</NodeName>
+              <!--Status: Required-->
+              <DFProperties>
+                <AccessType>
+                  <Get />
+                </AccessType>
+                <DFFormat>
+                  <chr />
+                </DFFormat>
+                <Occurrence>
+                  <One />
+                </Occurrence>
+                <DFTitle>The value MUST be the path name of a row in the ZigBee.ZDO table.</DFTitle>
+                <DFType>
+                  <MIME>text/plain</MIME>
+                </DFType>
+              </DFProperties>
+            </Node>
+          </Node>
+        </Node>
+        <Node>
+          <NodeName>Stats</NodeName>
+          <!--Status: Required-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <node />
+            </DFFormat>
+            <Occurrence>
+              <One />
+            </Occurrence>
+            <DFTitle>Throughput statistics for this interface.</DFTitle>
+            <DFType>
+              <DDFName>
+              </DDFName>
+            </DFType>
+          </DFProperties>
+          <Node>
+            <NodeName>BytesSent</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <int />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>[StatsCounter64] The total number of bytes transmitted out of the interface, including framing characters.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>BytesReceived</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <int />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>[StatsCounter64] The total number of bytes received on the interface, including framing characters.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>PacketsSent</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <int />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>StatsCounter64] The total number of ZigBee packets sent transmitted out of the interface.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>PacketsReceived</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <int />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>StatsCounter64] The total number of ZigBee packets received by the interface.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>ErrorsSent</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <int />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>[StatsCounter32] The total number of ZigBee packets discarded by interface due to any error.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>ErrorsReceived</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <int />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>StatsCounter32] The total number of ZigBee packets received that contained errors preventing them from being delivered to a higher-layer protocol.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>UnicastPacketsSent</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <int />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>[StatsCounter32] The total number of ZigBee packets requested for transmission which were not addressed to a multicast or broadcast address at this layer, including those that were discarded or not sent.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>UnicastPacketsReceived</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <int />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>[StatsCounter32] The total number of ZigBee packets received which were not addressed to a multicast or broadcast address at this layer.
+
+ </DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>DiscardPacketsSent</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <int />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>[StatsCounter32] The total number of ZigBee packets requested for transmission which were chosen to be discarded even though no errors had been detected to prevent the ZigBee packets being transmitted.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>DiscardPacketsReceived</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <int />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>[StatsCounter32] The total number of ZigBee packets received which were chosen to be discarded even though no errors had been detected to prevent their being delivered.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>MulticastPacketsSent</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <int />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>[StatsCounter32] The total number of ZigBee packets requested for transmission which were addressed to a multicast address at this layer, including those that were discarded or not sent.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>MulticastPacketsReceived</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <int />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>[StatsCounter32] The total number of ZigBee packets received which were addressed to a multicast address at this layer and delivered by this layer to a higher layer.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>BroadcastPacketsSent</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <int />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>[StatsCounter32] The total number of ZigBee packets received which were addressed to a broadcast address at this layer and delivered by this layer to a higher layer.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>BroadcastPacketsReceived</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <int />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>[StatsCounter32] The total number of ZigBee packets received which were addressed to a broadcast address at this layer and delivered by this layer to a higher layer.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>UnknownPacketsReceived</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <int />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>[StatsCounter32] The total number of ZigBee packets received which were discarded because of an unknown or unsupported protocol.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+        </Node>
+      </Node>
+    </Node>
+    <Node>
+      <NodeName>ZDO</NodeName>
+      <!--Status: Required-->
+      <DFProperties>
+        <AccessType>
+          <Get />
+        </AccessType>
+        <DFFormat>
+          <node />
+        </DFFormat>
+        <Occurrence>
+          <One />
+        </Occurrence>
+        <DFTitle>ZigBee Device Object (ZDO) provides management capabilities of the ZigBee Application Support (APS) and Network (NWK) layers of a ZigBee Device as defined in [Section 2.5[ZigBee2007].</DFTitle>
+        <DFType>
+          <DDFName>
+          </DDFName>
+        </DFType>
+      </DFProperties>
+      <Node>
+        <NodeName />
+        <!--Status: Required-->
+        <DFProperties>
+          <AccessType>
+            <Get />
+          </AccessType>
+          <DFFormat>
+            <node />
+          </DFFormat>
+          <Occurrence>
+            <OneOrMore />
+          </Occurrence>
+          <DFTitle>This is a placeholder node for ZDO entries.</DFTitle>
+          <DFType>
+            <DDFName>
+            </DDFName>
+          </DFType>
+        </DFProperties>
+        <Node>
+          <NodeName>Alias</NodeName>
+          <!--Status: Required-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+              <Replace />
+            </AccessType>
+            <DFFormat>
+              <chr />
+            </DFFormat>
+            <Occurrence>
+              <One />
+            </Occurrence>
+            <DFTitle>A non-volatile handle used to reference this instance.</DFTitle>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+        <Node>
+          <NodeName>IEEEAddress</NodeName>
+          <!--Status: Required-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <chr />
+            </DFFormat>
+            <Occurrence>
+              <One />
+            </Occurrence>
+            <DFTitle>[IEEE_EUI64] The IEEE address assigned to this device.</DFTitle>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+        <Node>
+          <NodeName>NetworkAddress</NodeName>
+          <!--Status: Required-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <chr />
+            </DFFormat>
+            <Occurrence>
+              <One />
+            </Occurrence>
+            <DFTitle>[ZigBeeNetworkAddress] The ZigBee network address assigned to this device.
+This string length of this node MUST be 4.</DFTitle>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+        <Node>
+          <NodeName>BindingTableNumberOfEntries</NodeName>
+          <!--Status: Required-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <int />
+            </DFFormat>
+            <Occurrence>
+              <One />
+            </Occurrence>
+            <DFTitle>The number of entries in the Binding table.</DFTitle>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+        <Node>
+          <NodeName>GroupNumberOfEntries</NodeName>
+          <!--Status: Required-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <int />
+            </DFFormat>
+            <Occurrence>
+              <One />
+            </Occurrence>
+            <DFTitle>The number of entries in the Group table.</DFTitle>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+        <Node>
+          <NodeName>ApplicationEndpointNumberOfEntries</NodeName>
+          <!--Status: Required-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <int />
+            </DFFormat>
+            <Occurrence>
+              <One />
+            </Occurrence>
+            <DFTitle>The number of entries in the ApplicationEndpoint table.</DFTitle>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+        <Node>
+          <NodeName>NodeDescriptor</NodeName>
+          <!--Status: Required-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <node />
+            </DFFormat>
+            <Occurrence>
+              <One />
+            </Occurrence>
+            <DFTitle>The NodeDescriptor object describes the node capabilities of the ZigBee device as defined in [Section 2.3.2.3 Node Descriptor [ZigBee2007].</DFTitle>
+            <DFType>
+              <DDFName>
+              </DDFName>
+            </DFType>
+          </DFProperties>
+          <Node>
+            <NodeName>LogicalType</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <chr />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>The type of ZigBee device that is extracted from the Logical Type Field as defined in [Table 2.29/ZigBee2007].</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>ComplexDescriptorSupported</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <bool />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>When true, specifies that the ComplexDescriptor object is supported for this ZigBee device.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>UserDescriptorSupported</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <bool />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>When true, specifies that the UserDescriptor object is supported for this ZigBee device.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>FrequencyBand</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <chr />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>Specifies the frequency bands that are supported by the underlying IEEE 802.15.4 radio utilized by the ZigBee device.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>MACCapability</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <chr />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>Specifies the IEEE 802.15.4-2003 MAC sub-layer capabilities for this ZigBee device.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>ManufactureCode</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <int />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>Specifies a manufacturer code that is allocated by the ZigBee Alliance, relating the manufacturer to the device.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>MaximumBufferSize</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <int />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>Specifies the maximum buffer size, in octets, of the network sub-layer data unit (NSDU) for this ZigBee device.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>MaximumIncomingTransferSize</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <int />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>Specifies the maximum size, in octets, of the application sub-layer data unit (ASDU) that can be transferred to this ZigBee device in one single message transfer.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>MaximumOutgoingTransferSize</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <int />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>Specifies the maximum size, in octets, of the application sub-layer data unit (ASDU) that can be transferred from this ZigBee device in one single message transfer.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>ServerMask</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <chr />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>Specifies the system server capabilities of this ZigBee device.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>DescriptorCapability</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <chr />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>Specifies the descriptor capabilities of this ZigBee device.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+        </Node>
+        <Node>
+          <NodeName>ComplexDescriptor</NodeName>
+          <!--Status: Optional-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <node />
+            </DFFormat>
+            <Occurrence>
+              <One />
+            </Occurrence>
+            <DFTitle>The ComplexDescriptor object is an optional descriptor that describes extended capabilities of the ZigBee device as defined in [Section 2.3.2.6 Complex Descriptor[ ZigBee2007].</DFTitle>
+            <DFType>
+              <DDFName>
+              </DDFName>
+            </DFType>
+          </DFProperties>
+          <Node>
+            <NodeName>DescriptorAvailable</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <bool />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>When true, the Complex Descriptor recorded has been received from the target device.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>Language</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <chr />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>Specifies the ISO 639-1 language code as defined in [ISO639-1].</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>CharacterSet</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <chr />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>Specifies the ISO 646 character set as defined in [ISO646-1991].</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>ManufacturerName</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <chr />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>Specifies the name of the manufacturer of the ZigBee device.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>ModelName</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <chr />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>Specifies the name of the manufacturer's model of the ZigBee device.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>SerialNumber</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <chr />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>Specifies the manufacturer's serial number of the ZigBee device.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>DeviceURL</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <chr />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>Specifies the URL through which more information relating to the ZigBee device can be obtained.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>Icon</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <bin />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>The icon field contains an octet string which carries the data for an icon that can represent the ZigBee device.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>IconURL</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <chr />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>Specifies the URL through which the icon for the ZigBee device can be obtained.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+        </Node>
+        <Node>
+          <NodeName>ApplicationEndpoint</NodeName>
+          <!--Status: Required-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <node />
+            </DFFormat>
+            <Occurrence>
+              <One />
+            </Occurrence>
+            <DFTitle>The ApplicationEndpoint object describes the application endpoint as defined in [Section 2.1.2 Application Framework [ZigBee2007].</DFTitle>
+            <DFType>
+              <DDFName>
+              </DDFName>
+            </DFType>
+          </DFProperties>
+          <Node>
+            <NodeName />
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+                <Replace />
+              </AccessType>
+              <DFFormat>
+                <node />
+              </DFFormat>
+              <Occurrence>
+                <OneOrMore />
+              </Occurrence>
+              <DFTitle>This node is a placeholder for OneOrMore ApplicationEndpoint entries.</DFTitle>
+              <DFType>
+                <DDFName>
+                </DDFName>
+              </DFType>
+            </DFProperties>
+            <Node>
+              <NodeName>Enable</NodeName>
+              <!--Status: Required-->
+              <DFProperties>
+                <AccessType>
+                  <Get />
+                  <Replace />
+                </AccessType>
+                <DFFormat>
+                  <bool />
+                </DFFormat>
+                <Occurrence>
+                  <One />
+                </Occurrence>
+                <DFTitle>Enables or disables the use of this application endpoint on the device.</DFTitle>
+                <DFType>
+                  <MIME>text/plain</MIME>
+                </DFType>
+              </DFProperties>
+            </Node>
+            <Node>
+              <NodeName>Alias</NodeName>
+              <!--Status: Required-->
+              <DFProperties>
+                <AccessType>
+                  <Get />
+                  <Replace />
+                </AccessType>
+                <DFFormat>
+                  <chr />
+                </DFFormat>
+                <Occurrence>
+                  <One />
+                </Occurrence>
+                <DFTitle>A non-volatile handle used to reference this instance.</DFTitle>
+                <DFType>
+                  <MIME>text/plain</MIME>
+                </DFType>
+              </DFProperties>
+            </Node>
+            <Node>
+              <NodeName>EndpointId</NodeName>
+              <!--Status: Required-->
+              <DFProperties>
+                <AccessType>
+                  <Get />
+                  <Replace />
+                </AccessType>
+                <DFFormat>
+                  <int />
+                </DFFormat>
+                <Occurrence>
+                  <One />
+                </Occurrence>
+                <DFTitle>The Endpoint Identifier for this object as defined in [Section 2.1.2 Application Framework [ZigBee2007].</DFTitle>
+                <DFType>
+                  <MIME>text/plain</MIME>
+                </DFType>
+              </DFProperties>
+            </Node>
+          </Node>
+        </Node>
+        <Node>
+          <NodeName>SimpleDescriptor</NodeName>
+          <!--Status: Required-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <node />
+            </DFFormat>
+            <Occurrence>
+              <One />
+            </Occurrence>
+            <DFTitle>The SimpleDescriptor object contains the attributes of the Simple Descriptor of an application endpoint, as defined in [Section 2.3.2.5 Simple Descriptor [ZigBee2007].</DFTitle>
+            <DFType>
+              <DDFName>
+              </DDFName>
+            </DFType>
+          </DFProperties>
+          <Node>
+            <NodeName>ProfileId</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+                <Replace />
+              </AccessType>
+              <DFFormat>
+                <int />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>Specifies the application profile that is supported on this endpoint.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>DeviceId</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <int />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>Application device identifier, as defined in [Section 2.3.2.5.3 Application Device Identifier Field [ZigBee2007].</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>DeviceVersion</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <int />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>Application device version, as defined in [Section 2.3.2.5.4 Application Device Version Field [ZigBee2007].</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>InputClusterList</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+                <Replace />
+              </AccessType>
+              <DFFormat>
+                <chr />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>Comma-separated list of unsigned integers (value 0 to 65535).</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>OutputClusterList</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+                <Replace />
+              </AccessType>
+              <DFFormat>
+                <chr />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>Comma-separated list of unsigned integers (value 0 to 65535).</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+        </Node>
+        <Node>
+          <NodeName>PowerDescriptor</NodeName>
+          <!--Status: Required-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <node />
+            </DFFormat>
+            <Occurrence>
+              <One />
+            </Occurrence>
+            <DFTitle>The PowerDescriptor object describes the power capabilities of the ZigBee device as defined in [Section 2.3.2.4 Node Power Descriptor [ZigBee2007].</DFTitle>
+            <DFType>
+              <DDFName>
+              </DDFName>
+            </DFType>
+          </DFProperties>
+          <Node>
+            <NodeName>CurrentPowerMode</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <chr />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>Specifies the current sleep/power-saving mode of the ZigBee device.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>AvailablePowerSource</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <chr />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>Specifies the power sources available on this ZigBee device.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>CurrentPowerSource</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <chr />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>The current power source field specifies the current power source being utilized by the node.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>CurrentPowerSourceLevel</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <chr />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>Specifies the level of charge of the current power source.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+        </Node>
+        <Node>
+          <NodeName>UserDescriptor</NodeName>
+          <!--Status: Optional-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <node />
+            </DFFormat>
+            <Occurrence>
+              <One />
+            </Occurrence>
+            <DFTitle>The UserDescriptor object is an optional descriptor that describes user defined capabilities of the ZigBee device as defined in [Section 2.3.2.7 User Descriptor [ZigBee2007].</DFTitle>
+            <DFType>
+              <DDFName>
+              </DDFName>
+            </DFType>
+          </DFProperties>
+          <Node>
+            <NodeName>DescriptorAvailable</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <bool />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>When true, the User Descriptor recorded has been received from the target device.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>Description</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <chr />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>Specifies the information that allows the user to identify the ZigBee device using a user-friendly character string, such as "Bedroom TV" or "Stairs light".</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+        </Node>
+        <Node>
+          <NodeName>Security</NodeName>
+          <!--Status: Required-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <node />
+            </DFFormat>
+            <Occurrence>
+              <One />
+            </Occurrence>
+            <DFTitle>The Security object provides the configuration capabilities needed to perform the Security Management functionality defined in [Section 4 Security Management/ZigBee2007].</DFTitle>
+            <DFType>
+              <DDFName>
+              </DDFName>
+            </DFType>
+          </DFProperties>
+          <Node>
+            <NodeName>TrustCenterAddress</NodeName>
+            <!--Status: Optional-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <node />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>[IEEE_EUI64] Specifies the IEEE address of a special device trusted by devices within a ZigBee network to distribute keys for the purpose of network and end-to-end application configuration management.</DFTitle>
+              <DFType>
+                <DDFName>
+                </DDFName>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>SecurityLevel</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <chr />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>Specifies how an outgoing frame is to be secured, how an incoming frame purportedly has been secured; it also indicates whether or not the payload is encrypted and to what extent data authenticity over the frame is provided, as reflected by the length of the message integrity code (MIC).</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>TimeOutPeriod</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <int />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>The period of time, in milliseconds, that this ZigBee device will wait for an expected security protocol frame.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+        </Node>
+        <Node>
+          <NodeName>Group</NodeName>
+          <!--Status: Required-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <node />
+            </DFFormat>
+            <Occurrence>
+              <One />
+            </Occurrence>
+            <DFTitle>The Group object describes the configuration capabilities related to maintaining a ZigBee Device's Group Table as defined in [Section 2.5.2.7 Group Manager/ZigBee2007].</DFTitle>
+            <DFType>
+              <DDFName>
+              </DDFName>
+            </DFType>
+          </DFProperties>
+          <Node>
+            <NodeName />
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+                <Replace />
+              </AccessType>
+              <DFFormat>
+                <node />
+              </DFFormat>
+              <Occurrence>
+                <OneOrMore />
+              </Occurrence>
+              <DFTitle>This is a placeholder node for OneOrMore Group entries.</DFTitle>
+              <DFType>
+                <DDFName>
+                </DDFName>
+              </DFType>
+            </DFProperties>
+            <Node>
+              <NodeName>Enable</NodeName>
+              <!--Status: Required-->
+              <DFProperties>
+                <AccessType>
+                  <Get />
+                  <Replace />
+                </AccessType>
+                <DFFormat>
+                  <bool />
+                </DFFormat>
+                <Occurrence>
+                  <One />
+                </Occurrence>
+                <DFTitle>Enables or disables the use of this group on the device.</DFTitle>
+                <DFType>
+                  <MIME>text/plain</MIME>
+                </DFType>
+              </DFProperties>
+            </Node>
+            <Node>
+              <NodeName>Alias</NodeName>
+              <!--Status: Required-->
+              <DFProperties>
+                <AccessType>
+                  <Get />
+                  <Replace />
+                </AccessType>
+                <DFFormat>
+                  <chr />
+                </DFFormat>
+                <Occurrence>
+                  <One />
+                </Occurrence>
+                <DFTitle>A non-volatile handle used to reference this instance.</DFTitle>
+                <DFType>
+                  <MIME>text/plain</MIME>
+                </DFType>
+              </DFProperties>
+            </Node>
+            <Node>
+              <NodeName>GroupId</NodeName>
+              <!--Status: Required-->
+              <DFProperties>
+                <AccessType>
+                  <Get />
+                  <Replace />
+                </AccessType>
+                <DFFormat>
+                  <chr />
+                </DFFormat>
+                <Occurrence>
+                  <One />
+                </Occurrence>
+                <DFTitle>[ZigBeeNetworkAddress] The Group Identifier for this object as defined in [Table 2.25 Group Table Entry Format/ZigBee2007].</DFTitle>
+                <DFType>
+                  <MIME>text/plain</MIME>
+                </DFType>
+              </DFProperties>
+            </Node>
+            <Node>
+              <NodeName>EndpointList</NodeName>
+              <!--Status: Required-->
+              <DFProperties>
+                <AccessType>
+                  <Get />
+                  <Replace />
+                </AccessType>
+                <DFFormat>
+                  <chr />
+                </DFFormat>
+                <Occurrence>
+                  <One />
+                </Occurrence>
+                <DFTitle>Comma-separated list of strings (maximum length 256).</DFTitle>
+                <DFType>
+                  <MIME>text/plain</MIME>
+                </DFType>
+              </DFProperties>
+            </Node>
+          </Node>
+        </Node>
+        <Node>
+          <NodeName>Binding</NodeName>
+          <!--Status: Required-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <node />
+            </DFFormat>
+            <Occurrence>
+              <One />
+            </Occurrence>
+            <DFTitle>The Binding object describes the configuration capabilities related to maintaining a ZigBee Device's Binding Table as defined in [Section 2.2.8.2 Binding/ZigBee2007].</DFTitle>
+            <DFType>
+              <DDFName>
+              </DDFName>
+            </DFType>
+          </DFProperties>
+          <Node>
+            <NodeName />
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+                <Replace />
+              </AccessType>
+              <DFFormat>
+                <node />
+              </DFFormat>
+              <Occurrence>
+                <OneOrMore />
+              </Occurrence>
+              <DFTitle>This is a placeholder node for Binding entries.</DFTitle>
+              <DFType>
+                <DDFName>
+                </DDFName>
+              </DFType>
+            </DFProperties>
+            <Node>
+              <NodeName>Enable</NodeName>
+              <!--Status: Required-->
+              <DFProperties>
+                <AccessType>
+                  <Get />
+                  <Replace />
+                </AccessType>
+                <DFFormat>
+                  <bool />
+                </DFFormat>
+                <Occurrence>
+                  <One />
+                </Occurrence>
+                <DFTitle>Enables or disables the use of this binding on the device.</DFTitle>
+                <DFType>
+                  <MIME>text/plain</MIME>
+                </DFType>
+              </DFProperties>
+            </Node>
+            <Node>
+              <NodeName>Alias</NodeName>
+              <!--Status: Required-->
+              <DFProperties>
+                <AccessType>
+                  <Get />
+                  <Replace />
+                </AccessType>
+                <DFFormat>
+                  <chr />
+                </DFFormat>
+                <Occurrence>
+                  <One />
+                </Occurrence>
+                <DFTitle>A non-volatile handle used to reference this instance.</DFTitle>
+                <DFType>
+                  <MIME>text/plain</MIME>
+                </DFType>
+              </DFProperties>
+            </Node>
+            <Node>
+              <NodeName>SourceEndpoint</NodeName>
+              <!--Status: Required-->
+              <DFProperties>
+                <AccessType>
+                  <Get />
+                  <Replace />
+                </AccessType>
+                <DFFormat>
+                  <int />
+                </DFFormat>
+                <Occurrence>
+                  <One />
+                </Occurrence>
+                <DFTitle>Specifies the source endpoint used in this binding entry.</DFTitle>
+                <DFType>
+                  <MIME>text/plain</MIME>
+                </DFType>
+              </DFProperties>
+            </Node>
+            <Node>
+              <NodeName>SourceAddress</NodeName>
+              <!--Status: Required-->
+              <DFProperties>
+                <AccessType>
+                  <Get />
+                  <Replace />
+                </AccessType>
+                <DFFormat>
+                  <chr />
+                </DFFormat>
+                <Occurrence>
+                  <One />
+                </Occurrence>
+                <DFTitle>IEEE_EUI64] Specifies the source address used in this binding entry.</DFTitle>
+                <DFType>
+                  <MIME>text/plain</MIME>
+                </DFType>
+              </DFProperties>
+            </Node>
+            <Node>
+              <NodeName>DestinationAddressMode</NodeName>
+              <!--Status: Required-->
+              <DFProperties>
+                <AccessType>
+                  <Get />
+                  <Replace />
+                </AccessType>
+                <DFFormat>
+                  <chr />
+                </DFFormat>
+                <Occurrence>
+                  <One />
+                </Occurrence>
+                <DFTitle>Specifies the type of destination address used for this binding entry.</DFTitle>
+                <DFType>
+                  <MIME>text/plain</MIME>
+                </DFType>
+              </DFProperties>
+            </Node>
+            <Node>
+              <NodeName>DestinationEndpoint</NodeName>
+              <!--Status: Required-->
+              <DFProperties>
+                <AccessType>
+                  <Get />
+                  <Replace />
+                </AccessType>
+                <DFFormat>
+                  <int />
+                </DFFormat>
+                <Occurrence>
+                  <One />
+                </Occurrence>
+                <DFTitle>Specifies the destination endpoint for the binding entry.</DFTitle>
+                <DFType>
+                  <MIME>text/plain</MIME>
+                </DFType>
+              </DFProperties>
+            </Node>
+            <Node>
+              <NodeName>IEEEDestinationAddress</NodeName>
+              <!--Status: Required-->
+              <DFProperties>
+                <AccessType>
+                  <Get />
+                  <Replace />
+                </AccessType>
+                <DFFormat>
+                  <chr />
+                </DFFormat>
+                <Occurrence>
+                  <One />
+                </Occurrence>
+                <DFTitle>IEEE_EUI64] Specifies the IEEE destination address for this binding entry.</DFTitle>
+                <DFType>
+                  <MIME>text/plain</MIME>
+                </DFType>
+              </DFProperties>
+            </Node>
+            <Node>
+              <NodeName>GroupDestinationAddress</NodeName>
+              <!--Status: Required-->
+              <DFProperties>
+                <AccessType>
+                  <Get />
+                  <Replace />
+                </AccessType>
+                <DFFormat>
+                  <chr />
+                </DFFormat>
+                <Occurrence>
+                  <One />
+                </Occurrence>
+                <DFTitle>[ZigBeeNetworkAddress] Specifies the group destination address for this binding entry.</DFTitle>
+                <DFType>
+                  <MIME>text/plain</MIME>
+                </DFType>
+              </DFProperties>
+            </Node>
+          </Node>
+        </Node>
+        <Node>
+          <NodeName>Network</NodeName>
+          <!--Status: Required-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <node />
+            </DFFormat>
+            <Occurrence>
+              <One />
+            </Occurrence>
+            <DFTitle>The Network object provides the configuration capabilities needed to by a ZigBee Device to operate within a ZigBee Area Network as defined in [Section 2.5.2.4 Network Manager/ZigBee2007].</DFTitle>
+            <DFType>
+              <DDFName>
+              </DDFName>
+            </DFType>
+          </DFProperties>
+          <Node>
+            <NodeName>NeighborNumberOfEntries</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <node />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>The number of entries in the Neighbor table.</DFTitle>
+              <DFType>
+                <DDFName>
+                </DDFName>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>Neighbour</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <node />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>The Neighbor object provides the configuration capabilities needed to by a ZigBee Device to operate within a ZigBee Area Network as defined in [Section 2.5.2.4 Network Manager/ZigBee2007].</DFTitle>
+              <DFType>
+                <DDFName>
+                </DDFName>
+              </DFType>
+            </DFProperties>
+            <Node>
+              <NodeName />
+              <!--Status: Required-->
+              <DFProperties>
+                <AccessType>
+                  <Get />
+                </AccessType>
+                <DFFormat>
+                  <node />
+                </DFFormat>
+                <Occurrence>
+                  <OneOrMore />
+                </Occurrence>
+                <DFTitle>This is placeholder node for OneOrMore &lt;x&gt;/ZDO/&lt;x&gt;/Network/Neighbour entries.</DFTitle>
+                <DFType>
+                  <DDFName>
+                  </DDFName>
+                </DFType>
+              </DFProperties>
+              <Node>
+                <NodeName>LQI</NodeName>
+                <!--Status: Required-->
+                <DFProperties>
+                  <AccessType>
+                    <Get />
+                  </AccessType>
+                  <DFFormat>
+                    <int />
+                  </DFFormat>
+                  <Occurrence>
+                    <One />
+                  </Occurrence>
+                  <DFTitle>The LQI field specified link quality identification (LQI) for neighbor ZigBee device.</DFTitle>
+                  <DFType>
+                    <MIME>text/plain</MIME>
+                  </DFType>
+                </DFProperties>
+              </Node>
+              <Node>
+                <NodeName>Relationship</NodeName>
+                <!--Status: Required-->
+                <DFProperties>
+                  <AccessType>
+                    <Get />
+                  </AccessType>
+                  <DFFormat>
+                    <chr />
+                  </DFFormat>
+                  <Occurrence>
+                    <One />
+                  </Occurrence>
+                  <DFTitle>The relationship between the neighbor and this device.Enumeration of: 
+Parent 
+Child 
+PrevChild 
+Sibling 
+None </DFTitle>
+                  <DFType>
+                    <MIME>text/plain</MIME>
+                  </DFType>
+                </DFProperties>
+              </Node>
+              <Node>
+                <NodeName>PermitJoin</NodeName>
+                <!--Status: Required-->
+                <DFProperties>
+                  <AccessType>
+                    <Get />
+                  </AccessType>
+                  <DFFormat>
+                    <chr />
+                  </DFFormat>
+                  <Occurrence>
+                    <One />
+                  </Occurrence>
+                  <DFTitle>An indication of whether the neighbor device is accepting join requests.Enumeration of: 
+Accepting 
+NotAccepting 
+Unknown </DFTitle>
+                  <DFType>
+                    <MIME>text/plain</MIME>
+                  </DFType>
+                </DFProperties>
+              </Node>
+              <Node>
+                <NodeName>Depth</NodeName>
+                <!--Status: Required-->
+                <DFProperties>
+                  <AccessType>
+                    <Get />
+                  </AccessType>
+                  <DFFormat>
+                    <int />
+                  </DFFormat>
+                  <Occurrence>
+                    <One />
+                  </Occurrence>
+                  <DFTitle>The tree depth of the neighbor device.</DFTitle>
+                  <DFType>
+                    <MIME>text/plain</MIME>
+                  </DFType>
+                </DFProperties>
+              </Node>
+            </Node>
+          </Node>
+        </Node>
+        <Node>
+          <NodeName>NodeManager</NodeName>
+          <!--Status: Required-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <node />
+            </DFFormat>
+            <Occurrence>
+              <One />
+            </Occurrence>
+            <DFTitle>The NodeManager object describes the configuration capabilities related for remote management of the ZigBee Area Network as defined in [Section 2.5.2.6 Node Manager/ZigBee2007].</DFTitle>
+            <DFType>
+              <DDFName>
+              </DDFName>
+            </DFType>
+          </DFProperties>
+          <Node>
+            <NodeName>RoutingTableNumberOfEntries</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <int />
+              </DFFormat>
+              <Occurrence>
+                <OneOrMore />
+              </Occurrence>
+              <DFTitle>The number of entries in the RoutingTable table.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>RoutingTable</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <node />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>The RoutingTable object describes the route table as defined in [Table 3.51 Routing Table Entry/ZigBee2007].</DFTitle>
+              <DFType>
+                <DDFName>
+                </DDFName>
+              </DFType>
+            </DFProperties>
+            <Node>
+              <NodeName />
+              <!--Status: Required-->
+              <DFProperties>
+                <AccessType>
+                  <Get />
+                </AccessType>
+                <DFFormat>
+                  <node />
+                </DFFormat>
+                <Occurrence>
+                  <OneOrMore />
+                </Occurrence>
+                <DFTitle>This is placeholder node for OneOrMore RoutingTable entries.</DFTitle>
+                <DFType>
+                  <DDFName>
+                  </DDFName>
+                </DFType>
+              </DFProperties>
+              <Node>
+                <NodeName>DestinationAddress</NodeName>
+                <!--Status: Required-->
+                <DFProperties>
+                  <AccessType>
+                    <Get />
+                  </AccessType>
+                  <DFFormat>
+                    <chr />
+                  </DFFormat>
+                  <Occurrence>
+                    <One />
+                  </Occurrence>
+                  <DFTitle>The ZigBee network address of this route.</DFTitle>
+                  <DFType>
+                    <MIME>text/plain</MIME>
+                  </DFType>
+                </DFProperties>
+              </Node>
+              <Node>
+                <NodeName>NextHopAddress</NodeName>
+                <!--Status: Required-->
+                <DFProperties>
+                  <AccessType>
+                    <Get />
+                  </AccessType>
+                  <DFFormat>
+                    <chr />
+                  </DFFormat>
+                  <Occurrence>
+                    <One />
+                  </Occurrence>
+                  <DFTitle>[ZigBeeNetworkAddress] Specifies the network address of the next hop ZigBee device on the way to the destination ZigBee device.</DFTitle>
+                  <DFType>
+                    <MIME>text/plain</MIME>
+                  </DFType>
+                </DFProperties>
+              </Node>
+              <Node>
+                <NodeName>Status</NodeName>
+                <!--Status: Required-->
+                <DFProperties>
+                  <AccessType>
+                    <Get />
+                  </AccessType>
+                  <DFFormat>
+                    <chr />
+                  </DFFormat>
+                  <Occurrence>
+                    <One />
+                  </Occurrence>
+                  <DFTitle>The status of the route entry.</DFTitle>
+                  <DFType>
+                    <MIME>text/plain</MIME>
+                  </DFType>
+                </DFProperties>
+              </Node>
+              <Node>
+                <NodeName>MemoryConstrained</NodeName>
+                <!--Status: Required-->
+                <DFProperties>
+                  <AccessType>
+                    <Get />
+                  </AccessType>
+                  <DFFormat>
+                    <bool />
+                  </DFFormat>
+                  <Occurrence>
+                    <One />
+                  </Occurrence>
+                  <DFTitle>A flag indicating whether the device is a memory constrained concentrator.</DFTitle>
+                  <DFType>
+                    <MIME>text/plain</MIME>
+                  </DFType>
+                </DFProperties>
+              </Node>
+              <Node>
+                <NodeName>ManyToOne</NodeName>
+                <!--Status: Required-->
+                <DFProperties>
+                  <AccessType>
+                    <Get />
+                  </AccessType>
+                  <DFFormat>
+                    <bool />
+                  </DFFormat>
+                  <Occurrence>
+                    <One />
+                  </Occurrence>
+                  <DFTitle>A flag indicating that the destination is a concentrator that issued a many to-one request.</DFTitle>
+                  <DFType>
+                    <MIME>text/plain</MIME>
+                  </DFType>
+                </DFProperties>
+              </Node>
+              <Node>
+                <NodeName>RouteRecordRequired</NodeName>
+                <!--Status: Required-->
+                <DFProperties>
+                  <AccessType>
+                    <Get />
+                  </AccessType>
+                  <DFFormat>
+                    <bool />
+                  </DFFormat>
+                  <Occurrence>
+                    <One />
+                  </Occurrence>
+                  <DFTitle>A flag indicating that a route record command frame should be sent to the destination prior to the next data packet.</DFTitle>
+                  <DFType>
+                    <MIME>text/plain</MIME>
+                  </DFType>
+                </DFProperties>
+              </Node>
+            </Node>
+          </Node>
+        </Node>
+      </Node>
+    </Node>
+  </Node>
+</MgmtTree>

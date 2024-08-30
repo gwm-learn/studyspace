@@ -1,0 +1,889 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE MgmtTree PUBLIC "-//OMA//DTD-DM-DDF 1.2//EN"
+    "http://www.openmobilealliance.org/tech/DTD/DM_DDF-V1_2.dtd"
+    [<?oma-dm-ddf-ver supported-versions="1.2"?>]>
+<!--
+
+DDF for Gw Config MO
+   version - 1.1
+   date    - 25 Jul 2017
+
+FILE INFORMATION
+
+  OMA Permanent Document
+    File: OMA-SUP-MO_GwConfig-V1_0-20170725-A
+    Type: Text
+
+  Public Reachable Information
+    Path: http://www.openmobilealliance.org/Tech/omna/dm_mo
+    Name: MO_GwConfig-v1_1.dtd
+
+NORMATIVE INFORMATION
+
+  Information about this file can be found in the latest revision of
+
+    OMA-TS-GwMO-V1_1
+
+  This is available at http://www.openmobilealliance.org/
+
+  Send comments to technical-comments@mail.openmobilealliance.org
+
+CHANGE HISTORY
+
+25072017 Status changed to Approved by TP, TP Ref # OMA-TP-2017-0031-INP_GwMO-V1_1_ERP_for_Final_Approval
+
+LEGAL DISCLAIMER
+
+  Copyright 2017 Open Mobile Alliance  All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  1. Redistributions of source code must retain the above copyright
+  notice, this list of conditions and the following disclaimer.
+  2. Redistributions in binary form must reproduce the above copyright
+  notice, this list of conditions and the following disclaimer in the
+  documentation and/or other materials provided with the distribution.
+  3. Neither the name of the copyright holder nor the names of its
+  contributors may be used to endorse or promote products derived
+  from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+  FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+  COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+  INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+  BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+  LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+  CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+  LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
+  ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  POSSIBILITY OF SUCH DAMAGE.
+
+  The above license is used as a license under copyright only.  Please
+  reference the OMA IPR Policy for patent licensing terms:
+  http://www.openmobilealliance.org/ipr.html
+
+-->
+<MgmtTree>
+  <!--This file is created with DDFCreator, Ver: 0.93, Server Ver: 0.20               -->
+  <!--Source specification: OMA-TS-GwMO-V1_1_Config.doc                               -->
+  <!--Created: 2014-04-29 12:44:37 (yyyy-mm-dd hh:mm:ss UTC)                          -->
+  <VerDTD>1.2</VerDTD>
+  <Node>
+    <NodeName />
+    <!--Status: Required-->
+    <DFProperties>
+      <AccessType>
+        <Get />
+      </AccessType>
+      <DFFormat>
+        <node />
+      </DFFormat>
+      <Occurrence>
+        <One />
+      </Occurrence>
+      <DFTitle>This placeholder node is the root node for the Gateway Config MO.</DFTitle>
+      <DFType>
+        <DDFName>urn:oma:mo:oma-gwmo-config:1.1</DDFName>
+      </DFType>
+    </DFProperties>
+    <Node>
+      <NodeName>DevTypeInfo</NodeName>
+      <!--Status: Required-->
+      <DFProperties>
+        <AccessType>
+          <Get />
+        </AccessType>
+        <DFFormat>
+          <node />
+        </DFFormat>
+        <Occurrence>
+          <One />
+        </Occurrence>
+        <DFTitle>This interior node contains all of the information pertaining to the handling of different types of End Devices by the DM Gateway.</DFTitle>
+        <DFType>
+          <DDFName>
+          </DDFName>
+        </DFType>
+      </DFProperties>
+      <Node>
+        <NodeName />
+        <!--Status: Required-->
+        <DFProperties>
+          <AccessType>
+            <Add />
+            <Delete />
+            <Get />
+          </AccessType>
+          <DFFormat>
+            <node />
+          </DFFormat>
+          <Occurrence>
+            <ZeroOrMore />
+          </Occurrence>
+          <DFTitle>This placeholder node contains information about the handling of one particular type of End Device by the DM Gateway.</DFTitle>
+          <DFType>
+            <DDFName>
+            </DDFName>
+          </DFType>
+        </DFProperties>
+        <Node>
+          <NodeName>DevType</NodeName>
+          <!--Status: Required-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+              <Replace />
+            </AccessType>
+            <DFFormat>
+              <chr />
+            </DFFormat>
+            <Occurrence>
+              <One />
+            </Occurrence>
+            <DFTitle>The value of this leaf node specifies the device type.</DFTitle>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+        <Node>
+          <NodeName>BStrapInfo</NodeName>
+          <!--Status: Required-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <node />
+            </DFFormat>
+            <Occurrence>
+              <One />
+            </Occurrence>
+            <DFTitle>This interior node contains all bootstrapping records that are needed for client-initiated bootstrap for the device type.</DFTitle>
+            <DFType>
+              <DDFName>
+              </DDFName>
+            </DFType>
+          </DFProperties>
+          <Node>
+            <NodeName />
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Add />
+                <Delete />
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <node />
+              </DFFormat>
+              <Occurrence>
+                <ZeroOrMore />
+              </Occurrence>
+              <DFTitle>This placeholder node contains one bootstrapping record that has all of the information for client-initiated bootstrap for the device type.</DFTitle>
+              <DFType>
+                <DDFName>
+                </DDFName>
+              </DFType>
+            </DFProperties>
+            <Node>
+              <NodeName>BStrapURL</NodeName>
+              <!--Status: Required-->
+              <DFProperties>
+                <AccessType>
+                  <Get />
+                  <Replace />
+                </AccessType>
+                <DFFormat>
+                  <chr />
+                </DFFormat>
+                <Occurrence>
+                  <One />
+                </Occurrence>
+                <DFTitle>The value of this leaf node indicates the URL of the Bootstrap Server for the device type.</DFTitle>
+                <DFType>
+                  <MIME>text/plain</MIME>
+                </DFType>
+              </DFProperties>
+            </Node>
+          </Node>
+        </Node>
+        <Node>
+          <NodeName>ReptServerIds</NodeName>
+          <!--Status: Optional-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <node />
+            </DFFormat>
+            <Occurrence>
+              <One />
+            </Occurrence>
+            <DFTitle>This interior node contains information about all DM Servers to which the DM Gateway MUST report alerts pertaining to End Devices of the specified device type.</DFTitle>
+            <DFType>
+              <DDFName>
+              </DDFName>
+            </DFType>
+          </DFProperties>
+          <Node>
+            <NodeName />
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Add />
+                <Delete />
+                <Get />
+                <Replace />
+              </AccessType>
+              <DFFormat>
+                <null />
+              </DFFormat>
+              <Occurrence>
+                <ZeroOrMore />
+              </Occurrence>
+              <DFTitle>The name of this leaf node is the identifier of one DM Server to which the DM Gateway MUST report alerts pertaining to End Devices of the specified device type.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+        </Node>
+      </Node>
+    </Node>
+    <Node>
+      <NodeName>Config</NodeName>
+      <!--Status: Required-->
+      <DFProperties>
+        <AccessType>
+          <Get />
+        </AccessType>
+        <DFFormat>
+          <node />
+        </DFFormat>
+        <Occurrence>
+          <One />
+        </Occurrence>
+        <DFTitle>This interior node contains the configuration parameters for the DM Gateway.</DFTitle>
+        <DFType>
+          <DDFName>
+          </DDFName>
+        </DFType>
+      </DFProperties>
+      <Node>
+        <NodeName>Alert</NodeName>
+        <!--Status: Required-->
+        <DFProperties>
+          <AccessType>
+            <Get />
+          </AccessType>
+          <DFFormat>
+            <node />
+          </DFFormat>
+          <Occurrence>
+            <One />
+          </Occurrence>
+          <DFTitle>This interior node is the root node for all of the configuration parameters dealing with  the reporting of Generic Alerts pertaining to End Devices.</DFTitle>
+          <DFType>
+            <DDFName>
+            </DDFName>
+          </DFType>
+        </DFProperties>
+        <Node>
+          <NodeName />
+          <!--Status: Required-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <node />
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrMore />
+            </Occurrence>
+            <DFTitle>This placeholder node groups the configuration parameters for the reporting of Generic Alerts based on some criteria (for example, alert type, device type, or device group).</DFTitle>
+            <DFType>
+              <DDFName>
+              </DDFName>
+            </DFType>
+          </DFProperties>
+          <Node>
+            <NodeName>DeviceType</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <chr />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>The value of this leaf node specifies the device type.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>GroupID</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <chr />
+              </DFFormat>
+              <Occurrence>
+                <ZeroOrMore />
+              </Occurrence>
+              <DFTitle>The value of this leaf node specifies the GroupID, which is specified in the DevGroup sub-tree of this MO.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>AlertType</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <chr />
+              </DFFormat>
+              <Occurrence>
+                <ZeroOrOne />
+              </Occurrence>
+              <DFTitle>The value of this leaf node specifies the Generic Alert type.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+        </Node>
+      </Node>
+      <Node>
+        <NodeName>DeviceAppAuth</NodeName>
+        <!--Status: Required-->
+        <DFProperties>
+          <AccessType>
+            <Get />
+          </AccessType>
+          <DFFormat>
+            <node />
+          </DFFormat>
+          <Occurrence>
+            <One />
+          </Occurrence>
+          <DFTitle>This node specifies authentication information for hosting End Devices that require DM Server assisted bootstrapping [section 8.5.1.1].</DFTitle>
+          <DFType>
+            <DDFName>
+            </DDFName>
+          </DFType>
+        </DFProperties>
+        <Node>
+          <NodeName />
+          <!--Status: Required-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <node />
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrMore />
+            </Occurrence>
+            <DFTitle>This placeholder node stores the authentication information for a particular End Device.</DFTitle>
+            <DFType>
+              <DDFName>
+              </DDFName>
+            </DFType>
+          </DFProperties>
+          <Node>
+            <NodeName>DeviceID</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <chr />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>This node specifies the Device ID associated with the AppAuth setting.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>AppAuth</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <node />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>This node specifies authentication information for the End Device whose identifier is the value of the sibling DeviceID node.</DFTitle>
+              <DFType>
+                <DDFName>
+                </DDFName>
+              </DFType>
+            </DFProperties>
+            <Node>
+              <NodeName />
+              <!--Status: Required-->
+              <DFProperties>
+                <AccessType>
+                  <Get />
+                </AccessType>
+                <DFFormat>
+                  <node />
+                </DFFormat>
+                <Occurrence>
+                  <OneOrMore />
+                </Occurrence>
+                <DFTitle>This interior node acts as a placeholder for one or more authentication settings.</DFTitle>
+                <DFType>
+                  <DDFName>
+                  </DDFName>
+                </DFType>
+              </DFProperties>
+              <Node>
+                <NodeName>AAuthLevel</NodeName>
+                <!--Status: Required-->
+                <DFProperties>
+                  <AccessType>
+                    <Get />
+                  </AccessType>
+                  <DFFormat>
+                    <chr />
+                  </DFFormat>
+                  <Occurrence>
+                    <One />
+                  </Occurrence>
+                  <DFTitle>This node specifies the authentication level.</DFTitle>
+                  <DFType>
+                    <MIME>text/plain</MIME>
+                  </DFType>
+                </DFProperties>
+              </Node>
+              <Node>
+                <NodeName>AAuthType</NodeName>
+                <!--Status: Required-->
+                <DFProperties>
+                  <AccessType>
+                    <Get />
+                  </AccessType>
+                  <DFFormat>
+                    <chr />
+                  </DFFormat>
+                  <Occurrence>
+                    <One />
+                  </Occurrence>
+                  <DFTitle>This node specifies the authentication type.</DFTitle>
+                  <DFType>
+                    <MIME>text/plain</MIME>
+                  </DFType>
+                </DFProperties>
+              </Node>
+              <Node>
+                <NodeName>AAuthName</NodeName>
+                <!--Status: Required-->
+                <DFProperties>
+                  <AccessType>
+                    <Get />
+                  </AccessType>
+                  <DFFormat>
+                    <chr />
+                  </DFFormat>
+                  <Occurrence>
+                    <One />
+                  </Occurrence>
+                  <DFTitle>This node specifies the authentication name.</DFTitle>
+                  <DFType>
+                    <MIME>text/plain</MIME>
+                  </DFType>
+                </DFProperties>
+              </Node>
+              <Node>
+                <NodeName>AAuthSecret</NodeName>
+                <!--Status: Required-->
+                <DFProperties>
+                  <AccessType>
+                    <Get />
+                  </AccessType>
+                  <DFFormat>
+                    <chr />
+                  </DFFormat>
+                  <Occurrence>
+                    <ZeroOrOne />
+                  </Occurrence>
+                  <DFTitle>This node specifies the authentication secret.</DFTitle>
+                  <DFType>
+                    <MIME>text/plain</MIME>
+                  </DFType>
+                </DFProperties>
+              </Node>
+              <Node>
+                <NodeName>AAuthData</NodeName>
+                <!--Status: Required-->
+                <DFProperties>
+                  <AccessType>
+                    <!--No Get-->
+                  </AccessType>
+                  <DFFormat>
+                    <bin />
+                  </DFFormat>
+                  <Occurrence>
+                    <One />
+                  </Occurrence>
+                  <DFTitle>This node specifies the authentication data.</DFTitle>
+                  <DFType>
+                    <MIME>text/plain</MIME>
+                  </DFType>
+                </DFProperties>
+              </Node>
+            </Node>
+          </Node>
+        </Node>
+      </Node>
+    </Node>
+    <Node>
+      <NodeName>DevGroup</NodeName>
+      <!--Status: Required-->
+      <DFProperties>
+        <AccessType>
+          <Get />
+        </AccessType>
+        <DFFormat>
+          <node />
+        </DFFormat>
+        <Occurrence>
+          <ZeroOrOne />
+        </Occurrence>
+        <DFTitle>This interior node contains information pertaining to all device groups that have been set up on the DM Gateway for the group management of devices that are subtending from the DM Gateway.
+The DM Server uses the group identifier to fanout commands to multiple End Devices, via a DM Gateway operating in the Proxy Mode.</DFTitle>
+        <DFType>
+          <DDFName>
+          </DDFName>
+        </DFType>
+      </DFProperties>
+      <Node>
+        <NodeName />
+        <!--Status: Required-->
+        <DFProperties>
+          <AccessType>
+            <Get />
+          </AccessType>
+          <DFFormat>
+            <node />
+          </DFFormat>
+          <Occurrence>
+            <OneOrMore />
+          </Occurrence>
+          <DFTitle>This placeholder node contains information pertaining to one device group.</DFTitle>
+          <DFType>
+            <DDFName>
+            </DDFName>
+          </DFType>
+        </DFProperties>
+        <Node>
+          <NodeName>GroupType</NodeName>
+          <!--Status: Required-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+              <Replace />
+            </AccessType>
+            <DFFormat>
+              <int />
+            </DFFormat>
+            <Occurrence>
+              <One />
+            </Occurrence>
+            <DFTitle>The value of this leaf node indicates the criteria for membership of this group.</DFTitle>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+        <Node>
+          <NodeName>Members</NodeName>
+          <!--Status: Required-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <node />
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrOne />
+            </Occurrence>
+            <DFTitle>This interior node contains all of the members of the device group.</DFTitle>
+            <DFType>
+              <DDFName>
+              </DDFName>
+            </DFType>
+          </DFProperties>
+        </Node>
+        <Node>
+          <NodeName>Condition</NodeName>
+          <!--Status: Optional-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <node />
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrOne />
+            </Occurrence>
+            <DFTitle>This interior node is the parent node for all of the information pertaining to a condition-based group.</DFTitle>
+            <DFType>
+              <DDFName>
+              </DDFName>
+            </DFType>
+          </DFProperties>
+          <Node>
+            <NodeName>DevTypeCriteria</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+                <Replace />
+              </AccessType>
+              <DFFormat>
+                <chr />
+              </DFFormat>
+              <Occurrence>
+                <ZeroOrOne />
+              </Occurrence>
+              <DFTitle>The value of this leaf node is the device type associated with the device group set by the DM Server.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>OtherCriteria</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+                <Replace />
+              </AccessType>
+              <DFFormat>
+                <chr />
+              </DFFormat>
+              <Occurrence>
+                <ZeroOrOne />
+              </Occurrence>
+              <DFTitle>The value of this leaf node is the condition expression that the DM Server wants the End Device to fulfill.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+        </Node>
+        <Node>
+          <NodeName>PopulateGroup</NodeName>
+          <!--Status: Required-->
+          <DFProperties>
+            <AccessType>
+              <Exec />
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <null />
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrOne />
+            </Occurrence>
+            <DFTitle>This node is used with the Exec command by the DM Server to populate the group when the value of its sibling GroupType node is ?' or ?'.</DFTitle>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+      </Node>
+    </Node>
+    <Node>
+      <NodeName>Privileges</NodeName>
+      <!--Status: Required-->
+      <DFProperties>
+        <AccessType>
+          <Get />
+        </AccessType>
+        <DFFormat>
+          <node />
+        </DFFormat>
+        <Occurrence>
+          <One />
+        </Occurrence>
+        <DFTitle>This node contains  information about the Target IDs( Device Id or Group ID ) with respective list of URIs  along with corresponding list of Privilege Limitation rights(Privilege ACL).</DFTitle>
+        <DFType>
+          <DDFName>
+          </DDFName>
+        </DFType>
+      </DFProperties>
+      <Node>
+        <NodeName />
+        <!--Status: Required-->
+        <DFProperties>
+          <AccessType>
+            <Get />
+          </AccessType>
+          <DFFormat>
+            <node />
+          </DFFormat>
+          <Occurrence>
+            <ZeroOrMore />
+          </Occurrence>
+          <DFTitle>This placeholder node contains information about the handling of one particular type of Target ID ( device or group of devices) by the DM Gateway.</DFTitle>
+          <DFType>
+            <DDFName>
+            </DDFName>
+          </DFType>
+        </DFProperties>
+        <Node>
+          <NodeName>TargetID</NodeName>
+          <!--Status: Required-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <chr />
+            </DFFormat>
+            <Occurrence>
+              <One />
+            </Occurrence>
+            <DFTitle>The value of this node specifies the GroupID or Device ID.</DFTitle>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+        <Node>
+          <NodeName>TargetType</NodeName>
+          <!--Status: Required-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <chr />
+            </DFFormat>
+            <Occurrence>
+              <One />
+            </Occurrence>
+            <DFTitle>The value of this leaf node indicates the type of the TargetID which is placed in the same sub-tree.</DFTitle>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+        <Node>
+          <NodeName />
+          <!--Status: Required-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <node />
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrMore />
+            </Occurrence>
+            <DFTitle>This is place holder for the URI  and  the corresponding PrivilegeACL of the Target ID.</DFTitle>
+            <DFType>
+              <DDFName>
+              </DDFName>
+            </DFType>
+          </DFProperties>
+          <Node>
+            <NodeName>URI</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <chr />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>The value of this node specifies   the URI(resource) of the end device for which the Privilege Access permissions are applicable.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>PrivilegeACL</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <chr />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>This provides the permissions applied to allow Server management operations for the controlled resource of the respective target id in the DM Gateway.
+In case of at least one Primary DM server account present on the device - to add or change rights for other servers , the gateway, receives a device management command to this node  from primary server  to add/modify an Privilege ACL for secondary server who doesn't have access right on a certain resource in a device or device group.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+        </Node>
+      </Node>
+    </Node>
+    <Node>
+      <NodeName>Ext</NodeName>
+      <!--Status: Optional-->
+      <DFProperties>
+        <AccessType>
+          <Get />
+        </AccessType>
+        <DFFormat>
+          <node />
+        </DFFormat>
+        <Occurrence>
+          <ZeroOrOne />
+        </Occurrence>
+        <DFTitle>This interior node is for vendor-specific extensions to the Gateway Config MO.</DFTitle>
+        <DFType>
+          <DDFName>
+          </DDFName>
+        </DFType>
+      </DFProperties>
+    </Node>
+  </Node>
+</MgmtTree>

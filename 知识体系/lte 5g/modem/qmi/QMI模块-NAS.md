@@ -1,0 +1,182 @@
+# NAS
+Network Access Service   
+
+QMI_NAS服务为其控制点提供NAS功能。这些服务包括用于控制设备执行的注册、连接和网络选择的接口，以及用于获取有关可见网络和服务网络的状态信息的接口。   
+
+NAS 提供以下网络访问相关功能：   
+1. 信号强度   
+2. 网络注册和附着   
+3. 搜网   
+4. 漫游、偏好   
+
+## 服务类型
+NAS 0x03   
+
+## 每个控制点的状态变量
+1. report_signal_strength   
+2. report_signal_strength_threshold_list   
+3. report_rf_band_info   
+4. report_reg_reject   
+5. report_rssi   
+6. report_ecio   
+7. report_io   
+8. report_sinr   
+9. report_rsrq   
+10. report_lte_snr   
+11. report_lte_rsrp   
+12. req_serving_system   
+13. reg_sys_sel_pref   
+14. reg_ddtm_events   
+
+
+
+## 消息
+1. QMI_NAS_RESET 重置请求控制点的NAS服务状态变量   
+2. QMI_NAS_ABORT 终止之前发出的QNI_NAS命令   
+3. QMI_NAS_SET_EVENT_REPORT 设置请求控制点的NAS状态报告条件   
+4. QMI_NAS_EVENT_REPORT_IND 指明NAS状态更改   
+5. QMI_NAS_INDICATION_REGISTER 为请求控制点的不同QMI_NAS指明设置注册状态   
+6. QMI_NAS_GET_SUPPORTED_MSGS 查询当前运行的软件实现的消息集   
+7. QMI_NAS_GET_SUPPORTED_FIELDS 查询由当前运行的软件实现的单个命令支持的字段   
+8. QMI_NAS_GET_SIGNAL_STRENGTH 查询设备测量的当前信号强度   
+9. QMI_NAS_PERFORM_NETWORK_SCAN 对可见网络执行扫描   
+10. QMI_NAS_INITIATE_NETWORK_REGISTER 启动网络注册   
+11. QMI_NAS_INITIATE_ATTACH 启动域附加或分离操作   
+12. QMI_NAS_GET_SERVING_SYSTEM 查询有关当前提供服务的系统的信息   
+13. QMI_NAS_SERVING_SYSTEM_IND 指明当前服务系统注册状态和/或无线电技术的更改   
+14. QMI_NAS_GET_HOME_NETWORK 检索有关设备的家庭网络的信息   
+15. QMI_NAS_GET_PREFERRED_NETWORKS 从设备查询首选网络列表   
+16. QMI_NAS_SET_PREFERRED_NETWORKS 将指定的首选网络列表写入设备   
+17. QMI_NAS_GET_FORBIDDEN_NETWORKS 从设备查询禁止的网络列表   
+18. QMI_NAS_SET_FORBIDDEN_NETWORKS 将指定的禁止网络列表写入设备   
+19. QMI_NAS_SET_TECHNOLOGY_PREFERENCE 设置技术首选项   
+20. QMI_NAS_GET_TECHNOLOGY_PREFERENCE 检索技术首选项
+21. QMI_NAS_GET_ACCOLC 查询设备的访问重载类（ACCOLC）   
+22. QMI_NAS_SET_ACCOLC 设置设备的ACCOLC   
+23. QMI_NAS_GET_NETWORK_SYSTEM_PREFERENCE 检索网络系统首选项   
+24. QMI_NAS_GET_DEVICE_CONFIG 查询设备的网络相关配置设置   
+25. QMI_NAS_SET_DEVICE_CONFIG 设置设备的网络相关配置   
+26. QMI_NAS_GET_RF_BAND_INFO  查询有关当前提供服务的系统的无线波段/频道信息   
+27. QMI_NAS_GET_AN_AAA_STATUS 查询当前1xEV DO会话的上次AN-AAA身份验证请求的状态   
+28. QMI_NAS_SET_SYSTEM_SELECTION_PREFERENCE 设置设备的不同系统选择首选项   
+29. QMI_NAS_GET_SYSTEM_SELECTION_PREFERENCE 查询设备的不同系统选择首选项   
+30. QMI_NAS_SET_DDTM_PREFERENCE 设置设备的数据专用传输模式（DDTM）首选项   
+31. QMI_NAS_DDTM 提供设备的DDTM状态   
+32. QMI_NAS_GET_OPERATOR_NAME_DATA 从多个源检索操作名称数据   
+33. QMI_NAS_OPERATOR_NAME_DATA_IND 表示从多个来源获取的操作员名称数据发生更改   
+34. QMI_NAS_GET_CSP_PLMN_MODE_BIT 从客户服务配置文件（CSP）检索PLMN模式位数据   
+35. QMI_NAS_CSP_PLMN_MODE_BIT_IND 提供CSP中PLMN模式位的任何更改   
+36. QMI_NAS_UPDATE_AKEY 更新A-KEY   
+37. QMI_NAS_GET_3GPP2_SUBSCRIPTION_INFO 检索3GPP2订阅相关的信息   
+38. QMI_NAS_SET_3GPP2_SUBSCRIPTION_INFO 设置3GPP2订阅相关的信息   
+39. QMI_NAS_GET_MOB_CAI_REV 检索移动CAI修订信息   
+40. QMI_NAS_GET_RTRE_CONFIG 检索当前RTRE配置信息   
+41. QMI_NAS_SET_RTRE_CONFIG 设置RTRE配置首选项   
+42. QMI_NAS_GET_CELL_LOCATION_INFO 检索小区位置相关的信息   
+43. QMI_NAS_GET_PLMN_NAME 查询运营商名字PLMN   
+44. QMI_NAS_BIND_SUBSCRIPTION 将当前控制点绑定到特定订阅   
+45. QMI_NAS_MANAGED_ROAMING 指明是否启用了托管漫游   
+46. QMI_NAS_DUAL_STANDBY_PREF_IND 通知控制点双备用订阅中的任何更改   
+47. QMI_NAS_SUBSCRIPTION_INFO_IND 指明订阅信息中的任何更改   
+48. QMI_NAS_GET_MODE_PREF 检索模式首选项   
+49. QMI_NAS_SET_DUAL_STANDBY_PREF 配置双待机首选项   
+50. QMI_NAS_NETWORK_TIME_IND 表示网络报告的时间更改   
+51. QMI_NAS_GET_SYS_INFO 获取系统信息   
+52. QMI_NAS_SYS_INFO_IND 指明系统信息的改变   
+53. QMI_NAS_GET_SIG_INFO 查询有关信号强度的信息   
+54. QMI_NAS_CONFIG_SIG_INFO 设置信号强度报告阈值   
+55. QMI_NAS_SIG_INFO_IND 提供所有信号强度状态改变   
+56. QMI_NAS_GET_ERR_RATE 查询当前错误率信息   
+57. QMI_NAS_ERR_RATE_IND 提供RAT特定错误率信息   
+58. QMI_NAS_HDR_SESSION_CLOSE_IND 指明当一个HDR 会话结束并返回结束的原因   
+59. QMI_NAS_HDR_UATI_UPDATE_IND 指明HDR唯一访问终端标识符何时更新并返回其新值   
+60. QMI_NAS_GET_HDR_SUBTYPE 检索当前HDR协议子类型   
+61. QMI_NAS_GET_HDR_COLOR_CODE 检索HDR颜色码值   
+62. QMI_NAS_GET_CURRENT_ACQ_SYS_MODE 检索当前采集系统模式   
+63. QMI_NAS_SET_RX_DIVERSITY 设置Rx分集   
+64. QMI_NAS_GET_TX_RX_INFO 检索Tx/Rx详细信息   
+65. QMI_NAS_UPDATE_AKEY_EXT 更新A-KEY   
+66. QMI_NAS_GET_DUAL_STANDBY_PREF 检索双待机首选项   
+67. QMI_NAS_DETACH_LTE 分离当前LTE系统   
+68. QMI_NAS_BLOCK_LTE_PLMN 锁定LTE PLMN   
+69. QMI_NAS_UNBLOCK_LTE_PLMN 解锁LTE PLMN   
+70. QMI_NAS_RESET_LTE_PLMN_BLOCKING 重置所有以前的LTE PLMN锁定操作   
+71. QMI_NAS_CURRENT_PLMN_NAME_IND 指明当前的SPN和PLMN名字信息   
+72. QMI_NAS_CONFIG_EMBMS 请求UE去使能eMBMS   
+73. QMI_NAS_GET_EMBMS_STATUS 查询eMBMS状态   
+74. QMI_NAS_EMBMS_STATUS_IND 通知UE当前eMBMS状态改变   
+75. QMI_NAS_GET_CDMA_POSITION_INFO 为了活动和邻居位置信息查询当前CDMA基站位置信息   
+76. QMI_NAS_RF_BAND_INFO_IND 报告当前射频波段信息   
+77. QMI_NAS_FORCE_NETWORK_SEARCH 强制执行网络搜索过程   
+78. QMI_NAS_NETWORK_REJECT_IND 上报网络拒绝信息   
+79. QMI_NAS_GET_MANAGED_ROAMING_CONFIG 查询当前漫游托管配置信息   
+80. QMI_NAS_RTRE_CONFIG_IND 上报RTRE配置状态的改变   
+81. QMI_NAS_GET_CENTRALIZED_EONS_SUPPORT_STATUS 查询集中式EON的调制解调器支持状态   
+82. QMI_NAS_CONFIG_SIG_INFO2 设置信号强度报告阈值   
+83. QMI_NAS_GET_TDS_CELL_AND_POSITION_INFO 检索TD-SCDMA的小区信息以及邻居小区信息   
+84. QMI_NAS_SET_HPLMN_IRAT_SEARCH_TIMER 将家庭运营商特定BPLMN搜索的定期搜索计时器配置设置为LTE   
+85. QMI_NAS_GET_EMBMS_SIG 为每个MBSFN区域检索当前的信号质量   
+86. QMI_NAS_LIMIT_SYS_INFO_IND_REPORTING 将QMI_NAS_SYS_INFO_IND的报告限制为仅当某些字段已更改时   
+87. QMI_NAS_GET_SYS_INFO_IND_REPORTING_LIMIT 检索QMI_NAS_SYS_INFO_IND报告的限制设置   
+88. QMI_NAS_UPDATE_IMS_STATUS 更新IMS的注册状态   
+89. QMI_NAS_GET_IMS_PREF_STATUS 检索IMS首选项状态   
+90. QMI_NAS_IMS_PREF_STATUS_IND 上报IMS首选项的改变   
+91. QMI_NAS_CONFIG_PLMN_NAME_IND_REPORTING 无论QMI_NAS_CURRENT_PLMN_NAME_IND 返回调制解调器确定的名称或者所有有效信息都要配置   
+92. QMI_NAS_CDMA_AVOID_SYSTEM 有助于避开CDMA系统并清除避免使用的系统列表   
+93. QMI_NAS_GET_CDMA_AVOID_SYSTEM_LIST 检索以前避免使用的CDMA系统列表   
+94. QMI_NAS_SET_HPLMN_SEARCH_TIMER 在modem设置HPLMN搜索定时器   
+95. QMI_NAS_GET_HPLMN_SEARCH_TIMER 检索HPLMN搜索定时器   
+96. QMI_NAS_GET_SUBSCRIPTION_INFO 查询当前查询信息   
+97. QMI_NAS_GET_NETWORK_TIME 查询网络上报的最近时间改动   
+98. QMI_NAS_GET_LTE_SIB16_NETWORK_TIME 从UE查询LTE网络时间   
+99. QMI_NAS_LTE_SIB16_NETWORK_TIME_IND 指明网络上报的LTE时间改动   
+100. QMI_NAS_SET_LTE_BAND_PRIORITY 设置LTE频段优先级   
+101. QMI_NAS_GET_EMBMS_SIG_EXT 为每个MBSFN区域检索当前信号质量   
+102. QMI_NAS_LTE_CPHY_CA_IND 表示发生了运营商聚合事件   
+103. QMI_NAS_GET_LTE_BAND_PRIORITY_LIST 获取LTE频段优先级列表   
+104. QMI_NAS_SET_BUILTIN_PLMN_LIST 设置内置PLMN列表   
+105. QMI_NAS_PERFORM_INCREMENTAL_NETWORK_SCAN 执行网络扫描并递增给出结果   
+106. QMI_NAS_SET_DRX 设置设备的DRX   
+107. QMI_NAS_GET_DRX 检索设备的DRX   
+108. QMI_NAS_CSG_SEARCH_SELECTION_CONFIG 配置CSG搜索和选择参数，并根据配置的参数立即触发定期搜索和选择   
+109. QMI_NAS_CSG_IMMEDIATE_SEARCH_SELECTION 根据已配置的参数立即触发CSG搜索和选择   
+110. QMI_NAS_GET_CSG_SEARCH_SELECTION_CONFIGURATION 检索配置的CSG搜索和选择参数   
+111. QMI_NAS_SSAC_INFO_IND 指示MMTEL语音/视频发起呼叫的特定于服务的访问类别（SSAC）限制信息   
+112. QMI_NAS_GET_LTE_EMBMS_INFO 检索LTE eMBMS统计信息   
+113. QMI_NAS_GET_SERV_CELL_SIB 获取服务小区SIB   
+114. QMI_NAS_SSAC_CHANGE_INFO_IND 表示MMTEL语音/视频发起呼叫的SSAC类限制信息发生更改   
+115. QMI_NAS_GET_SSAC_INFO 检索MMTEL语音/视频发起呼叫的SSAC限制信息   
+116. QMI_NAS_SET_PERIODIC_SEARCH_ALLOWED 开启或关闭周期搜索   
+117. QMI_NAS_EMM_T3402_CHANGED_IND 指明T定时器值的改变   
+118. QMI_NAS_GET_ACB_INFO 检索访问类限制（ACB）信息   
+119. QMI_NAS_SET_DATA_SUBS_PRIORITY 配置绑定订阅的数据优先级   
+120. QMI_NAS_GET_DATA_SUBS_PRIORITY 获取当前订阅的数据优先级   
+121. QMI_NAS_DATA_SUBS_PRIORITY_IND 通知控制点数据订阅优先级的任何更改   
+122. QMI_NAS_AVOID_TUNEAWAY 提高或降低收发器资源管理器（TRM）优先级，以阻止或取消阻止tune-aways   
+123. QMI_NAS_SET_MCC 通知调制解调器客户端发现的MCC   
+124. QMI_NAS_SET_DATA_ROAMING 通知调制解调器数据漫游状态的更改   
+125. QMI_NAS_GET_DATA_ROAMING 获取调制解调器数据漫游状态   
+126. QMI_NAS_SET_SRVCC 通知调制解调器在单无线电语音呼叫连续性SRVCC状态的改变   
+127. QMI_NAS_SET_BSR_TIMER 通知调制解调器更好的系统重新选择（BSR）计时器值的更改   
+128. QMI_NAS_GET_BSR_TIMER 从modem获取BSR定时器值   
+129. QMI_NAS_SET_DRX_SCALING_FACTOR 通过控制空闲DRX周期来调整唤醒持续时间；也用于跳过怠速模式测量   
+130. QMI_NAS_SET_SSAC_HYSTERESIS_TIMER 设置SSAC滞后定时器   
+131. QMI_NAS_GET_SSAC_HYSTERESIS_TIMER 检索最近已知的SSAC滞后定时器   
+132. QMI_NAS_GET_HDR_INFO 检索HDR扇区ID、导频伪随机噪声和MAC索引   
+133. QMI_NAS_GET_HDR_DRC_RATE 检索HDR数据率控制   
+134. QMI_NAS_SET_RPM_PARAMETERS 如果RPM处于活动状态，则设置无线电策略管理器（RPM）详细信息   
+135. QMI_NAS_GET_RPM_PARAMETERS 如果RPM处于活动状态，则检索RPM详细信息   
+136. QMI_NAS_SET_RPM_STATE 开启或关闭RPM   
+137. QMI_NAS_GET_LTE_CPHY_CA_INFO 检索以前的运营商聚合事件信息   
+138. QMI_NAS_MANUAL_SCAN_FAIL_IND 通知控制点手动网络搜索无法找到具有指定参数的任何网络   
+139. QMI_NAS_GET_NEGOTIATED_DRX 检索网络协商的DRX级别   
+140. QMI_NAS_SET_CELL_LOCK_CONFIG 配置小区列表，使服务获取仅限于列出的小区   
+141. QMI_NAS_LTE_UE_CONFIG_MSG 动态升级或降级LTE UE类别，启用或禁用载波聚合，或两者兼而有之   
+142. QMI_NAS_TIMER_EXPIRY_IND 指示已过期计时器的ID   
+143. QMI_NAS_EMERGENCY_MODE_STATUS_IND 指示紧急模式状态   
+144. QMI_NAS_ECALL_DEREGISTRATION 触发ECall的注销操作   
+145. QMI_NAS_UPDATE_CA_BAND_COMBO_MSG 更新PLMN的指定载波聚合频带组合字符串   
+146. QMI_NAS_GET_CA_BAND_COMBO_MSG 检索特定PLMN的指定载波聚合频带组合字符串   
+147. QMI_NAS_ECALL_TIMER_RESTART_MSG 允许应用程序请求计时器重新启动，并为计时器提供剩余的运行时间   
+
+

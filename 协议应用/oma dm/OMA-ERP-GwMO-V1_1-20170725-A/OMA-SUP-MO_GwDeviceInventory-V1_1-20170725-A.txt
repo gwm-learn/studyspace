@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE MgmtTree PUBLIC "-//OMA//DTD-DM-DDF 1.2//EN"
+    "http://www.openmobilealliance.org/tech/DTD/DM_DDF-V1_2.dtd"
+    [<?oma-dm-ddf-ver supported-versions="1.2"?>]>
+<!--
+
+DDF for Gw Device Inventory MO
+   version - 1.1
+   date    - 25 Jul 2017
+
+FILE INFORMATION
+
+  OMA Permanent Document
+    File: OMA-SUP-MO_GwDeviceInventory-V1_0-20170725-A
+    Type: Text
+
+  Public Reachable Information
+    Path: http://www.openmobilealliance.org/Tech/omna/dm_mo
+    Name: MO_GwDeviceInventory-v1_1.dtd
+
+NORMATIVE INFORMATION
+
+  Information about this file can be found in the latest revision of
+
+    OMA-TS-GwMO-V1_1
+
+  This is available at http://www.openmobilealliance.org/
+
+  Send comments to technical-comments@mail.openmobilealliance.org
+
+CHANGE HISTORY
+
+25072017 Status changed to Approved by TP, TP Ref # OMA-TP-2017-0031-INP_GwMO-V1_1_ERP_for_Final_Approval
+
+LEGAL DISCLAIMER
+
+  Copyright 2017 Open Mobile Alliance  All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  1. Redistributions of source code must retain the above copyright
+  notice, this list of conditions and the following disclaimer.
+  2. Redistributions in binary form must reproduce the above copyright
+  notice, this list of conditions and the following disclaimer in the
+  documentation and/or other materials provided with the distribution.
+  3. Neither the name of the copyright holder nor the names of its
+  contributors may be used to endorse or promote products derived
+  from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+  FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+  COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+  INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+  BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+  LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+  CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+  LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
+  ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  POSSIBILITY OF SUCH DAMAGE.
+
+  The above license is used as a license under copyright only.  Please
+  reference the OMA IPR Policy for patent licensing terms:
+  http://www.openmobilealliance.org/ipr.html
+
+-->
+<MgmtTree>
+  <!--This file is created with DDFCreator, Ver: 0.93, Server Ver: 0.20               -->
+  <!--Source specification: OMA-TS-GwMO-V1_1_DeviceInventory.doc                      -->
+  <!--Created: 2014-04-29 12:35:58 (yyyy-mm-dd hh:mm:ss UTC)                          -->
+  <VerDTD>1.2</VerDTD>
+  <Node>
+    <NodeName />
+    <!--Status: Required-->
+    <DFProperties>
+      <AccessType>
+        <Get />
+      </AccessType>
+      <DFFormat>
+        <node />
+      </DFFormat>
+      <Occurrence>
+        <One />
+      </Occurrence>
+      <DFTitle>This placeholder node is the root node for the Device Inventory MO.</DFTitle>
+      <DFType>
+        <DDFName>urn:oma:mo:oma-gwmo-deviceinventory:1.1</DDFName>
+      </DFType>
+    </DFProperties>
+    <Node>
+      <NodeName>Inventory</NodeName>
+      <!--Status: Required-->
+      <DFProperties>
+        <AccessType>
+          <Get />
+        </AccessType>
+        <DFFormat>
+          <node />
+        </DFFormat>
+        <Occurrence>
+          <One />
+        </Occurrence>
+        <DFTitle>This interior node is the parent node for all device inventory information.</DFTitle>
+        <DFType>
+          <DDFName>
+          </DDFName>
+        </DFType>
+      </DFProperties>
+      <Node>
+        <NodeName>DevCount</NodeName>
+        <!--Status: Required-->
+        <DFProperties>
+          <AccessType>
+            <Get />
+          </AccessType>
+          <DFFormat>
+            <int />
+          </DFFormat>
+          <Occurrence>
+            <One />
+          </Occurrence>
+          <DFTitle>This leaf node gives the number of End Devices that are managed through the DM Gateway.</DFTitle>
+          <DFType>
+            <MIME>text/plain</MIME>
+          </DFType>
+        </DFProperties>
+      </Node>
+      <Node>
+        <NodeName>Records</NodeName>
+        <!--Status: Required-->
+        <DFProperties>
+          <AccessType>
+            <Get />
+          </AccessType>
+          <DFFormat>
+            <node />
+          </DFFormat>
+          <Occurrence>
+            <One />
+          </Occurrence>
+          <DFTitle>This interior node is the parent node for all device inventory entries.</DFTitle>
+          <DFType>
+            <DDFName>
+            </DDFName>
+          </DFType>
+        </DFProperties>
+        <Node>
+          <NodeName />
+          <!--Status: Required-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <node />
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrMore />
+            </Occurrence>
+            <DFTitle>This placeholder node contains the device inventory entry for a specific End Device that is subtending from the DM Gateway.</DFTitle>
+            <DFType>
+              <DDFName>
+              </DDFName>
+            </DFType>
+          </DFProperties>
+          <Node>
+            <NodeName>DeviceID</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <chr />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>The value of this leaf node provides the public identity of the Device.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>DevType</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <chr />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>The value of this leaf node indicates the Device type.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>LANRef</NodeName>
+            <!--Status: Optional-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <chr />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>The value of this leaf node indicates the nodename that provides information about the LAN in which the End Device is deployed.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>AddressType</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <int />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>The value of this leaf node specifies the address type of the End Device.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>Address</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <chr />
+              </DFFormat>
+              <Occurrence>
+                <ZeroOrOne />
+              </Occurrence>
+              <DFTitle>The value of this leaf node provides the public routable address of the End Device.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>Mode</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <int />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>The value of this leaf node indicates the operation mode of the DM Gateway for the End Device.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>ComponentType</NodeName>
+            <!--Status: Optional-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <int />
+              </DFFormat>
+              <Occurrence>
+                <ZeroOrOne />
+              </Occurrence>
+              <DFTitle>If Hierarchical Architecture is supported, the value of this leaf node indicates the type of the GwMO component directly associated to this DM Gateway:
+The value of this node MAY be used to support DM Gateway features configuration and Device Group in Section 6.2 Gateway Config MO.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+	<Node>
+            <NodeName>EndDeviceRef</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <chr />
+              </DFFormat>
+              <Occurrence>
+                <ZeroOrOne />
+              </Occurrence>
+              <DFTitle>This node specifies a reference to the node which represents a non-OMA End Device in any other MO.  
+This node is required when the DM Gateway operates in Adaptation Mode and plays the role of the Origin Server by hosting the Management Tree of the End Device.  (See section 8.4.3 and Figure 15.)  In this case, the DM Gateway hosts in its Management Tree a representation of a non-OMA DM End Device apart from that of the DM Gateway itself.  A representation of a non-OMA DM End Device SHOULD be linked to an entry in the Device Inventory MO.  This node works as a link between them. 
+For ZigBee End Devices, refer to [ZigBee MO TS].
+It is expected that a URI to the target node is specified, but other implementation-specific form of a link to the target node MAY be referenced. 
+</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+        </Node>
+      </Node>
+      <Node>
+        <NodeName>LAN</NodeName>
+        <!--Status: Optional-->
+        <DFProperties>
+          <AccessType>
+            <Get />
+          </AccessType>
+          <DFFormat>
+            <node />
+          </DFFormat>
+          <Occurrence>
+            <One />
+          </Occurrence>
+          <DFTitle>This interior node is for storing information regarding the local area network in which the End Device is deployed.</DFTitle>
+          <DFType>
+            <DDFName>
+            </DDFName>
+          </DFType>
+        </DFProperties>
+        <Node>
+          <NodeName />
+          <!--Status: Required-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <node />
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrMore />
+            </Occurrence>
+            <DFTitle>This placeholder node is for storing information regarding the local area network in which the End Device is deployed.</DFTitle>
+            <DFType>
+              <DDFName>
+              </DDFName>
+            </DFType>
+          </DFProperties>
+          <Node>
+            <NodeName>MTU</NodeName>
+            <!--Status: Optional-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <int />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>The value of this node indicates the Maximum Transmission Unit (MTU) size, in bytes, for the network between the DM Gateway and the End Device.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>NetworkType</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <int />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>The value of this node indicates the network type which is used between Gateway and End Device.
+</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>Ext</NodeName>
+            <!--Status: Optional-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <node />
+              </DFFormat>
+              <Occurrence>
+                <ZeroOrOne />
+              </Occurrence>
+              <DFTitle>This interior node is for vendor-specific extensions to store the LAN related information</DFTitle>
+              <DFType>
+                <DDFName>
+                </DDFName>
+              </DFType>
+            </DFProperties>
+          </Node>
+        </Node>
+      </Node>
+      <Node>
+        <NodeName>Ext</NodeName>
+        <!--Status: Optional-->
+        <DFProperties>
+          <AccessType>
+            <Get />
+          </AccessType>
+          <DFFormat>
+            <node />
+          </DFFormat>
+          <Occurrence>
+            <ZeroOrOne />
+          </Occurrence>
+          <DFTitle>This interior node is for vendor-specific extensions to the Device Inventory MO.</DFTitle>
+          <DFType>
+            <DDFName>
+            </DDFName>
+          </DFType>
+        </DFProperties>
+      </Node>
+    </Node>
+  </Node>
+</MgmtTree>

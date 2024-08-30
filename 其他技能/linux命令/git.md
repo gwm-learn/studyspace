@@ -29,3 +29,29 @@ $ git commit --amend --message="modify message by daodaotest"
 # 仅修改 author 信息
 $ git commit --amend --author="jiangliheng <jiang_liheng@163.com>"
 ```
+
+# 提交
+## 本地分支名和远程分支名不一致
+```SHELL
+git push <远程主机名> <本地分支名>:<远程分支名>   
+```
+
+## 本地分支名和远程分支名一致
+```SHELL
+git push <远程主机名> <本地分支名>   
+```
+
+# 不同网站的同一个仓库合并在一个本地仓库
+## 添加另一个远程仓库
+```SHELL
+git remote add bitbucket https://bitbucket.askey.com.tw:8443/scm/pgrtlvwdro/rtl6100vw.git   
+git remote -v   
+git pull bitbucket   
+git branch -a   
+```
+
+# 创建本地分支
+```SHELL
+# 取远程分支并分化一个新分支：
+git checkout -b mybranch origin/mybranch   
+```

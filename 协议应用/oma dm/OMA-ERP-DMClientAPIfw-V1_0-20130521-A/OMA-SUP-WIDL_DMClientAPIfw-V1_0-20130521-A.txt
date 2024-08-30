@@ -1,0 +1,367 @@
+/** FILE INFORMATION
+*
+* Description:
+*    This schema provides the API description for the DMClientAPIfw enabler
+* 
+* Version: 1.0  (1.0.0)
+* Date:    21 May 2013
+* 
+* OMA Permanent Document
+*    File: OMA-SUP-WIDL_DMAPI-V1_0-20130521-A
+*    Type: Text
+* 
+* Public Reachable Information
+*    Path: http://www.openmobilealliance.org/tech/profiles
+*    Name: dmapi-v1_0.widl
+* 
+* NORMATIVE INFORMATION
+* 
+* Information about this file can be found in the latest revision of the specification
+* OMA-ER-DMClientAPIfw-V1_0 available at
+*    http://www.openmobilealliance.org/
+* 
+* Send comments to technical-comments@mail.openmobilealliance.org
+* 	
+* CHANGE HISTORY
+* 
+* 21052013 Status changed to Approval by TP, TP Ref # OMA-TP-2013-0138-INP_DMClientAPIFw_V1_0_ERP_for_Final_Approval
+
+* LEGAL DISCLAIMER
+
+* Use of this document is subject to all of the terms and conditions
+* of the Use Agreement located at
+* http://www.openmobilealliance.org/UseAgreement.html
+* 
+* You may use this document or any part of the document for internal
+* or educational purposes only, provided you do not modify, edit or
+* take out of context the information in this document in any manner.
+* Information contained in this document may be used, at your sole
+* risk, for any purposes.
+* 
+* You may not use this document in any other manner without the prior
+* written permission of the Open Mobile Alliance.  The Open Mobile
+* Alliance authorizes you to copy this document, provided that you
+* retain all copyright and other proprietary notices contained in the
+* original materials on any copies of the materials and that you
+* comply strictly with these terms.  This copyright permission does
+* not constitute an endorsement of the products or services.  The
+* Open Mobile Alliance assumes no responsibility for errors or
+* omissions in this document.
+* 
+* Each Open Mobile Alliance member has agreed to use reasonable
+* endeavors to inform the Open Mobile Alliance in a timely manner of
+* Essential IPR as it becomes aware that the Essential IPR is related
+* to the prepared or published specification.  However, the members
+* do not have an obligation to conduct IPR searches.  The declared
+* Essential IPR is publicly available to members and non-members of
+* the Open Mobile Alliance and may be found on the "OMA IPR
+* Declarations" list at http://www.openmobilealliance.org/ipr.html.
+* The Open Mobile Alliance has not conducted an independent IPR review
+* of this document and the information contained herein, and makes no
+* representations or warranties regarding third party IPR, including
+* without limitation patents, copyrights or trade secret rights.  This
+* document may contain inventions for which you must obtain licenses
+* from third parties before making, using or selling the inventions.
+* Defined terms above are set forth in the schedule to the Open Mobile
+* Alliance Application Form.
+* 
+* NO REPRESENTATIONS OR WARRANTIES (WHETHER EXPRESS OR IMPLIED) ARE
+* MADE BY THE OPEN MOBILE ALLIANCE OR ANY OPEN MOBILE ALLIANCE MEMBER
+* OR ITS AFFILIATES REGARDING ANY OF THE IPR'S REPRESENTED ON THE "OMA
+* IPR DECLARATIONS" LIST, INCLUDING, BUT NOT LIMITED TO THE ACCURACY,
+* COMPLETENESS, VALIDITY OR RELEVANCE OF THE INFORMATION OR WHETHER OR
+* NOT SUCH RIGHTS ARE ESSENTIAL OR NON-ESSENTIAL.
+* 
+* THE OPEN MOBILE ALLIANCE IS NOT LIABLE FOR AND HEREBY DISCLAIMS ANY
+* DIRECT, INDIRECT, PUNITIVE, SPECIAL, INCIDENTAL, CONSEQUENTIAL, OR
+* EXEMPLARY DAMAGES ARISING OUT OF OR IN CONNECTION WITH THE USE OF
+* DOCUMENTS AND THE INFORMATION CONTAINED IN THE DOCUMENTS.
+* 
+* Copyright 2013 Open Mobile Alliance Ltd.  All Rights Reserved.
+* Used with the permission of the Open Mobile Alliance Ltd. under the
+* terms set forth above.
+*/
+
+/**
+* Definition of array of DMObject.
+*/
+typedef sequence<DMObject> DMObjectArray;
+
+/**
+* MOData is native object which can be mapped and serialized/deserialized JSON Object as defined in [RFC4627].
+*/
+typedef Object MOData;
+
+/**
+* This interface represents the instance of DMAPI through which the functionality of the DMClient can be accessed.
+*/
+[NoInterfaceObject] interface DMAPI {
+	readonly attribute DMClient dmClient;
+};
+Window implements DMAPI;
+
+/**
+* This interface represents the instance of OmaapiObject specified in [OMAAPI-Module].
+*/
+[NoInterfaceObject] interface OmaapiObject {
+	readonly attribute Omaapi omaapi;
+};
+Window implements OmaapiObject;
+
+/**
+* This interface is the main entry point to DM API and its functions.
+* This interface SHALL be implemented by DM Client API framework.
+*/
+[NoInterfaceObject] interface DMClient {
+
+	/**
+	 * Attribute containing protocol version supported by this DMClient interface.
+	 */
+	readonly attribute DOMString version;  
+
+	const unsigned short CONNECTING = 0;
+	const unsigned short OPEN = 1;
+	const unsigned short CLOSING = 2;
+	const unsigned short CLOSED = 3;
+	const unsigned short ABORTED = 4;
+
+	/**
+	 * Attribute representing the session Status.
+	 */  
+	readonly attribute unsigned short sessionStatus;
+
+	/**
+	 * This method allows DM Client to start a DM Session. 
+	 * It is possible to pass a DMAlertObject object to the DM Client in order to insert a Generic Alert in package#1. 
+	 * Returned PendingOperation object allows to cancel ongoing operation.
+	 *
+	 * \param successCB Function to be invoked when DM Session ends successfully
+	 * \param errorCB Function to be invoked when DM Session fails
+	 * \param serverId The ServerId of the server that the DM client MUST connect to. This value can be an empty DOMString when only one ServerID is available on the Management Tree. If it does not match with any bootstrapped server, it MUST be rejected
+	 * \param alert If defined, this object contains values which MUST be used to populate generic alert in package#1
+	 * \return PendingOperation object allowing to cancel ongoing operation
+	 * \throw OmaAPIError
+	 */
+	PendingOperation startDMSession(in SuccessCallback successCB,in ErrorCallback errorCB, in DOMString serverId, in optional DMAlertObject alert) raises (OmaAPIError);
+
+	/**
+	 * This method allows retrieving the list of MO instances URIs for the given MOID. 
+	 * Each returned URI SHALL specify the location of a MO instance in the DM Tree. 
+	 * This method is synchronous.
+	 *
+	 * \param moid The MO identifier used to retrieve the list of MO instance URIs: it MUST be a valid MO URN (e.g. to retrieve a CAB MO, the MOID SHOULD be "urn:oma:mo:oma-cab:1.0")
+	 * \return StringArray array of MO instance URIs
+	 * \throw OmaAPIError
+	 */	
+	StringArray listURIByMOID(in DOMString moid) raises (OmaAPIError);
+
+	/**
+	 * This method allows retrieving the DMObject representing the MO instance identified by provided URI. 
+	 * This method is asynchronous and therefore returns immediately. 
+	 * The successCB and errorCB callback functions are used to handle the results.
+	 *
+	 * \param uri The absolute URI indicating the location of the MO instance in the DM Tree
+	 * \param successCB Function to be invoked when the asynchronous operation completes successfully; the DMObject representing the MO instance is returned as parameter
+	 * \param errorCB Function to be invoked when the asynchronous operation fails
+	 * \return PendingOperation object allowing to cancel ongoing operation
+	 * \throw OmaAPIError
+	 */		
+	PendingOperation getMOByURI(in DOMString uri, in MOInstanceCB successCB, in ErrorCallback errorCB) raises (OmaAPIError);
+
+	/**
+	 * This method allows DM Client to create the DMObject representing the MO instance identified by the provided URI.
+	 *
+	 * \param moid The MOID of the provided URI identifies the Management Object to be created by the DM Client
+	 * \param data MO structured data
+	 * \return DOMString created MO root URI
+	 * \throw OmaAPIError
+	 */
+	DOMString createMO(in String moid,in MOData data) raises (OmaAPIError);		
+};
+
+/**
+* This interface represents the instance of DM Generic Alert Object, to be used to define a generic alert inside package#1 (as defined in [DMPRO]) when a DM Session start is triggered.
+*/
+[NoInterfaceObject] interface DMAlertObject {
+	/**
+	 * Indicates the type of the content information of Generic Alert object. Its value MUST be compliant to [DMPRO].
+	 */
+	attribute DOMString metaType;
+
+	/**
+	 * Indicates the media type of the content information within the Generic Alert.
+	 */	
+	attribute DOMString alertType;
+
+	/**
+	 * Indicates the value of mark element of Generic Alert. Its value MUST be compliant to [DMPRO].
+	 */	
+	attribute DOMString mark;
+
+	/**
+	 * Represents the container for data to be conveyed in Generic Alert.
+	 */	
+	attribute DOMString data;
+};
+
+/**
+* This interface represents the instance of a DM MO identified by the MOID; the methods defined by this interface can be used to interact with an instance of this MO, e.g. to read the values of nodes.
+* This interface implements the MOUpdateTarget interface.
+*/
+[NoInterfaceObject] interface DMObject: MOUpdateTarget {
+	/**
+	 * Management Object MOID URN.
+	 */  
+	attribute DOMString moid;
+
+	/**
+	 * Management Object instance URI.
+	 */		
+	attribute DOMString uri;
+
+	/**
+	 * Returns the value of the node, whose location, within the scope of the DMObject, is specified by the nodeURI.
+	 *
+	 * \param nodeURI The relative URI of the node within the DMObject
+	 * \return MOData
+	 * \throw OmaAPIError
+	 */	
+	MOData getNodeValue(in DOMString nodeURI) raises (OmaAPIError);
+
+	/**
+	 * Sets values for the specific nodes identified by nodeURIs.
+	 * If node already exists, this method overwrites actual value; if node does not exist, a new node is created; if value is null, nodeURI identifies an interior node.
+	 *
+	 * \param nodeURIs A String Array containing relative URIs of the nodes within the DMObject
+	 * \param values A String Array containing node values. If an array element is null, related node is interior
+	 * \return void
+	 * \throw OmaAPIError	 
+	 */	
+	void setNodeValues(in StringArray nodeURIs, in StringArray values) raises (OmaAPIError);
+
+	/**
+	 * Sets subtree for the node identified by nodeURI.
+	 * If node already exists, this method overwrites actual subtree structure; if node does not exist, a new node is created; if value is null, nodeURI identifies an interior node.
+	 *
+	 * \param nodeURI The relative URI of the node within the DMObject
+	 * \param subtree Node subtree represented by MOData. If null, node is interior
+	 * \return void
+	 * \throw OmaAPIError
+	 */	
+	void setNodeValues(in DOMString nodeURI,in MOData subtree) raises (OmaAPIError);
+
+	/**
+	 * Deletes node identified by nodeURI. If the target node is the interior node, then the subtree of this node will be deleted.
+	 *
+	 * \param nodeURI The relative URI of the node within the DMObject
+	 * \return void
+	 * \throw OmaAPIError	 
+	 */	
+	void deleteNode(in DOMString nodeURI) raises (OmaAPIError);
+};
+
+/**
+* This interface SHALL be implemented by an application in order to handle the update notifications. 
+* The handleDMUpdate method is invoked by underlying implementation in order to notify an update.
+*/
+[NoInterfaceObject] interface DMUpdateListener {
+	/**
+	 * This method is invoked when the DMUpdateInfo occurs on the DMUpdateTarget for which the DMUpdateListener was registered.
+	 *
+	 * \param dmUpdate The MOUpdateInfo object representing the DM update for which this method was called
+	 * \return void
+	 */
+	 void handleDMUpdate(in MOUpdateInfo dmUpdate);
+};
+
+/**
+* This interface allows registering and unregistering DMUpdateListeners based on a specific MOUpdateInfo operation.
+* This interface SHALL be implemented by all DMObjects which could be target of DMUpdate operations.
+*/
+[NoInterfaceObject] interface DMUpdateTarget {
+	/**
+	 * This method allows registering a DMUpdateListener for the specified DMUpdate operation.
+	 *
+	 * \param type The DMUpdate operation for which the application asks the registration
+	 * \param listener Object implementing the DMUpdateListener interface to be registered
+	 * \return void
+	 * \throw OmaAPIError
+	 */
+	void addDMUpdateListener (in unsigned short type, in DMUpdateListener listener)  raises (OmaAPIError);
+
+	/**
+	 * This method allows unregistering a DMUpdateListener for the specified DMUpdate operation.
+	 *
+	 * \param type The DMUpdate operation for which the application asks the unregistration
+	 * \param listener Object implementing the DMUpdateListener interface to be unregistered
+	 * \return void
+	 * \throw OmaAPIError
+	 */	
+	void removeDMUpdateListener (in unsigned short type, in DMUpdateListener listener)  raises (OmaAPIError);
+};   
+
+/**
+* This interface contains the details regarding an update to Management Tree which are notified by the DM Client to registered applications.
+*/
+[NoInterfaceObject] interface MOUpdateInfo {
+
+	const unsigned short	OP_CREATE	= 0;
+	const unsigned short	OP_REPLACE	= 1;
+	const unsigned short	OP_UPDATE	= 2;
+	const unsigned short	OP_DELETE	= 3;
+
+	/**
+	 * Indicates the type of MOUpdate.
+	 */	
+	readonly attribute unsigned short type;
+	
+	/**
+	 * Indicates the time and date of update, expressed as a UTC based [ISO8601] basic format.
+	 */	
+	readonly attribute unsigned long timestamp;
+	
+	/**
+	 * Indicates the MOUpdateTarget associated with the update.
+	 */	
+	readonly attribute MOUpdateTarget MOUpdateTarget;
+};
+
+/**
+* This interface describes the object which is returned when an exception is raised by current operation.
+* Exception codes list extends OmaAPIError codes defined in [OMAAPI-Module].
+*/
+[Supplemental] interface OmaAPIException {
+
+	// ExceptionCode
+	const unsigned short	UNSUPPORTED_OPERATION	= 1001;
+	const unsigned short	CLIENT_NOT_READY		= 1002;
+	const unsigned short	NOT_ALLOWED_OPERATION	= 1003;
+}; 
+
+/**
+* This interface SHALL be implemented by function used as success callback for DMClientInterface.getMOByURI method.
+* The onSuccess method is invoked on getMOByURI normal exit.
+*/
+[Callback=FunctionOnly,NoInterfaceObject] interface MOInstanceCB {
+	/**
+	 * This method is invoked on normal exit by getMOByURI.
+	 *
+	 * \param dmObject DMObject representing MO instance.
+	 * \return void
+	 */
+	void onSuccess (in DMObject dmObject);
+};
+
+/**
+* This interface SHALL be implemented by function used as success callback for DMClientInterface.getMOByMOID method. 
+* The onSuccess method is invoked on getMOByMOID normal exit.
+*/
+[Callback=FunctionOnly,NoInterfaceObject] interface MOInstanceListCB {
+	/**
+	 * This method is invoked on normal exit by getMOByMOID.
+	 *
+	 * \param dmObjectArray Array of DMObjects
+	 * \return void
+	 */
+	void onSuccess (in DMObjectArray dmObjectArray);
+};

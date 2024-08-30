@@ -9,6 +9,7 @@
 5. linux网络
 6. linux iptables pocket reference
 7. openwrt
+8. lte/5G
 
 ## 编程技能
 1. C语言
@@ -25,8 +26,12 @@
 7. tr369
 8. upnp
 9. wireguard
+10. oma dm
+11. web
+12. yocto
 
 ## 其他技能
 1. docker
 2. shell脚本
 3. linux命令
+4. linux 技巧

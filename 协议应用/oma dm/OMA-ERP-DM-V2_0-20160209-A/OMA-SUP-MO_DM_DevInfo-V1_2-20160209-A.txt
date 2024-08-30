@@ -1,0 +1,334 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+OMA DM Device Information V1.2 DDF.
+This DDF contains a description of the DM Device Info management object (DevInfo), 
+according to the OMA DM Description Framework.
+
+OMA Permanent Document
+   File: OMA-SUP-MO_DM_DevInfo-V1_2-20160209-A
+   Type: Text
+Public Reachable Information
+   Path: http://www.openmobilealliance.org/tech/omna/dm_mo
+   Name: dm_devinfo-v1_2.ddf
+NORMATIVE INFORMATION
+This DDF contains a description of the DM account management object (DMAcc), 
+according to the OMA DM Description Framework.
+Information about this file can be found in the latest revision of
+           OMA-TS-DM_Protocol-V2_0-20160209-A
+Send comments to technical-comments@mail.openmobilealliance.org
+
+CHANGE HISTORY
+
+09022016 Status changed to Approved by TP, TP Ref # OMA-TP-2016-0032-INP_DM_V2_0_ERP_for_final_Approval
+
+LEGAL DISCLAIMER
+
+Use of this document is subject to all of the terms and conditions
+of the Use Agreement located at
+	http://www.openmobilealliance.org/UseAgreement.html
+
+You may use this document or any part of the document for internal
+or educational purposes only, provided you do not modify, edit or
+take out of context the information in this document in any manner.
+Information contained in this document may be used, at your sole
+risk, for any purposes.
+
+You may not use this document in any other manner without the prior
+written permission of the Open Mobile Alliance.  The Open Mobile
+Alliance authorizes you to copy this document, provided that you
+retain all copyright and other proprietary notices contained in the
+original materials on any copies of the materials and that you
+comply strictly with these terms.  This copyright permission does
+not constitute an endorsement of the products or services.  The
+Open Mobile Alliance assumes no responsibility for errors or
+omissions in this document.
+
+Each Open Mobile Alliance member has agreed to use reasonable
+endeavors to inform the Open Mobile Alliance in a timely manner of
+Essential IPR as it becomes aware that the Essential IPR is related
+to the prepared or published specification.  However, the members
+do not have an obligation to conduct IPR searches.  The declared
+Essential IPR is publicly available to members and non-members of
+the Open Mobile Alliance and may be found on the 'OMA IPR
+Declarations' list at http://www.openmobilealliance.org/ipr.html.
+The Open Mobile Alliance has not conducted an independent IPR review
+of this document and the information contained herein, and makes no
+representations or warranties regarding third party IPR, including
+without limitation patents, copyrights or trade secret rights.  This
+document may contain inventions for which you must obtain licenses
+from third parties before making, using or selling the inventions.
+Defined terms above are set forth in the schedule to the Open Mobile
+Alliance Application Form.
+
+NO REPRESENTATIONS OR WARRANTIES (WHETHER EXPRESS OR IMPLIED) ARE
+MADE BY THE OPEN MOBILE ALLIANCE OR ANY OPEN MOBILE ALLIANCE MEMBER
+OR ITS AFFILIATES REGARDING ANY OF THE IPR'S REPRESENTED ON THE 'OMA
+IPR DECLARATIONS' LIST, INCLUDING, BUT NOT LIMITED TO THE ACCURACY,
+COMPLETENESS, VALIDITY OR RELEVANCE OF THE INFORMATION OR WHETHER OR
+NOT SUCH RIGHTS ARE ESSENTIAL OR NON-ESSENTIAL.
+
+THE OPEN MOBILE ALLIANCE IS NOT LIABLE FOR AND HEREBY DISCLAIMS ANY
+DIRECT, INDIRECT, PUNITIVE, SPECIAL, INCIDENTAL, CONSEQUENTIAL, OR
+EXEMPLARY DAMAGES ARISING OUT OF OR IN CONNECTION WITH THE USE OF
+DOCUMENTS AND THE INFORMATION CONTAINED IN THE DOCUMENTS.
+
+Copyright 2016 Open Mobile Alliance Ltd.  All Rights Reserved.
+Used with the permission of the Open Mobile Alliance Ltd. under the
+terms set forth above.
+-->
+<!DOCTYPE MgmtTree PUBLIC "-//OMA//DTD-DM-DDF 1.2//EN" "http://www.openmobilealliance.org/tech/DTD/DM_DDF-V1_2.dtd"[<?oma-dm-ddf-ver supported-versions="1.2"?>]>
+<MgmtTree>
+  <!--This file is created with DDFCreator, Ver: 0.93, Server Ver: 0.20               -->
+  <!--Source specification: devinfo.doc                                               -->
+  <!--Created: 2013-10-01 16:21:04 (yyyy-mm-dd hh:mm:ss UTC)                          -->
+  <VerDTD>1.2</VerDTD>
+  <Node>
+    <NodeName />
+    <!--Status: Required-->
+    <DFProperties>
+      <AccessType>
+        <Get />
+      </AccessType>
+      <DFFormat>
+        <node />
+      </DFFormat>
+      <Occurrence>
+        <One />
+      </Occurrence>
+      <DFTitle>This interior node is the root node for the DevInfo MO.</DFTitle>
+      <DFType>
+        <DDFName>urn:oma:mo:oma-dm-devinfo:1.2</DDFName>
+      </DFType>
+    </DFProperties>
+    <Node>
+      <NodeName>Bearer</NodeName>
+      <!--Status: Optional-->
+      <DFProperties>
+        <AccessType>
+          <Get />
+        </AccessType>
+        <DFFormat>
+          <node />
+        </DFFormat>
+        <Occurrence>
+          <ZeroOrOne />
+        </Occurrence>
+        <DFTitle>An optional, interior node in which items related to the bearer (CDMA, etc.) are stored.</DFTitle>
+        <DFType>
+          <DDFName>
+          </DDFName>
+        </DFType>
+      </DFProperties>
+    </Node>
+    <Node>
+      <NodeName>DevID</NodeName>
+      <!--Status: Required-->
+      <DFProperties>
+        <AccessType>
+          <Get />
+        </AccessType>
+        <DFFormat>
+          <chr />
+        </DFFormat>
+        <Occurrence>
+          <One />
+        </Occurrence>
+        <DFTitle>This leaf node specifies the global unique identifier for the device.</DFTitle>
+        <DFType>
+          <MIME>text/plain</MIME>
+        </DFType>
+      </DFProperties>
+    </Node>
+    <Node>
+      <NodeName>Man</NodeName>
+      <!--Status: Required-->
+      <DFProperties>
+        <AccessType>
+          <Get />
+        </AccessType>
+        <DFFormat>
+          <chr />
+        </DFFormat>
+        <Occurrence>
+          <One />
+        </Occurrence>
+        <DFTitle>The manufacturer identifier (manufacturer specified string).</DFTitle>
+        <DFType>
+          <MIME>text/plain</MIME>
+        </DFType>
+      </DFProperties>
+    </Node>
+    <Node>
+      <NodeName>Mod</NodeName>
+      <!--Status: Required-->
+      <DFProperties>
+        <AccessType>
+          <Get />
+        </AccessType>
+        <DFFormat>
+          <chr />
+        </DFFormat>
+        <Occurrence>
+          <One />
+        </Occurrence>
+        <DFTitle>A model identifier (manufacturer specified string).</DFTitle>
+        <DFType>
+          <MIME>text/plain</MIME>
+        </DFType>
+      </DFProperties>
+    </Node>
+    <Node>
+      <NodeName>DmV</NodeName>
+      <!--Status: Required-->
+      <DFProperties>
+        <AccessType>
+          <Get />
+        </AccessType>
+        <DFFormat>
+          <chr />
+        </DFFormat>
+        <Occurrence>
+          <One />
+        </Occurrence>
+        <DFTitle>OMA device management client version identifier (manufacturer specified string).</DFTitle>
+        <DFType>
+          <MIME>text/plain</MIME>
+        </DFType>
+      </DFProperties>
+    </Node>
+    <Node>
+      <NodeName>Lang</NodeName>
+      <!--Status: Required-->
+      <DFProperties>
+        <AccessType>
+          <Get />
+        </AccessType>
+        <DFFormat>
+          <chr />
+        </DFFormat>
+        <Occurrence>
+          <One />
+        </Occurrence>
+        <DFTitle>The current language setting of the device.</DFTitle>
+        <DFType>
+          <MIME>text/plain</MIME>
+        </DFType>
+      </DFProperties>
+    </Node>
+    <Node>
+      <NodeName>DevType</NodeName>
+      <!--Status: Required-->
+      <DFProperties>
+        <AccessType>
+          <Get />
+        </AccessType>
+        <DFFormat>
+          <chr />
+        </DFFormat>
+        <Occurrence>
+          <One />
+        </Occurrence>
+        <DFTitle>Device type, for example PDA, pager, or phone (manufacturer specified string).</DFTitle>
+        <DFType>
+          <MIME>text/plain</MIME>
+        </DFType>
+      </DFProperties>
+    </Node>
+    <Node>
+      <NodeName>OEM</NodeName>
+      <!--Status: Required-->
+      <DFProperties>
+        <AccessType>
+          <Get />
+        </AccessType>
+        <DFFormat>
+          <chr />
+        </DFFormat>
+        <Occurrence>
+          <One />
+        </Occurrence>
+        <DFTitle>Original Equipment Manufacturer of the device (manufacturer specified string).</DFTitle>
+        <DFType>
+          <MIME>text/plain</MIME>
+        </DFType>
+      </DFProperties>
+    </Node>
+    <Node>
+      <NodeName>FwV</NodeName>
+      <!--Status: Required-->
+      <DFProperties>
+        <AccessType>
+          <Get />
+        </AccessType>
+        <DFFormat>
+          <chr />
+        </DFFormat>
+        <Occurrence>
+          <One />
+        </Occurrence>
+        <DFTitle>Firmware version of the device (manufacturer specified string).</DFTitle>
+        <DFType>
+          <MIME>text/plain</MIME>
+        </DFType>
+      </DFProperties>
+    </Node>
+    <Node>
+      <NodeName>SwV</NodeName>
+      <!--Status: Required-->
+      <DFProperties>
+        <AccessType>
+          <Get />
+        </AccessType>
+        <DFFormat>
+          <chr />
+        </DFFormat>
+        <Occurrence>
+          <One />
+        </Occurrence>
+        <DFTitle>Software version of the device (manufacturer specified string).</DFTitle>
+        <DFType>
+          <MIME>text/plain</MIME>
+        </DFType>
+      </DFProperties>
+    </Node>
+    <Node>
+      <NodeName>HwV</NodeName>
+      <!--Status: Required-->
+      <DFProperties>
+        <AccessType>
+          <Get />
+        </AccessType>
+        <DFFormat>
+          <chr />
+        </DFFormat>
+        <Occurrence>
+          <One />
+        </Occurrence>
+        <DFTitle>Hardware version of the device (manufacturer specified string).</DFTitle>
+        <DFType>
+          <MIME>text/plain</MIME>
+        </DFType>
+      </DFProperties>
+    </Node>
+    <Node>
+      <NodeName>Ext</NodeName>
+      <!--Status: Optional-->
+      <DFProperties>
+        <AccessType>
+          <Get />
+        </AccessType>
+        <DFFormat>
+          <node />
+        </DFFormat>
+        <Occurrence>
+          <One />
+        </Occurrence>
+        <DFTitle>This interior node is for vendor-specific extensions to store the device related information.</DFTitle>
+        <DFType>
+          <DDFName>
+          </DDFName>
+        </DFType>
+      </DFProperties>
+    </Node>
+  </Node>
+</MgmtTree>

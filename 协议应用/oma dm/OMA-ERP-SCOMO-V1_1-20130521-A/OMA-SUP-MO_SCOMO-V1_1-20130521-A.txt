@@ -1,0 +1,2186 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE MgmtTree PUBLIC "-//OMA//DTD-DM-DDF 1.2//EN" "http://www.openmobilealliance.org/tech/DTD/DM_DDF-V1_2.dtd"[<?oma-dm-ddf-ver supported-versions="1.2"?>]>
+<!-- 
+FILE INFORMATION
+
+OMA Software Component Management Object (SCOMO) V1.1, 21-May-2013.
+
+This DDF prototype describes Software Component Management Object
+Parameters and conforms to the DDF document type definition, 
+version 1.2.
+
+OMA Permanent Document
+   File: OMA-SUP-MO_SCOMO-V1_1-20130521-A
+   Type: Text
+
+Public Reachable Information
+   Path: http://www.openmobilealliance.org/tech/omna/dm_mo/
+   Name: mo_scomo-v1_1.ddf
+
+NORMATIVE INFORMATION
+
+  Information about this file can be found in the latest revision of
+
+    OMA-ER-SCOMO-V1_1
+
+  This is available at http://www.openmobilealliance.org/
+
+  Send comments to technical-comments@mail.openmobilealliance.org
+
+CHANGE HISTORY
+
+21052013 Status changed to Approval by TP, TP Ref # OMA-TP-2013-0139-INP_SCOMO_V1_1_ERP_for_Final_Approval
+	
+LEGAL DISCLAIMER
+
+Use of this document is subject to all of the terms and conditions
+of the Use Agreement located at
+	http://www.openmobilealliance.org/UseAgreement.html
+
+You may use this document or any part of the document for internal
+or educational purposes only, provided you do not modify, edit or
+take out of context the information in this document in any manner.
+Information contained in this document may be used, at your sole
+risk, for any purposes.
+
+You may not use this document in any other manner without the prior
+written permission of the Open Mobile Alliance.  The Open Mobile
+Alliance authorizes you to copy this document, provided that you
+retain all copyright and other proprietary notices contained in the
+original materials on any copies of the materials and that you
+comply strictly with these terms.  This copyright permission does
+not constitute an endorsement of the products or services.  The
+Open Mobile Alliance assumes no responsibility for errors or
+omissions in this document.
+
+Each Open Mobile Alliance member has agreed to use reasonable
+endeavors to inform the Open Mobile Alliance in a timely manner of
+Essential IPR as it becomes aware that the Essential IPR is related
+to the prepared or published specification.  However, the members
+do not have an obligation to conduct IPR searches.  The declared
+Essential IPR is publicly available to members and non-members of
+the Open Mobile Alliance and may be found on the "OMA IPR
+Declarations" list at http://www.openmobilealliance.org/ipr.html.
+The Open Mobile Alliance has not conducted an independent IPR review
+of this document and the information contained herein, and makes no
+representations or warranties regarding third party IPR, including
+without limitation patents, copyrights or trade secret rights.  This
+document may contain inventions for which you must obtain licenses
+from third parties before making, using or selling the inventions.
+Defined terms above are set forth in the schedule to the Open Mobile
+Alliance Application Form.
+
+NO REPRESENTATIONS OR WARRANTIES (WHETHER EXPRESS OR IMPLIED) ARE
+MADE BY THE OPEN MOBILE ALLIANCE OR ANY OPEN MOBILE ALLIANCE MEMBER
+OR ITS AFFILIATES REGARDING ANY OF THE IPR'S REPRESENTED ON THE "OMA
+IPR DECLARATIONS" LIST, INCLUDING, BUT NOT LIMITED TO THE ACCURACY,
+COMPLETENESS, VALIDITY OR RELEVANCE OF THE INFORMATION OR WHETHER OR
+NOT SUCH RIGHTS ARE ESSENTIAL OR NON-ESSENTIAL.
+
+THE OPEN MOBILE ALLIANCE IS NOT LIABLE FOR AND HEREBY DISCLAIMS ANY
+DIRECT, INDIRECT, PUNITIVE, SPECIAL, INCIDENTAL, CONSEQUENTIAL, OR
+EXEMPLARY DAMAGES ARISING OUT OF OR IN CONNECTION WITH THE USE OF
+DOCUMENTS AND THE INFORMATION CONTAINED IN THE DOCUMENTS.
+
+Copyright 2013 Open Mobile Alliance Ltd.  All Rights Reserved.
+Used with the permission of the Open Mobile Alliance Ltd. under the
+terms set forth above.
+-->
+<MgmtTree>
+  <!--This file is created with DDFCreator, Ver: 0.93, Server Ver: 0.19               -->
+  <!--Source specification: OMA-ER-SCOMO-V1_1-20111031-D.doc                          -->
+  <!--Created: 2011-11-08 03:42:00 (yyyy-mm-dd hh:mm:ss UTC)                          -->
+  <VerDTD>1.2</VerDTD>
+  <Node>
+    <NodeName />
+    <!--Status: Required-->
+    <DFProperties>
+      <AccessType>
+        <Get />
+      </AccessType>
+      <DFFormat>
+        <node />
+      </DFFormat>
+      <Occurrence>
+        <One />
+      </Occurrence>
+      <DFTitle>This interior node groups together the parameters of a Software Component Management Object.</DFTitle>
+      <DFType>
+        <DDFName>urn:oma:mo:oma-scomo:1.1</DDFName>
+      </DFType>
+    </DFProperties>
+    <Node>
+      <NodeName>Download</NodeName>
+      <!--Status: Optional-->
+      <DFProperties>
+        <AccessType>
+          <Get />
+        </AccessType>
+        <DFFormat>
+          <node />
+        </DFFormat>
+        <Occurrence>
+          <ZeroOrOne />
+        </Occurrence>
+        <DFTitle>This node is a parent node of the downloadable Delivery Packages that are ready for download or are in the process of downloading.</DFTitle>
+        <DFType>
+          <DDFName>
+          </DDFName>
+        </DFType>
+      </DFProperties>
+      <Node>
+        <NodeName />
+        <!--Status: Required-->
+        <DFProperties>
+          <AccessType>
+            <Get />
+          </AccessType>
+          <DFFormat>
+            <node />
+          </DFFormat>
+          <Occurrence>
+            <ZeroOrMore />
+          </Occurrence>
+          <DFTitle>This node groups pre-delivery information and actions that are used for triggering the delivery and installation of Delivery Packages using the indirect delivery mechanism specified in section 7.1.2.</DFTitle>
+          <DFType>
+            <DDFName>
+            </DDFName>
+          </DFType>
+        </DFProperties>
+        <Node>
+          <NodeName>PkgID</NodeName>
+          <!--Status: Required-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+              <Replace />
+            </AccessType>
+            <DFFormat>
+              <chr />
+            </DFFormat>
+            <Occurrence>
+              <One />
+            </Occurrence>
+            <DFTitle>This leaf node specifies the identifier for a Delivery Package.</DFTitle>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+        <Node>
+          <NodeName>Name</NodeName>
+          <!--Status: Optional-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+              <Replace />
+            </AccessType>
+            <DFFormat>
+              <chr />
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrOne />
+            </Occurrence>
+            <DFTitle>This leaf node specifies the Name for the Delivery Package.</DFTitle>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+        <Node>
+          <NodeName>PkgURL</NodeName>
+          <!--Status: Required-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <chr />
+            </DFFormat>
+            <Occurrence>
+              <One />
+            </Occurrence>
+            <DFTitle>This leaf node specifies the downloadable URL of the Delivery Package or its download descriptor.</DFTitle>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+        <Node>
+          <NodeName>InstallParams</NodeName>
+          <!--Status: Optional-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <chr />
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrOne />
+            </Occurrence>
+            <DFTitle>This leaf node is used with DownloadInstall or DownloadInstallInactive Primitives to specify the installation parameters when installing the Delivery Package to the device.</DFTitle>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+        <Node>
+          <NodeName>Reboot</NodeName>
+          <!--Status: Required-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <int />
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrOne />
+            </Occurrence>
+            <DFTitle>This leaf node is used with DownloadInstall or DownloadInstallInactive Primitives to specify when to reboot the device -- before and after installation.</DFTitle>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+        <Node>
+          <NodeName>Description</NodeName>
+          <!--Status: Optional-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <chr />
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrOne />
+            </Occurrence>
+            <DFTitle>This leaf node provides a description of the Delivery Package.</DFTitle>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+        <Node>
+          <NodeName>Status</NodeName>
+          <!--Status: Required-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <int />
+            </DFFormat>
+            <Occurrence>
+              <One />
+            </Occurrence>
+            <DFTitle>This leaf node specifies the Status of the Download and/or Install operation.</DFTitle>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+        <Node>
+          <NodeName>EnvType</NodeName>
+          <!--Status: Optional-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+              <Replace />
+            </AccessType>
+            <DFFormat>
+              <chr />
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrOne />
+            </Occurrence>
+            <DFTitle>This leaf node specifies the environment type of a Delivery Package.</DFTitle>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+        <Node>
+          <NodeName>PkgType</NodeName>
+          <!--Status: Required-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+              <Replace />
+            </AccessType>
+            <DFFormat>
+              <chr />
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrOne />
+            </Occurrence>
+            <DFTitle>This leaf node specifies the Content Type of a Delivery Package.</DFTitle>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+        <Node>
+          <NodeName>Operations</NodeName>
+          <!--Status: Required-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <node />
+            </DFFormat>
+            <Occurrence>
+              <One />
+            </Occurrence>
+            <DFTitle>This node is a parent node for Primitives that can be executed to start a download of a Delivery Package into the Device and possibly its subsequent installation.</DFTitle>
+            <DFType>
+              <DDFName>
+              </DDFName>
+            </DFType>
+          </DFProperties>
+          <Node>
+            <NodeName>Download</NodeName>
+            <!--Status: Optional-->
+            <DFProperties>
+              <AccessType>
+                <Exec />
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <null />
+              </DFFormat>
+              <Occurrence>
+                <ZeroOrOne />
+              </Occurrence>
+              <DFTitle>This node is used with the Exec command to start the Download operation -- to download the Delivery Package into the Device and in the Delivered state.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>DownloadInstall</NodeName>
+            <!--Status: Optional-->
+            <DFProperties>
+              <AccessType>
+                <Exec />
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <null />
+              </DFFormat>
+              <Occurrence>
+                <ZeroOrOne />
+              </Occurrence>
+              <DFTitle>This node is used with the Exec command to start the download operation to download the Delivery Package into the Device and to install the Deployment Component(s) (extracted from the Delivery Package) in the Active state.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>DownloadInstallInactive</NodeName>
+            <!--Status: Optional-->
+            <DFProperties>
+              <AccessType>
+                <Exec />
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <null />
+              </DFFormat>
+              <Occurrence>
+                <ZeroOrOne />
+              </Occurrence>
+              <DFTitle>This node is used with the Exec command to start the download operation to download the Delivery Package into the Device and to install the Deployment Component(s) (extracted from the Delivery Package) in the Inactive state.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>Ext</NodeName>
+            <!--Status: Optional-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <node />
+              </DFFormat>
+              <Occurrence>
+                <ZeroOrOne />
+              </Occurrence>
+              <DFTitle>This optional interior node designates a branch of the download operations sub-tree into which platform or vendor extensions MAY be added, permanently or dynamically.</DFTitle>
+              <DFType>
+                <DDFName>
+                </DDFName>
+              </DFType>
+            </DFProperties>
+          </Node>
+        </Node>
+        <Node>
+          <NodeName>Ext</NodeName>
+          <!--Status: Optional-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <node />
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrOne />
+            </Occurrence>
+            <DFTitle>This optional interior node designates a branch of the Download Delivery Package sub-tree into which platform or vendor extensions MAY be added, permanently or dynamically.</DFTitle>
+            <DFType>
+              <DDFName>
+              </DDFName>
+            </DFType>
+          </DFProperties>
+        </Node>
+      </Node>
+      <Node>
+        <NodeName>Whitelist</NodeName>
+        <!--Status: Optional-->
+        <DFProperties>
+          <AccessType>
+            <Get />
+          </AccessType>
+          <DFFormat>
+            <node />
+          </DFFormat>
+          <Occurrence>
+            <ZeroOrOne />
+          </Occurrence>
+          <DFTitle>This optional interior node is a parent node for the management of whitelisted Software Components.</DFTitle>
+          <DFType>
+            <DDFName>
+            </DDFName>
+          </DFType>
+        </DFProperties>
+        <Node>
+          <NodeName />
+          <!--Status: Required-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <node />
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrMore />
+            </Occurrence>
+            <DFTitle>This node groups the information for one whitelisted Software Component.</DFTitle>
+            <DFType>
+              <DDFName>
+              </DDFName>
+            </DFType>
+          </DFProperties>
+          <Node>
+            <NodeName>Name</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <chr />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>This leaf node specifies the name of the whitelisted Software Component .</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>Version</NodeName>
+            <!--Status: Optional-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <chr />
+              </DFFormat>
+              <Occurrence>
+                <ZeroOrOne />
+              </Occurrence>
+              <DFTitle>This leaf node specifies the version information of the whitelisted Software Component.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>HashInfo</NodeName>
+            <!--Status: Optional-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <node />
+              </DFFormat>
+              <Occurrence>
+                <ZeroOrOne />
+              </Occurrence>
+              <DFTitle>This interior node groups hash information.</DFTitle>
+              <DFType>
+                <DDFName>
+                </DDFName>
+              </DFType>
+            </DFProperties>
+            <Node>
+              <NodeName>Algorithm</NodeName>
+              <!--Status: Required-->
+              <DFProperties>
+                <AccessType>
+                  <Get />
+                </AccessType>
+                <DFFormat>
+                  <int />
+                </DFFormat>
+                <Occurrence>
+                  <One />
+                </Occurrence>
+                <DFTitle>This leaf node specifies the hashing algorithm used to calculate the hash value.</DFTitle>
+                <DFType>
+                  <MIME>text/plain</MIME>
+                </DFType>
+              </DFProperties>
+            </Node>
+            <Node>
+              <NodeName>Value</NodeName>
+              <!--Status: Required-->
+              <DFProperties>
+                <AccessType>
+                  <Get />
+                </AccessType>
+                <DFFormat>
+                  <chr />
+                </DFFormat>
+                <Occurrence>
+                  <One />
+                </Occurrence>
+                <DFTitle>This leaf node specifies the hash value for the data of a Delivery Package.</DFTitle>
+                <DFType>
+                  <MIME>text/plain</MIME>
+                </DFType>
+              </DFProperties>
+            </Node>
+          </Node>
+        </Node>
+      </Node>
+      <Node>
+        <NodeName>Blacklist</NodeName>
+        <!--Status: Optional-->
+        <DFProperties>
+          <AccessType>
+            <Get />
+          </AccessType>
+          <DFFormat>
+            <node />
+          </DFFormat>
+          <Occurrence>
+            <ZeroOrOne />
+          </Occurrence>
+          <DFTitle>This optional interior node is a parent node for the management of blacklisted Software Components.</DFTitle>
+          <DFType>
+            <DDFName>
+            </DDFName>
+          </DFType>
+        </DFProperties>
+        <Node>
+          <NodeName />
+          <!--Status: Required-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <node />
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrMore />
+            </Occurrence>
+            <DFTitle>This node groups the information for one blacklisted Software Component.</DFTitle>
+            <DFType>
+              <DDFName>
+              </DDFName>
+            </DFType>
+          </DFProperties>
+          <Node>
+            <NodeName>Name</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <chr />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>This leaf node specifies the name for the blacklisted Software Component .</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>Version</NodeName>
+            <!--Status: Optional-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <chr />
+              </DFFormat>
+              <Occurrence>
+                <ZeroOrOne />
+              </Occurrence>
+              <DFTitle>This leaf node specifies the version information of the blacklisted Software Component.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+        </Node>
+      </Node>
+      <Node>
+        <NodeName>Ext</NodeName>
+        <!--Status: Optional-->
+        <DFProperties>
+          <AccessType>
+            <Get />
+          </AccessType>
+          <DFFormat>
+            <node />
+          </DFFormat>
+          <Occurrence>
+            <ZeroOrOne />
+          </Occurrence>
+          <DFTitle>This optional interior node designates a branch of the download sub-tree into which platform or vendor extensions MAY be added, permanently or dynamically.</DFTitle>
+          <DFType>
+            <DDFName>
+            </DDFName>
+          </DFType>
+        </DFProperties>
+      </Node>
+    </Node>
+    <Node>
+      <NodeName>Inventory</NodeName>
+      <!--Status: Required-->
+      <DFProperties>
+        <AccessType>
+          <Get />
+        </AccessType>
+        <DFFormat>
+          <node />
+        </DFFormat>
+        <Occurrence>
+          <One />
+        </Occurrence>
+        <DFTitle>This node is a parent node for all of the Delivery Packages and Deployment Components in the Device.</DFTitle>
+        <DFType>
+          <DDFName>
+          </DDFName>
+        </DFType>
+      </DFProperties>
+      <Node>
+        <NodeName>Delivered</NodeName>
+        <!--Status: Optional-->
+        <DFProperties>
+          <AccessType>
+            <Get />
+          </AccessType>
+          <DFFormat>
+            <node />
+          </DFFormat>
+          <Occurrence>
+            <ZeroOrOne />
+          </Occurrence>
+          <DFTitle>This node is a parent node of the delivered Delivery Packages in the Device.</DFTitle>
+          <DFType>
+            <DDFName>
+            </DDFName>
+          </DFType>
+        </DFProperties>
+        <Node>
+          <NodeName />
+          <!--Status: Required-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <node />
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrOne />
+            </Occurrence>
+            <DFTitle>This node acts as a placeholder for a Delivery Package in the Device.
+The DM System provides the values for supported child nodes of this parent in either of two ways:
+When using OMA DM Replace as the delivery mechanism: These values are set by the SCOMO Server using DM commands.
+When using Alternate Download Mechanism: The SCOMO Client MUST copy these values from the corresponding branch of the Download sub-tree.</DFTitle>
+            <DFType>
+              <DDFName>
+              </DDFName>
+            </DFType>
+          </DFProperties>
+          <Node>
+            <NodeName>PkgID</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+                <Replace />
+              </AccessType>
+              <DFFormat>
+                <chr />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>This leaf node specifies the identifier of a Delivery Package in the Device.
+The PkgID is provided by the Device Management System and uniquely identifies the Delivery Package within the SCOMO tree.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>Data</NodeName>
+            <!--Status: Optional-->
+            <DFProperties>
+              <AccessType>
+                <!--No Get-->
+                <Replace />
+              </AccessType>
+              <DFFormat>
+                <bin />
+              </DFFormat>
+              <Occurrence>
+                <ZeroOrOne />
+              </Occurrence>
+              <DFTitle>This leaf node specifies the actual binary data of a Delivery Package.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>InstallParams</NodeName>
+            <!--Status: Optional-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <chr />
+              </DFFormat>
+              <Occurrence>
+                <ZeroOrOne />
+              </Occurrence>
+              <DFTitle>This leaf node is used with Install or InstallInactive Primitives to specify the installation parameters when installing the Delivery Package to the device.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>Name</NodeName>
+            <!--Status: Optional-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+                <Replace />
+              </AccessType>
+              <DFFormat>
+                <chr />
+              </DFFormat>
+              <Occurrence>
+                <ZeroOrOne />
+              </Occurrence>
+              <DFTitle>This leaf node specifies the Name of a Delivery Package in the Device.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>Description</NodeName>
+            <!--Status: Optional-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <chr />
+              </DFFormat>
+              <Occurrence>
+                <ZeroOrOne />
+              </Occurrence>
+              <DFTitle>This leaf node provides a description of the Delivery Package.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>EnvType</NodeName>
+            <!--Status: Optional-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+                <Replace />
+              </AccessType>
+              <DFFormat>
+                <chr />
+              </DFFormat>
+              <Occurrence>
+                <ZeroOrOne />
+              </Occurrence>
+              <DFTitle>This leaf node specifies the environment type of a Delivery Package in the Device.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>PkgType</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+                <Replace />
+              </AccessType>
+              <DFFormat>
+                <chr />
+              </DFFormat>
+              <Occurrence>
+                <ZeroOrOne />
+              </Occurrence>
+              <DFTitle>This leaf node specifies the Content Type of a Delivery Package in the Device.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>MetaData</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <node />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>This interior node specifies Metadata for the Delivered Package, providing information such as license, manufacturer, copyright, etc.</DFTitle>
+              <DFType>
+                <DDFName>
+                </DDFName>
+              </DFType>
+            </DFProperties>
+            <Node>
+              <NodeName>License</NodeName>
+              <!--Status: Optional-->
+              <DFProperties>
+                <AccessType>
+                  <Get />
+                </AccessType>
+                <DFFormat>
+                  <chr />
+                </DFFormat>
+                <Occurrence>
+                  <ZeroOrOne />
+                </Occurrence>
+                <DFTitle>This leaf node is used to provide license information for the Delivery Package.</DFTitle>
+                <DFType>
+                  <MIME>text/plain</MIME>
+                </DFType>
+              </DFProperties>
+            </Node>
+            <Node>
+              <NodeName>Copyright</NodeName>
+              <!--Status: Optional-->
+              <DFProperties>
+                <AccessType>
+                  <Get />
+                </AccessType>
+                <DFFormat>
+                  <chr />
+                </DFFormat>
+                <Occurrence>
+                  <ZeroOrOne />
+                </Occurrence>
+                <DFTitle>This leaf node provides copyright information for the Delivered Package.</DFTitle>
+                <DFType>
+                  <MIME>text/plain</MIME>
+                </DFType>
+              </DFProperties>
+            </Node>
+            <Node>
+              <NodeName>ValidityPeriod</NodeName>
+              <!--Status: Optional-->
+              <DFProperties>
+                <AccessType>
+                  <Get />
+                </AccessType>
+                <DFFormat>
+                  <chr />
+                </DFFormat>
+                <Occurrence>
+                  <ZeroOrOne />
+                </Occurrence>
+                <DFTitle>This leaf node specifies the validity period of the license -- the date up to which the license is valid for the Delivered Component.</DFTitle>
+                <DFType>
+                  <MIME>text/plain</MIME>
+                </DFType>
+              </DFProperties>
+            </Node>
+            <Node>
+              <NodeName>LicensedUserName</NodeName>
+              <!--Status: Optional-->
+              <DFProperties>
+                <AccessType>
+                  <Get />
+                </AccessType>
+                <DFFormat>
+                  <chr />
+                </DFFormat>
+                <Occurrence>
+                  <ZeroOrOne />
+                </Occurrence>
+                <DFTitle>This leaf node specifies authorized licensee(s) of the Delivered Package.</DFTitle>
+                <DFType>
+                  <MIME>text/plain</MIME>
+                </DFType>
+              </DFProperties>
+            </Node>
+            <Node>
+              <NodeName>Manufacturer</NodeName>
+              <!--Status: Optional-->
+              <DFProperties>
+                <AccessType>
+                  <Get />
+                </AccessType>
+                <DFFormat>
+                  <chr />
+                </DFFormat>
+                <Occurrence>
+                  <ZeroOrOne />
+                </Occurrence>
+                <DFTitle>This leaf node provides a name of the manufacturer of the Delivered Package.</DFTitle>
+                <DFType>
+                  <MIME>text/plain</MIME>
+                </DFType>
+              </DFProperties>
+            </Node>
+            <Node>
+              <NodeName>Creator</NodeName>
+              <!--Status: Optional-->
+              <DFProperties>
+                <AccessType>
+                  <Get />
+                </AccessType>
+                <DFFormat>
+                  <chr />
+                </DFFormat>
+                <Occurrence>
+                  <ZeroOrOne />
+                </Occurrence>
+                <DFTitle>This leaf node specifies a creator of the Delivered Package.</DFTitle>
+                <DFType>
+                  <MIME>text/plain</MIME>
+                </DFType>
+              </DFProperties>
+            </Node>
+            <Node>
+              <NodeName>CreationDate</NodeName>
+              <!--Status: Optional-->
+              <DFProperties>
+                <AccessType>
+                  <Get />
+                </AccessType>
+                <DFFormat>
+                  <chr />
+                </DFFormat>
+                <Occurrence>
+                  <ZeroOrOne />
+                </Occurrence>
+                <DFTitle>This leaf node specifies a creation date of the Delivered Package.</DFTitle>
+                <DFType>
+                  <MIME>text/plain</MIME>
+                </DFType>
+              </DFProperties>
+            </Node>
+            <Node>
+              <NodeName>ReleaseDate</NodeName>
+              <!--Status: Optional-->
+              <DFProperties>
+                <AccessType>
+                  <Get />
+                </AccessType>
+                <DFFormat>
+                  <chr />
+                </DFFormat>
+                <Occurrence>
+                  <ZeroOrOne />
+                </Occurrence>
+                <DFTitle>This leaf node specifies a release date of the Delivered Package.</DFTitle>
+                <DFType>
+                  <MIME>text/plain</MIME>
+                </DFType>
+              </DFProperties>
+            </Node>
+          </Node>
+          <Node>
+            <NodeName>Status</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <int />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>This leaf node specifies the status of Remove or Install Primitive.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>State</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <int />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>This leaf node specifies the state of a Delivery Package in the Device.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>Operations</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <node />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>This node is a parent node for Primitives that can be executed for Delivery Package in the Device.</DFTitle>
+              <DFType>
+                <DDFName>
+                </DDFName>
+              </DFType>
+            </DFProperties>
+            <Node>
+              <NodeName>Install</NodeName>
+              <!--Status: Required-->
+              <DFProperties>
+                <AccessType>
+                  <Exec />
+                  <Get />
+                </AccessType>
+                <DFFormat>
+                  <null />
+                </DFFormat>
+                <Occurrence>
+                  <ZeroOrOne />
+                </Occurrence>
+                <DFTitle>This node is used with the Exec command to start the Install operation.</DFTitle>
+                <DFType>
+                  <MIME>text/plain</MIME>
+                </DFType>
+              </DFProperties>
+            </Node>
+            <Node>
+              <NodeName>InstallInactive</NodeName>
+              <!--Status: Optional-->
+              <DFProperties>
+                <AccessType>
+                  <Exec />
+                  <Get />
+                </AccessType>
+                <DFFormat>
+                  <null />
+                </DFFormat>
+                <Occurrence>
+                  <ZeroOrOne />
+                </Occurrence>
+                <DFTitle>This node is used with the Exec command to start the InstallInactive operation.</DFTitle>
+                <DFType>
+                  <MIME>text/plain</MIME>
+                </DFType>
+              </DFProperties>
+            </Node>
+            <Node>
+              <NodeName>Remove</NodeName>
+              <!--Status: Required-->
+              <DFProperties>
+                <AccessType>
+                  <Exec />
+                  <Get />
+                </AccessType>
+                <DFFormat>
+                  <null />
+                </DFFormat>
+                <Occurrence>
+                  <ZeroOrOne />
+                </Occurrence>
+                <DFTitle>This node is used with the Exec command to start the Remove operation to remove the Delivery Package from the Device.</DFTitle>
+                <DFType>
+                  <MIME>text/plain</MIME>
+                </DFType>
+              </DFProperties>
+            </Node>
+            <Node>
+              <NodeName>Ext</NodeName>
+              <!--Status: Optional-->
+              <DFProperties>
+                <AccessType>
+                  <Get />
+                </AccessType>
+                <DFFormat>
+                  <node />
+                </DFFormat>
+                <Occurrence>
+                  <ZeroOrOne />
+                </Occurrence>
+                <DFTitle>This optional interior node designates a branch of the Delivered operations sub-tree into which platform or vendor extensions MAY be added, permanently or dynamically.</DFTitle>
+                <DFType>
+                  <DDFName>
+                  </DDFName>
+                </DFType>
+              </DFProperties>
+            </Node>
+          </Node>
+          <Node>
+            <NodeName>Ext</NodeName>
+            <!--Status: Optional-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <node />
+              </DFFormat>
+              <Occurrence>
+                <ZeroOrOne />
+              </Occurrence>
+              <DFTitle>This optional interior node designates a branch of the Delivery Package parameters sub-tree into which platform or vendor extensions MAY be added, permanently or dynamically.</DFTitle>
+              <DFType>
+                <DDFName>
+                </DDFName>
+              </DFType>
+            </DFProperties>
+          </Node>
+        </Node>
+        <Node>
+          <NodeName>Ext</NodeName>
+          <!--Status: Optional-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <node />
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrOne />
+            </Occurrence>
+            <DFTitle>This optional interior node designates a branch of the delivered sub-tree into which platform or vendor extensions MAY be added, permanently or dynamically.</DFTitle>
+            <DFType>
+              <DDFName>
+              </DDFName>
+            </DFType>
+          </DFProperties>
+        </Node>
+      </Node>
+      <Node>
+        <NodeName>Deployed</NodeName>
+        <!--Status: Required-->
+        <DFProperties>
+          <AccessType>
+            <Get />
+          </AccessType>
+          <DFFormat>
+            <node />
+          </DFFormat>
+          <Occurrence>
+            <One />
+          </Occurrence>
+          <DFTitle>This node is a parent node of the Deployment Components in the Device.</DFTitle>
+          <DFType>
+            <DDFName>
+            </DDFName>
+          </DFType>
+        </DFProperties>
+        <Node>
+          <NodeName>CheckUpdateAlertType</NodeName>
+          <!--Status: Optional-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <int />
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrOne />
+            </Occurrence>
+            <DFTitle>This leaf node specifies the Alert Type of client-initiated check for new version of the Deployed Components.</DFTitle>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+        <Node>
+          <NodeName />
+          <!--Status: Required-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <node />
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrMore />
+            </Occurrence>
+            <DFTitle>This node acts as a placeholder for a Deployment Component in the Device.</DFTitle>
+            <DFType>
+              <DDFName>
+              </DDFName>
+            </DFType>
+          </DFProperties>
+          <Node>
+            <NodeName>ID</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+                <Replace />
+              </AccessType>
+              <DFFormat>
+                <chr />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>This leaf node specifies the identifier of a deployed Deployment Component in the Device.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>PkgIDRef</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <chr />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>This leaf node provides the reference to the Delivery Package ID as specified in Download and/or Delivered tree in the Device.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>Name</NodeName>
+            <!--Status: Optional-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <chr />
+              </DFFormat>
+              <Occurrence>
+                <ZeroOrOne />
+              </Occurrence>
+              <DFTitle>This leaf node specifies the Name of a Deployment Component in the Device.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>Description</NodeName>
+            <!--Status: Optional-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <chr />
+              </DFFormat>
+              <Occurrence>
+                <ZeroOrOne />
+              </Occurrence>
+              <DFTitle>This leaf node provides a description of the Deployment Component in the Device.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>Version</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <chr />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>This leaf node specifies the Version of a Deployment Component in the Device.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>AvailableVersion</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <chr />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>This leaf node specifies the available version of the Deployment Component in the Server when device- or user-initiated check for new version of the Deployment component is completed.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>MetaData</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <node />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>This interior node specifies the metadata on the Deployed Component, providing information such as date and time of creation, manufacturer, creator of the software, copyright, etc.</DFTitle>
+              <DFType>
+                <DDFName>
+                </DDFName>
+              </DFType>
+            </DFProperties>
+            <Node>
+              <NodeName>License</NodeName>
+              <!--Status: Optional-->
+              <DFProperties>
+                <AccessType>
+                  <Get />
+                </AccessType>
+                <DFFormat>
+                  <chr />
+                </DFFormat>
+                <Occurrence>
+                  <ZeroOrOne />
+                </Occurrence>
+                <DFTitle>This leaf node provides license information of the Deployed Component license.</DFTitle>
+                <DFType>
+                  <MIME>text/plain</MIME>
+                </DFType>
+              </DFProperties>
+            </Node>
+            <Node>
+              <NodeName>Copyright</NodeName>
+              <!--Status: Optional-->
+              <DFProperties>
+                <AccessType>
+                  <Get />
+                </AccessType>
+                <DFFormat>
+                  <chr />
+                </DFFormat>
+                <Occurrence>
+                  <ZeroOrOne />
+                </Occurrence>
+                <DFTitle>This leaf node provides the copyright information on the Deployed Component.</DFTitle>
+                <DFType>
+                  <MIME>text/plain</MIME>
+                </DFType>
+              </DFProperties>
+            </Node>
+            <Node>
+              <NodeName>ValidityPeriod</NodeName>
+              <!--Status: Optional-->
+              <DFProperties>
+                <AccessType>
+                  <Get />
+                </AccessType>
+                <DFFormat>
+                  <chr />
+                </DFFormat>
+                <Occurrence>
+                  <ZeroOrOne />
+                </Occurrence>
+                <DFTitle>This leaf node specifies the validity period of the license -- the date up to which the license is valid for the Deployed Component.</DFTitle>
+                <DFType>
+                  <MIME>text/plain</MIME>
+                </DFType>
+              </DFProperties>
+            </Node>
+            <Node>
+              <NodeName>LicensedUserName</NodeName>
+              <!--Status: Optional-->
+              <DFProperties>
+                <AccessType>
+                  <Get />
+                </AccessType>
+                <DFFormat>
+                  <chr />
+                </DFFormat>
+                <Occurrence>
+                  <ZeroOrOne />
+                </Occurrence>
+                <DFTitle>This leaf node specifies the authorized licensee(s) of the Deployed Component.</DFTitle>
+                <DFType>
+                  <MIME>text/plain</MIME>
+                </DFType>
+              </DFProperties>
+            </Node>
+            <Node>
+              <NodeName>Manufacturer</NodeName>
+              <!--Status: Optional-->
+              <DFProperties>
+                <AccessType>
+                  <Get />
+                </AccessType>
+                <DFFormat>
+                  <chr />
+                </DFFormat>
+                <Occurrence>
+                  <ZeroOrOne />
+                </Occurrence>
+                <DFTitle>This leaf node provides a name of the manufacturer of the Deployed Component.</DFTitle>
+                <DFType>
+                  <MIME>text/plain</MIME>
+                </DFType>
+              </DFProperties>
+            </Node>
+            <Node>
+              <NodeName>Creator</NodeName>
+              <!--Status: Optional-->
+              <DFProperties>
+                <AccessType>
+                  <Get />
+                </AccessType>
+                <DFFormat>
+                  <chr />
+                </DFFormat>
+                <Occurrence>
+                  <ZeroOrOne />
+                </Occurrence>
+                <DFTitle>This leaf node specifies a creator of the Deployed Component.</DFTitle>
+                <DFType>
+                  <MIME>text/plain</MIME>
+                </DFType>
+              </DFProperties>
+            </Node>
+            <Node>
+              <NodeName>CreationDate</NodeName>
+              <!--Status: Optional-->
+              <DFProperties>
+                <AccessType>
+                  <Get />
+                </AccessType>
+                <DFFormat>
+                  <chr />
+                </DFFormat>
+                <Occurrence>
+                  <ZeroOrOne />
+                </Occurrence>
+                <DFTitle>This leaf node specifies a creation date of the Deployed Component.</DFTitle>
+                <DFType>
+                  <MIME>text/plain</MIME>
+                </DFType>
+              </DFProperties>
+            </Node>
+            <Node>
+              <NodeName>ReleaseDate</NodeName>
+              <!--Status: Optional-->
+              <DFProperties>
+                <AccessType>
+                  <Get />
+                </AccessType>
+                <DFFormat>
+                  <chr />
+                </DFFormat>
+                <Occurrence>
+                  <ZeroOrOne />
+                </Occurrence>
+                <DFTitle>This leaf node specifies a release date of the Deployed Component.</DFTitle>
+                <DFType>
+                  <MIME>text/plain</MIME>
+                </DFType>
+              </DFProperties>
+            </Node>
+            <Node>
+              <NodeName>LastUpdated</NodeName>
+              <!--Status: Optional-->
+              <DFProperties>
+                <AccessType>
+                  <Get />
+                </AccessType>
+                <DFFormat>
+                  <chr />
+                </DFFormat>
+                <Occurrence>
+                  <ZeroOrOne />
+                </Occurrence>
+                <DFTitle>This leaf node specifies the date and time when the Deployed Component was last updated.</DFTitle>
+                <DFType>
+                  <MIME>text/plain</MIME>
+                </DFType>
+              </DFProperties>
+            </Node>
+            <Node>
+              <NodeName>ManagementScope</NodeName>
+              <!--Status: Optional-->
+              <DFProperties>
+                <AccessType>
+                  <Get />
+                </AccessType>
+                <DFFormat>
+                  <int />
+                </DFFormat>
+                <Occurrence>
+                  <ZeroOrOne />
+                </Occurrence>
+                <DFTitle>This leaf node specifies the management scope for this Software Component, whether the Software Component is managed through SCOMO or it is an inventory-only Software Component.</DFTitle>
+                <DFType>
+                  <MIME>text/plain</MIME>
+                </DFType>
+              </DFProperties>
+            </Node>
+            <Node>
+              <NodeName>ComponentOwner</NodeName>
+              <!--Status: Optional-->
+              <DFProperties>
+                <AccessType>
+                  <Get />
+                </AccessType>
+                <DFFormat>
+                  <chr />
+                </DFFormat>
+                <Occurrence>
+                  <ZeroOrOne />
+                </Occurrence>
+                <DFTitle>This leaf node specifies the owner of the Software Component.</DFTitle>
+                <DFType>
+                  <MIME>text/plain</MIME>
+                </DFType>
+              </DFProperties>
+            </Node>
+            <Node>
+              <NodeName>ReleaseNotes</NodeName>
+              <!--Status: Optional-->
+              <DFProperties>
+                <AccessType>
+                  <Get />
+                </AccessType>
+                <DFFormat>
+                  <chr />
+                </DFFormat>
+                <Occurrence>
+                  <ZeroOrOne />
+                </Occurrence>
+                <DFTitle>This leaf node specifies the release notes for this Software Component.</DFTitle>
+                <DFType>
+                  <MIME>text/plain</MIME>
+                </DFType>
+              </DFProperties>
+            </Node>
+            <Node>
+              <NodeName>Icon</NodeName>
+              <!--Status: Optional-->
+              <DFProperties>
+                <AccessType>
+                  <Get />
+                </AccessType>
+                <DFFormat>
+                  <node />
+                </DFFormat>
+                <Occurrence>
+                  <ZeroOrOne />
+                </Occurrence>
+                <DFTitle>This interior node is a parent node of the Icons specified for this Software Component.</DFTitle>
+                <DFType>
+                  <DDFName>
+                  </DDFName>
+                </DFType>
+              </DFProperties>
+              <Node>
+                <NodeName />
+                <!--Status: Required-->
+                <DFProperties>
+                  <AccessType>
+                    <Get />
+                  </AccessType>
+                  <DFFormat>
+                    <node />
+                  </DFFormat>
+                  <Occurrence>
+                    <ZeroOrMore />
+                  </Occurrence>
+                  <DFTitle>This interior node acts as a place holder for an icon used with the graphical user interface (GUI) of this Software Component.</DFTitle>
+                  <DFType>
+                    <DDFName>
+                    </DDFName>
+                  </DFType>
+                </DFProperties>
+                <Node>
+                  <NodeName>IconFile</NodeName>
+                  <!--Status: Optional-->
+                  <DFProperties>
+                    <AccessType>
+                      <Get />
+                      <Replace />
+                    </AccessType>
+                    <DFFormat>
+                      <bin />
+                    </DFFormat>
+                    <Occurrence>
+                      <ZeroOrOne />
+                    </Occurrence>
+                    <DFTitle>This leaf node specifies a single icon used as the Graphical User Interface (GUI) element for this Software Component.</DFTitle>
+                    <DFType>
+                      <MIME>text/plain</MIME>
+                    </DFType>
+                  </DFProperties>
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+          <Node>
+            <NodeName>State</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <int />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>This leaf node specifies the State of a Deployment Component in the Device.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>Status</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <int />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>This leaf node specifies the Status of Remove, Activate, and Deactivate Primitives.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>Size</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <int />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>This leaf node specifies the actual installed size of the Software Components installed.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>InstalledLocation</NodeName>
+            <!--Status: Optional-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <chr />
+              </DFFormat>
+              <Occurrence>
+                <ZeroOrOne />
+              </Occurrence>
+              <DFTitle>This leaf node specifies the actual installed location of the Software Component in the device.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>EnvType</NodeName>
+            <!--Status: Optional-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <chr />
+              </DFFormat>
+              <Occurrence>
+                <ZeroOrOne />
+              </Occurrence>
+              <DFTitle>This leaf node specifies the environment type of a Deployment Component in the Device.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>ComponentType</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+                <Replace />
+              </AccessType>
+              <DFFormat>
+                <chr />
+              </DFFormat>
+              <Occurrence>
+                <ZeroOrOne />
+              </Occurrence>
+              <DFTitle>This leaf node specifies the Content Type of a deployed Software Component in the Device.</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>Operations</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <node />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <DFTitle>This node is a parent node for Primitives that can be executed for a Deployment Component in the Device.</DFTitle>
+              <DFType>
+                <DDFName>
+                </DDFName>
+              </DFType>
+            </DFProperties>
+            <Node>
+              <NodeName>Activate</NodeName>
+              <!--Status: Optional-->
+              <DFProperties>
+                <AccessType>
+                  <Exec />
+                  <Get />
+                </AccessType>
+                <DFFormat>
+                  <null />
+                </DFFormat>
+                <Occurrence>
+                  <ZeroOrOne />
+                </Occurrence>
+                <DFTitle>This node is used with the Exec command to start the Activate operation to transfer the Deployment Component from the Inactive state to the Active state.</DFTitle>
+                <DFType>
+                  <MIME>text/plain</MIME>
+                </DFType>
+              </DFProperties>
+            </Node>
+            <Node>
+              <NodeName>Deactivate</NodeName>
+              <!--Status: Optional-->
+              <DFProperties>
+                <AccessType>
+                  <Exec />
+                  <Get />
+                </AccessType>
+                <DFFormat>
+                  <null />
+                </DFFormat>
+                <Occurrence>
+                  <ZeroOrOne />
+                </Occurrence>
+                <DFTitle>This node is used with the Exec command to start the Deactivate operation  to transfer the Deployment Component from the Active state to the Inactive state.</DFTitle>
+                <DFType>
+                  <MIME>text/plain</MIME>
+                </DFType>
+              </DFProperties>
+            </Node>
+            <Node>
+              <NodeName>Remove</NodeName>
+              <!--Status: Required-->
+              <DFProperties>
+                <AccessType>
+                  <Exec />
+                  <Get />
+                </AccessType>
+                <DFFormat>
+                  <null />
+                </DFFormat>
+                <Occurrence>
+                  <ZeroOrOne />
+                </Occurrence>
+                <DFTitle>This node is used with the Exec command to start the Remove operation to Remove the Deployment Component from the Device.</DFTitle>
+                <DFType>
+                  <MIME>text/plain</MIME>
+                </DFType>
+              </DFProperties>
+            </Node>
+            <Node>
+              <NodeName>Blacklist</NodeName>
+              <!--Status: Optional-->
+              <DFProperties>
+                <AccessType>
+                  <Exec />
+                  <Get />
+                </AccessType>
+                <DFFormat>
+                  <null />
+                </DFFormat>
+                <Occurrence>
+                  <ZeroOrOne />
+                </Occurrence>
+                <DFTitle>This node is used with the Exec command to start the Blacklist operation.</DFTitle>
+                <DFType>
+                  <MIME>text/plain</MIME>
+                </DFType>
+              </DFProperties>
+            </Node>
+            <Node>
+              <NodeName>Whitelist</NodeName>
+              <!--Status: Optional-->
+              <DFProperties>
+                <AccessType>
+                  <Exec />
+                  <Get />
+                </AccessType>
+                <DFFormat>
+                  <null />
+                </DFFormat>
+                <Occurrence>
+                  <ZeroOrOne />
+                </Occurrence>
+                <DFTitle>This node is used with the Exec command to start the Whitelist operation.</DFTitle>
+                <DFType>
+                  <MIME>text/plain</MIME>
+                </DFType>
+              </DFProperties>
+            </Node>
+            <Node>
+              <NodeName>Ext</NodeName>
+              <!--Status: Optional-->
+              <DFProperties>
+                <AccessType>
+                  <Get />
+                </AccessType>
+                <DFFormat>
+                  <node />
+                </DFFormat>
+                <Occurrence>
+                  <ZeroOrOne />
+                </Occurrence>
+                <DFTitle>This optional interior node designates a branch of the Deployment Component operations sub-tree into which platform or vendor extensions MAY be added, permanently or dynamically.</DFTitle>
+                <DFType>
+                  <DDFName>
+                  </DDFName>
+                </DFType>
+              </DFProperties>
+            </Node>
+          </Node>
+          <Node>
+            <NodeName>MOReferences</NodeName>
+            <!--Status: Required-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <node />
+              </DFFormat>
+              <Occurrence>
+                <ZeroOrOne />
+              </Occurrence>
+              <DFTitle>This node is a parent node to the MO references for this deployed Software Component.</DFTitle>
+              <DFType>
+                <DDFName>
+                </DDFName>
+              </DFType>
+            </DFProperties>
+            <Node>
+              <NodeName />
+              <!--Status: Required-->
+              <DFProperties>
+                <AccessType>
+                  <Get />
+                </AccessType>
+                <DFFormat>
+                  <node />
+                </DFFormat>
+                <Occurrence>
+                  <OneOrMore />
+                </Occurrence>
+                <DFTitle> This node is a placeholder for one instance of a MO reference.</DFTitle>
+                <DFType>
+                  <DDFName>
+                  </DDFName>
+                </DFType>
+              </DFProperties>
+              <Node>
+                <NodeName>MOID</NodeName>
+                <!--Status: Required-->
+                <DFProperties>
+                  <AccessType>
+                    <Get />
+                  </AccessType>
+                  <DFFormat>
+                    <chr />
+                  </DFFormat>
+                  <Occurrence>
+                    <One />
+                  </Occurrence>
+                  <DFTitle>This value of leaf node MUST contain the Management Object ID of the associated Management Object for this instance.	</DFTitle>
+                  <DFType>
+                    <MIME>text/plain</MIME>
+                  </DFType>
+                </DFProperties>
+              </Node>
+              <Node>
+                <NodeName>MOLocation</NodeName>
+                <!--Status: Required-->
+                <DFProperties>
+                  <AccessType>
+                    <Get />
+                  </AccessType>
+                  <DFFormat>
+                    <chr />
+                  </DFFormat>
+                  <Occurrence>
+                    <One />
+                  </Occurrence>
+                  <DFTitle>The value of this leaf node specifies the location of the root node of the corresponding MO in the form of Uniform Resource Identifier (URI).</DFTitle>
+                  <DFType>
+                    <MIME>text/plain</MIME>
+                  </DFType>
+                </DFProperties>
+              </Node>
+            </Node>
+          </Node>
+          <Node>
+            <NodeName>Ext</NodeName>
+            <!--Status: Optional-->
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DFFormat>
+                <node />
+              </DFFormat>
+              <Occurrence>
+                <ZeroOrOne />
+              </Occurrence>
+              <DFTitle>This optional interior node designates a branch of the Deployment Component parameters sub-tree into which platform or vendor extensions MAY be added, permanently or dynamically.</DFTitle>
+              <DFType>
+                <DDFName>
+                </DDFName>
+              </DFType>
+            </DFProperties>
+          </Node>
+        </Node>
+        <Node>
+          <NodeName>Ext</NodeName>
+          <!--Status: Optional-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <node />
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrOne />
+            </Occurrence>
+            <DFTitle>This optional interior node designates a branch of the deployed sub-tree into which platform or vendor extensions MAY be added, permanently or dynamically.</DFTitle>
+            <DFType>
+              <DDFName>
+              </DDFName>
+            </DFType>
+          </DFProperties>
+        </Node>
+      </Node>
+      <Node>
+        <NodeName>CheckUpdateFreq</NodeName>
+        <!--Status: Optional-->
+        <DFProperties>
+          <AccessType>
+            <Get />
+          </AccessType>
+          <DFFormat>
+            <int />
+          </DFFormat>
+          <Occurrence>
+            <ZeroOrOne />
+          </Occurrence>
+          <DFTitle>This leaf node specifies the frequency (numbered by days) of client-initiated check for new version of the Deployed Components.</DFTitle>
+          <DFType>
+            <MIME>text/plain</MIME>
+          </DFType>
+        </DFProperties>
+      </Node>
+      <Node>
+        <NodeName>Blacklisted</NodeName>
+        <!--Status: Optional-->
+        <DFProperties>
+          <AccessType>
+            <Get />
+          </AccessType>
+          <DFFormat>
+            <chr />
+          </DFFormat>
+          <Occurrence>
+            <ZeroOrOne />
+          </Occurrence>
+          <DFTitle>This node provides a list of Software Components that are blacklisted in the device.</DFTitle>
+          <DFType>
+            <MIME>text/plain</MIME>
+          </DFType>
+        </DFProperties>
+      </Node>
+      <Node>
+        <NodeName>Whitelisted</NodeName>
+        <!--Status: Optional-->
+        <DFProperties>
+          <AccessType>
+            <Get />
+          </AccessType>
+          <DFFormat>
+            <chr />
+          </DFFormat>
+          <Occurrence>
+            <ZeroOrOne />
+          </Occurrence>
+          <DFTitle>This node provides a list of Software Components that are whitelisted in the device.</DFTitle>
+          <DFType>
+            <MIME>text/plain</MIME>
+          </DFType>
+        </DFProperties>
+      </Node>
+      <Node>
+        <NodeName>Ext</NodeName>
+        <!--Status: Optional-->
+        <DFProperties>
+          <AccessType>
+            <Get />
+          </AccessType>
+          <DFFormat>
+            <node />
+          </DFFormat>
+          <Occurrence>
+            <ZeroOrOne />
+          </Occurrence>
+          <DFTitle>This optional interior node designates a branch of the inventory sub-tree into which platform or vendor extensions MAY be added, permanently or dynamically.</DFTitle>
+          <DFType>
+            <DDFName>
+            </DDFName>
+          </DFType>
+        </DFProperties>
+      </Node>
+    </Node>
+    <Node>
+      <NodeName>Ext</NodeName>
+      <!--Status: Optional-->
+      <DFProperties>
+        <AccessType>
+          <Get />
+        </AccessType>
+        <DFFormat>
+          <node />
+        </DFFormat>
+        <Occurrence>
+          <ZeroOrOne />
+        </Occurrence>
+        <DFTitle>This optional interior node designates a branch of the SCOMO root into which platform or vendor extensions MAY be added, permanently or dynamically.</DFTitle>
+        <DFType>
+          <DDFName>
+          </DDFName>
+        </DFType>
+      </DFProperties>
+    </Node>
+  </Node>
+</MgmtTree>

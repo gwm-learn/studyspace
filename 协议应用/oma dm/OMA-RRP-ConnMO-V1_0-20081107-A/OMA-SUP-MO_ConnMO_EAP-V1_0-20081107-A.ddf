@@ -1,0 +1,608 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+
+Filename:      OMA-SUP-MO_ConnMO_EAP-V1_0-20081107-A.ddf
+
+OMA EAP Bearer Parameters Management Object
+
+Part of the OMA DM Connectivity Management Objects (ConnMO) V1.0, 07 Nov 2008.
+
+This DDF prototype describes EAP Bearer Parameters and conforms to the 
+DDF document type definition, version 1.2.
+
+LEGAL DISCLAIMER
+
+  Use of this document is subject to all of the terms and conditions
+  of the Use Agreement located at
+    http://www.openmobilealliance.org/UseAgreement.html
+
+  You may use this document or any part of the document for internal
+  or educational purposes only, provided you do not modify, edit or
+  take out of context the information in this document in any manner.
+  Information contained in this document may be used, at your sole
+  risk, for any purposes.
+
+  You may not use this document in any other manner without the prior
+  written permission of the Open Mobile Alliance.  The Open Mobile
+  Alliance authorizes you to copy this document, provided that you
+  retain all copyright and other proprietary notices contained in the
+  original materials on any copies of the materials and that you
+  comply strictly with these terms.  This copyright permission does
+  not constitute an endorsement of the products or services.  The
+  Open Mobile Alliance assumes no responsibility for errors or
+  omissions in this document.
+
+  Each Open Mobile Alliance member has agreed to use reasonable
+  endeavors to inform the Open Mobile Alliance in a timely manner of
+  Essential IPR as it becomes aware that the Essential IPR is related
+  to the prepared or published specification.  However, the members
+  do not have an obligation to conduct IPR searches.  The declared
+  Essential IPR is publicly available to members and non-members of
+  the Open Mobile Alliance and may be found on the "OMA IPR
+  Declarations" list at http://www.openmobilealliance.org/ipr.html.
+  The Open Mobile Alliance has not conducted an independent IPR review
+  of this document and the information contained herein, and makes no
+  representations or warranties regarding third party IPR, including
+  without limitation patents, copyrights or trade secret rights.  This
+  document may contain inventions for which you must obtain licenses
+  from third parties before making, using or selling the inventions.
+  Defined terms above are set forth in the schedule to the Open Mobile
+  Alliance Application Form.
+
+  NO REPRESENTATIONS OR WARRANTIES (WHETHER EXPRESS OR IMPLIED) ARE
+  MADE BY THE OPEN MOBILE ALLIANCE OR ANY OPEN MOBILE ALLIANCE MEMBER
+  OR ITS AFFILIATES REGARDING ANY OF THE IPR'S REPRESENTED ON THE "OMA
+  IPR DECLARATIONS" LIST, INCLUDING, BUT NOT LIMITED TO THE ACCURACY,
+  COMPLETENESS, VALIDITY OR RELEVANCE OF THE INFORMATION OR WHETHER OR
+  NOT SUCH RIGHTS ARE ESSENTIAL OR NON-ESSENTIAL.
+
+  THE OPEN MOBILE ALLIANCE IS NOT LIABLE FOR AND HEREBY DISCLAIMS ANY
+  DIRECT, INDIRECT, PUNITIVE, SPECIAL, INCIDENTAL, CONSEQUENTIAL, OR
+  EXEMPLARY DAMAGES ARISING OUT OF OR IN CONNECTION WITH THE USE OF
+  DOCUMENTS AND THE INFORMATION CONTAINED IN THE DOCUMENTS.
+
+  Copyright 2008 Open Mobile Alliance Ltd.  All Rights Reserved.
+  Used with the permission of the Open Mobile Alliance Ltd. under the
+  terms set forth above.
+
+-->
+
+<!DOCTYPE MgmtTree PUBLIC "-//OMA//DTD-DM-DDF 1.2//EN"
+    "http://www.openmobilealliance.org/tech/DTD/DM_DDF-V1_2.dtd"
+    [<?oma-dm-ddf-ver supported-versions="1.2"?>]>
+
+<MgmtTree>
+  <!--This file is created with DDFCreator, Ver: 0.7                                  -->
+  <!--Source specification: OMA-DDS-DM_ConnMO_EAP-V1_0-20081024-A                     -->
+  <!--Created: 2008-10-24 17:38:27 (yyyy-mm-dd hh:mm:ss UTC)                          -->
+  <VerDTD>1.2</VerDTD>
+  <Node>
+    <NodeName />
+    <!--Status: Required-->
+    <DFProperties>
+      <AccessType>
+        <Get />
+      </AccessType>
+      <DFFormat>
+        <node />
+      </DFFormat>
+      <Occurrence>
+        <ZeroOrMore />
+      </Occurrence>
+      <DFTitle>This interior node distinguishes different EAP methods.</DFTitle>
+      <DFType>
+        <DDFName>urn:oma:mo:oma-connmo-eap:1.0</DDFName>
+      </DFType>
+    </DFProperties>
+    <Node>
+      <NodeName>MethodType</NodeName>
+      <!--Status: Optional-->
+      <DFProperties>
+        <AccessType>
+          <Get />
+        </AccessType>
+        <DFFormat>
+          <int />
+        </DFFormat>
+        <Occurrence>
+          <ZeroOrOne />
+        </Occurrence>
+        <DFTitle>The EAP Type [WPA] specifies the EAP method type of the actual method.</DFTitle>
+        <DFType>
+          <MIME>text/plain</MIME>
+        </DFType>
+      </DFProperties>
+    </Node>
+    <Node>
+      <NodeName>VendorID</NodeName>
+      <!--Status: Optional-->
+      <DFProperties>
+        <AccessType>
+          <Get />
+        </AccessType>
+        <DFFormat>
+          <int />
+        </DFFormat>
+        <Occurrence>
+          <ZeroOrOne />
+        </Occurrence>
+        <DFTitle>The EAP Vendor ID specifies the SMI Network Management Private Enterprise Code of the Vendor of the actual method.</DFTitle>
+        <DFType>
+          <MIME>text/plain</MIME>
+        </DFType>
+      </DFProperties>
+    </Node>
+    <Node>
+      <NodeName>VendorType</NodeName>
+      <!--Status: Optional-->
+      <DFProperties>
+        <AccessType>
+          <Get />
+        </AccessType>
+        <DFFormat>
+          <int />
+        </DFFormat>
+        <Occurrence>
+          <ZeroOrOne />
+        </Occurrence>
+        <DFTitle>The EAP Vendor Type specifies the vendor specific method type.</DFTitle>
+        <DFType>
+          <MIME>text/plain</MIME>
+        </DFType>
+      </DFProperties>
+    </Node>
+    <Node>
+      <NodeName>UserIdentity</NodeName>
+      <!--Status: Optional-->
+      <DFProperties>
+        <AccessType>
+          <Get />
+        </AccessType>
+        <DFFormat>
+          <chr />
+        </DFFormat>
+        <Occurrence>
+          <ZeroOrOne />
+        </Occurrence>
+        <DFTitle>The UserIdentity parameter specifies the user’s identity [RFC3748].</DFTitle>
+        <DFType>
+          <MIME>text/plain</MIME>
+        </DFType>
+      </DFProperties>
+    </Node>
+    <Node>
+      <NodeName>ProvisionedPseudoIdentity</NodeName>
+      <!--Status: Optional-->
+      <DFProperties>
+        <AccessType>
+          <Get />
+        </AccessType>
+        <DFFormat>
+          <chr />
+        </DFFormat>
+        <Occurrence>
+          <ZeroOrOne />
+        </Occurrence>
+        <DFTitle>The value of this leaf node specifies the starting pseudo identity value for use by identity privacy mechanisms employed by some EAP method types.</DFTitle>
+        <DFType>
+          <MIME>text/plain</MIME>
+        </DFType>
+      </DFProperties>
+    </Node>
+    <Node>
+      <NodeName>Realm</NodeName>
+      <!--Status: Optional-->
+      <DFProperties>
+        <AccessType>
+          <Get />
+        </AccessType>
+        <DFFormat>
+          <chr />
+        </DFFormat>
+        <Occurrence>
+          <ZeroOrOne />
+        </Occurrence>
+        <DFTitle>The Realm parameter specifies the override realm that is sent, for example, in the EAP Identity/Response packet [RFC3748].</DFTitle>
+        <DFType>
+          <MIME>text/plain</MIME>
+        </DFType>
+      </DFProperties>
+    </Node>
+    <Node>
+      <NodeName>Password</NodeName>
+      <!--Status: Optional-->
+      <DFProperties>
+        <AccessType />
+        <DFFormat>
+          <chr />
+        </DFFormat>
+        <Occurrence>
+          <ZeroOrOne />
+        </Occurrence>
+        <DFTitle>Password is the password that is used in EAP Authentication.</DFTitle>
+        <DFType>
+          <MIME>text/plain</MIME>
+        </DFType>
+      </DFProperties>
+    </Node>
+    <Node>
+      <NodeName>UsePrivacy</NodeName>
+      <!--Status: Optional-->
+      <DFProperties>
+        <AccessType>
+          <Get />
+        </AccessType>
+        <DFFormat>
+          <bool />
+        </DFFormat>
+        <Occurrence>
+          <ZeroOrOne />
+        </Occurrence>
+        <DFTitle>This leaf node exists in order to inform the device of the policy about the identity privacy.</DFTitle>
+        <DFType>
+          <MIME>text/plain</MIME>
+        </DFType>
+      </DFProperties>
+    </Node>
+    <Node>
+      <NodeName>Encaps</NodeName>
+      <!--Status: Optional-->
+      <DFProperties>
+        <AccessType>
+          <Get />
+        </AccessType>
+        <DFFormat>
+          <chr />
+        </DFFormat>
+        <Occurrence>
+          <ZeroOrOne />
+        </Occurrence>
+        <DFTitle>Certain EAP methods can run other methods encapsulated in a secure tunnel.</DFTitle>
+        <DFType>
+          <MIME>text/plain</MIME>
+        </DFType>
+      </DFProperties>
+    </Node>
+    <Node>
+      <NodeName>VfyServerRealm</NodeName>
+      <!--Status: Optional-->
+      <DFProperties>
+        <AccessType>
+          <Get />
+        </AccessType>
+        <DFFormat>
+          <bool />
+        </DFFormat>
+        <Occurrence>
+          <ZeroOrOne />
+        </Occurrence>
+        <DFTitle>VfyServerRealm [802.</DFTitle>
+        <DFType>
+          <MIME>text/plain</MIME>
+        </DFType>
+      </DFProperties>
+    </Node>
+    <Node>
+      <NodeName>ServerRealms</NodeName>
+      <!--Status: Optional-->
+      <DFProperties>
+        <AccessType>
+          <Get />
+        </AccessType>
+        <DFFormat>
+          <node />
+        </DFFormat>
+        <Occurrence>
+          <ZeroOrOne />
+        </Occurrence>
+        <DFTitle>This interior node contains a list of server realms.</DFTitle>
+      </DFProperties>
+      <Node>
+        <NodeName />
+        <!--Status: Required-->
+        <DFProperties>
+          <AccessType>
+            <Get />
+          </AccessType>
+          <DFFormat>
+            <node />
+          </DFFormat>
+          <Occurrence>
+            <ZeroOrMore />
+          </Occurrence>
+          <DFTitle>This interior node distinguishes the different server realms.</DFTitle>
+        </DFProperties>
+        <Node>
+          <NodeName>ServerRealm</NodeName>
+          <!--Status: Required-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <chr />
+            </DFFormat>
+            <Occurrence>
+              <One />
+            </Occurrence>
+            <DFTitle>The ServerRealm node defines an allowed realm that the device will accept.</DFTitle>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+      </Node>
+    </Node>
+    <Node>
+      <NodeName>PmksaCacheTTL</NodeName>
+      <!--Status: Optional-->
+      <DFProperties>
+        <AccessType>
+          <Get />
+        </AccessType>
+        <DFFormat>
+          <int />
+        </DFFormat>
+        <Occurrence>
+          <ZeroOrOne />
+        </Occurrence>
+        <DFTitle>PmksaCacheTTL, [WLAN] §5.</DFTitle>
+        <DFType>
+          <MIME>text/plain</MIME>
+        </DFType>
+      </DFProperties>
+    </Node>
+    <Node>
+      <NodeName>EAPAKA</NodeName>
+      <!--Status: Optional-->
+      <DFProperties>
+        <AccessType>
+          <Get />
+        </AccessType>
+        <DFFormat>
+          <node />
+        </DFFormat>
+        <Occurrence>
+          <ZeroOrOne />
+        </Occurrence>
+        <DFTitle>This node includes EAPAKA [RFC 4187] specific settings.</DFTitle>
+      </DFProperties>
+      <Node>
+        <NodeName>UseCheckCode</NodeName>
+        <!--Status: Optional-->
+        <DFProperties>
+          <AccessType>
+            <Get />
+          </AccessType>
+          <DFFormat>
+            <bool />
+          </DFFormat>
+          <Occurrence>
+            <ZeroOrOne />
+          </Occurrence>
+          <DFTitle>EAPAKA [RFC4187] has a security option of the use of AT_CHECKCODE attribute that can protect EAP/AKA-Identity messages exchanged between the device and the AAA before the keying material is derived.</DFTitle>
+          <DFType>
+            <MIME>text/plain</MIME>
+          </DFType>
+        </DFProperties>
+      </Node>
+    </Node>
+    <Node>
+      <NodeName>Cert</NodeName>
+      <!--Status: Optional-->
+      <DFProperties>
+        <AccessType>
+          <Get />
+        </AccessType>
+        <DFFormat>
+          <node />
+        </DFFormat>
+        <Occurrence>
+          <ZeroOrOne />
+        </Occurrence>
+        <DFTitle>For those EAP types that use certificates, the required user certificates are specified in this subtree.</DFTitle>
+      </DFProperties>
+      <Node>
+        <NodeName />
+        <!--Status: Required-->
+        <DFProperties>
+          <AccessType>
+            <Get />
+          </AccessType>
+          <DFFormat>
+            <node />
+          </DFFormat>
+          <Occurrence>
+            <ZeroOrMore />
+          </Occurrence>
+          <DFTitle>This interior node distinguishes different certificates.</DFTitle>
+        </DFProperties>
+        <Node>
+          <NodeName>CertType</NodeName>
+          <!--Status: Required-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <chr />
+            </DFFormat>
+            <Occurrence>
+              <One />
+            </Occurrence>
+            <DFTitle>This node specifies the type of certificate.</DFTitle>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+        <Node>
+          <NodeName>Issuer</NodeName>
+          <!--Status: Optional-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <chr />
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrOne />
+            </Occurrence>
+            <DFTitle>Issuer is the Distinguished Name of the certificate’s issuer in human readable UTF-8 form (for example “/C=US/O=Some organization/CN=Some common name”).</DFTitle>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+        <Node>
+          <NodeName>SerNum</NodeName>
+          <!--Status: Optional-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <int />
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrOne />
+            </Occurrence>
+            <DFTitle>This specifies the serial number of the certificate.</DFTitle>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+        <Node>
+          <NodeName>Subject</NodeName>
+          <!--Status: Optional-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <chr />
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrOne />
+            </Occurrence>
+            <DFTitle>Subject specifies the Distinguished Name of the certificate’s subject in human readable UTF-8 form (for example, “/C=US/O=Some organization/CN=Some common name”).</DFTitle>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+        <Node>
+          <NodeName>SubjectAltName</NodeName>
+          <!--Status: Optional-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <chr />
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrOne />
+            </Occurrence>
+            <DFTitle>SubjectAltName specifies the NAI included in the subject alt-name field in RFC822 format.</DFTitle>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+        <Node>
+          <NodeName>SubjectKeyID</NodeName>
+          <!--Status: Optional-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <bin />
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrOne />
+            </Occurrence>
+            <DFTitle>SubjectKeyID specifies the subject key identifier of a certificate.</DFTitle>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+        <Node>
+          <NodeName>Signature</NodeName>
+          <!--Status: Optional-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <bin />
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrOne />
+            </Occurrence>
+            <DFTitle>Signature specifies the digital signature of the certificate.</DFTitle>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+        <Node>
+          <NodeName>ThumbPrint</NodeName>
+          <!--Status: Optional-->
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DFFormat>
+              <bin />
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrOne />
+            </Occurrence>
+            <DFTitle>ThumbPrint specifies the hash of the certificate as specified in [RFC2634] §5.</DFTitle>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+      </Node>
+    </Node>
+    <Node>
+      <NodeName>Ext</NodeName>
+      <!--Status: Optional-->
+      <DFProperties>
+        <AccessType>
+          <Get />
+        </AccessType>
+        <DFFormat>
+          <node />
+        </DFFormat>
+        <Occurrence>
+          <ZeroOrOne />
+        </Occurrence>
+        <DFTitle>This optional interior node designates a branch of the EAP parameters sub-tree into which vendor extensions MAY be added, permanently or dynamically.</DFTitle>
+      </DFProperties>
+      <Node>
+        <NodeName>UniqueVendorName</NodeName>
+        <!--Status: Optional-->
+        <DFProperties>
+          <AccessType>
+            <Get />
+          </AccessType>
+          <DFFormat>
+            <node />
+          </DFFormat>
+          <Occurrence>
+            <ZeroOrMore />
+          </Occurrence>
+          <DFTitle>This interior node is supplied by a vendor to distinguish their extension from those of other vendors.</DFTitle>
+        </DFProperties>
+      </Node>
+    </Node>
+  </Node>
+</MgmtTree>
