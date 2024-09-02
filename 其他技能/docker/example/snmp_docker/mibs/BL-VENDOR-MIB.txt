@@ -1,0 +1,44 @@
+BL-VENDOR-MIB DEFINITIONS ::= BEGIN
+
+-- ---------------------------------------------------------- --
+-- MIB for broadlink vendor 
+-- ---------------------------------------------------------- --
+
+IMPORTS
+    enterprises
+        FROM RFC1155-SMI
+    Integer32,OBJECT-TYPE
+        FROM SNMPv2-SMI
+    DisplayString
+        FROM SNMPv2-TC
+    TEXTUAL-CONVENTION
+        FROM SNMPv2-TC;
+
+vendor    OBJECT IDENTIFIER ::= {enterprises 36000}
+
+readTest  OBJECT IDENTIFIER ::= {vendor 1}
+writeTest OBJECT IDENTIFIER ::= {vendor 2}
+SwitchMac OBJECT IDENTIFIER ::= {vendor 3}
+
+    readTest       OBJECT-TYPE           --对象名称
+    SYNTAX         Integer32             --类型
+    MAX-ACCESS     read-only             --访问方式
+    STATUS         current               --状态
+    DESCRIPTION    "vendor test read"    --描述
+    ::= {vendor 1}                       --父节点
+
+    writeTest      OBJECT-TYPE           --对象名称
+    SYNTAX         DisplayString         --类型
+    MAX-ACCESS     read-write            --访问方式
+    STATUS         current               --状态
+    DESCRIPTION    "vendor test write"   --描述
+    ::= {vendor 2}                       --父节点
+
+    SwitchMac      OBJECT-TYPE           --对象名称
+    SYNTAX         DisplayString         --类型
+    MAX-ACCESS     read-write            --访问方式
+    STATUS         current               --状态
+    DESCRIPTION    "vendor test write"   --描述
+    ::= {vendor 3}                       --父节点
+
+END
