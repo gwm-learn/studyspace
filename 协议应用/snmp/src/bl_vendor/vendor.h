@@ -3,8 +3,4 @@
 
 void init_vendor(void);
 
-Netsnmp_Node_Handler handle_readTest;
-Netsnmp_Node_Handler handle_writeTest;
-Netsnmp_Node_Handler handle_SwitchMac;
-
 #endif

@@ -7,6 +7,7 @@
 #include <arpa/inet.h>
 #include <unistd.h>
 #include <fcntl.h>
+#include <pthread.h>
 #include <sys/types.h>
 #include <sys/ipc.h>
 #include <sys/shm.h>
@@ -19,6 +20,12 @@
 
 static int sockfd;
 
+/*
+** msg just sync with web
+*/
+struct plat2web_msg *msg = NULL;
+struct plat2web_vlan_msg *vlan_msg = NULL;
+
 void stopSnmpdHandler(int signum)
 {
     if (sockfd >= 0){
@@ -30,12 +37,12 @@ void stopSnmpdHandler(int signum)
 int cj_plat_shm_init(void)
 {
     int cj_shmid = 0;
-    int cj_snmp_shmid = 0;
+    int cj_vlan_shmid = 0;
     void *cj_shm = NULL;
-    void *cj_snmp_shm = NULL;
+    void *cj_vlan_shm = NULL;
 
     snmp_log(LOG_DEBUG, "cj_plat_shm_init\n");
-    cj_shmid = shmget((key_t)CJ_PLAT_SHM_PID, 90000, 0666|IPC_CREAT);
+    cj_shmid = shmget((key_t)CJ_PLAT_SHM_PID, sizeof(struct plat2web_msg), 0666|IPC_CREAT);
     if(cj_shmid == -1)
     {  
         snmp_log(LOG_ERR, "shmget failed\n");
@@ -47,18 +54,22 @@ int cj_plat_shm_init(void)
         snmp_log(LOG_ERR, "shmat failed\n");
         return -1;
     }  
-    cj_snmp_shmid = shmget((key_t)CJ_PLAT_SHM_VLAN_PID, 60000, 0666|IPC_CREAT);
-    if(cj_snmp_shmid == -1)
+    cj_vlan_shmid = shmget((key_t)CJ_PLAT_SHM_VLAN_PID, sizeof(struct plat2web_vlan_msg), 0666|IPC_CREAT);
+    if(cj_vlan_shmid == -1)
     {  
         snmp_log(LOG_ERR, "shmget failed\n");
         return -1;
     }
-    cj_snmp_shm = shmat(cj_snmp_shmid, (void*)0, 0);
-    if(cj_snmp_shm == (void*)-1)
+    cj_vlan_shm = shmat(cj_vlan_shmid, (void*)0, 0);
+    if(cj_vlan_shm == (void*)-1)
     {  
         snmp_log(LOG_ERR, "shmat failed\n");
         return -1;
     }
+
+    msg = (struct plat2web_msg *)cj_shm;
+    vlan_msg = (struct plat2web_vlan_msg *)cj_vlan_shm;
+
     return 0;
 }
 
@@ -145,4 +156,24 @@ int snmp_set_msg(cj_ctl_msg_t *send_msg, int msg_len)
     }
 
     return 0;
+}
+
+void cj_plat_semw_begin(void)
+{
+    pthread_mutex_lock(&msg->sm_mutex);
+}
+
+void cj_plat_semw_end(void)
+{
+    pthread_mutex_unlock(&msg->sm_mutex);
+}
+
+void cj_plat_sem_vlan_begin(void)
+{
+    pthread_mutex_lock(&vlan_msg->sm_mutex);
+}
+
+void cj_plat_sem_vlan_end(void)
+{
+    pthread_mutex_unlock(&vlan_msg->sm_mutex);
 }

@@ -5,40 +5,682 @@ BL-VENDOR-MIB DEFINITIONS ::= BEGIN
 -- ---------------------------------------------------------- --
 
 IMPORTS
-    enterprises
-        FROM RFC1155-SMI
-    Integer32,OBJECT-TYPE
-        FROM SNMPv2-SMI
-    DisplayString
-        FROM SNMPv2-TC
-    TEXTUAL-CONVENTION
-        FROM SNMPv2-TC;
+    enterprises                      FROM RFC1155-SMI
+    Integer32,Counter64,OBJECT-TYPE  FROM SNMPv2-SMI
+    DisplayString,TEXTUAL-CONVENTION,RowStatus FROM SNMPv2-TC;
 
-vendor    OBJECT IDENTIFIER ::= {enterprises 36000}
+vendor      OBJECT IDENTIFIER ::= {enterprises 36000}   -- enterprises.36000
 
-readTest  OBJECT IDENTIFIER ::= {vendor 1}
-writeTest OBJECT IDENTIFIER ::= {vendor 2}
-SwitchMac OBJECT IDENTIFIER ::= {vendor 3}
+systemInfo  OBJECT IDENTIFIER ::= {vendor 1}            -- enterprises.36000.1
+macTable    OBJECT IDENTIFIER ::= {vendor 2}            -- enterprises.36000.2
+vlanTable   OBJECT IDENTIFIER ::= {vendor 3}            -- enterprises.36000.3
 
-    readTest       OBJECT-TYPE           --对象名称
-    SYNTAX         Integer32             --类型
-    MAX-ACCESS     read-only             --访问方式
-    STATUS         current               --状态
-    DESCRIPTION    "vendor test read"    --描述
-    ::= {vendor 1}                       --父节点
+globalInfo   OBJECT IDENTIFIER ::= {systemInfo 1}       -- enterprises.36000.1.1
+packetInfo   OBJECT IDENTIFIER ::= {systemInfo 2}       -- enterprises.36000.1.2
+macFrameInfo OBJECT IDENTIFIER ::= {systemInfo 3}       -- enterprises.36000.1.3
 
-    writeTest      OBJECT-TYPE           --对象名称
-    SYNTAX         DisplayString         --类型
-    MAX-ACCESS     read-write            --访问方式
-    STATUS         current               --状态
-    DESCRIPTION    "vendor test write"   --描述
-    ::= {vendor 2}                       --父节点
+deviceInfo  OBJECT IDENTIFIER ::= {globalInfo 1}        -- enterprises.36000.1.1.1
+memoryInfo  OBJECT IDENTIFIER ::= {globalInfo 2}        -- enterprises.36000.1.1.2
+systemLoad  OBJECT IDENTIFIER ::= {globalInfo 3}        -- enterprises.36000.1.1.3
 
-    SwitchMac      OBJECT-TYPE           --对象名称
-    SYNTAX         DisplayString         --类型
-    MAX-ACCESS     read-write            --访问方式
-    STATUS         current               --状态
-    DESCRIPTION    "vendor test write"   --描述
-    ::= {vendor 3}                       --父节点
+-- enterprises.36000.1.1.1 enterprises vendor systemInfo globalInfo deviceInfo
+macAddress         OBJECT-TYPE
+    SYNTAX         DisplayString
+    MAX-ACCESS     read-only
+    STATUS         current
+    DESCRIPTION    "vendor deviceInfo MAC address"
+    ::=            {deviceInfo 1}
+
+hardwareVersion    OBJECT-TYPE
+    SYNTAX         DisplayString
+    MAX-ACCESS     read-only
+    STATUS         current
+    DESCRIPTION    "vendor deviceInfo hardware Version"
+    ::=            {deviceInfo 2}
+
+softwareVersion    OBJECT-TYPE
+    SYNTAX         DisplayString
+    MAX-ACCESS     read-only
+    STATUS         current
+    DESCRIPTION    "vendor deviceInfo software Version"
+    ::=            {deviceInfo 3}
+
+sn                 OBJECT-TYPE
+    SYNTAX         DisplayString
+    MAX-ACCESS     read-only
+    STATUS         current
+    DESCRIPTION    "vendor deviceInfo sn"
+    ::=            {deviceInfo 4}
+
+compilingTime      OBJECT-TYPE
+    SYNTAX         DisplayString
+    MAX-ACCESS     read-only
+    STATUS         current
+    DESCRIPTION    "vendor deviceInfo compiling Time"
+    ::=            {deviceInfo 5}
+
+systemTime         OBJECT-TYPE
+    SYNTAX         DisplayString
+    MAX-ACCESS     read-only
+    STATUS         current
+    DESCRIPTION    "vendor deviceInfo system Time"
+    ::=            {deviceInfo 6}
+
+powerTime          OBJECT-TYPE
+    SYNTAX         Integer32
+    MAX-ACCESS     read-only
+    STATUS         current
+    DESCRIPTION    "vendor deviceInfo power Time"
+    ::=            {deviceInfo 7}
+
+-- enterprises.36000.1.1.2 enterprises vendor systemInfo globalInfo memoryInfo
+memoryUsed         OBJECT-TYPE
+    SYNTAX         Integer32
+    MAX-ACCESS     read-only
+    STATUS         current
+    DESCRIPTION    "vendor memoryInfo memoryUsed"
+    ::=            {memoryInfo 1}
+
+memoryBuffers      OBJECT-TYPE
+    SYNTAX         Integer32
+    MAX-ACCESS     read-only
+    STATUS         current
+    DESCRIPTION    "vendor memoryInfo memoryBuffers"
+    ::=            {memoryInfo 2}
+
+memoryCached       OBJECT-TYPE
+    SYNTAX         Integer32
+    MAX-ACCESS     read-only
+    STATUS         current
+    DESCRIPTION    "vendor memoryInfo memoryCached"
+    ::=            {memoryInfo 3}
+
+memoryFree         OBJECT-TYPE
+    SYNTAX         Integer32
+    MAX-ACCESS     read-only
+    STATUS         current
+    DESCRIPTION    "vendor memoryInfo memoryFree"
+    ::=            {memoryInfo 4}
+
+-- enterprises.36000.1.1.3 enterprises vendor systemInfo globalInfo systemLoad
+systemCPU          OBJECT-TYPE
+    SYNTAX         Integer32
+    MAX-ACCESS     read-only
+    STATUS         current
+    DESCRIPTION    "vendor systemLoad systemCPU"
+    ::=            {systemLoad 1}
+
+systemMemory       OBJECT-TYPE
+    SYNTAX         Integer32
+    MAX-ACCESS     read-only
+    STATUS         current
+    DESCRIPTION    "vendor systemLoad systemMemory"
+    ::=            {systemLoad 2}
+
+-- enterprises.36000.1.2.1 enterprises vendor systemInfo packetInfo 1
+basicpackettable  OBJECT-TYPE
+    SYNTAX         SEQUENCE OF BasicPacketEntry
+    MAX-ACCESS     not-accessible
+    STATUS         current
+    DESCRIPTION    " basicpackettable description table "
+    ::=            { packetInfo  1 }
+
+basicpacketEntry OBJECT-TYPE
+    SYNTAX         BasicPacketEntry
+    MAX-ACCESS     not-accessible
+    STATUS         current
+    DESCRIPTION    " basicpacket table status description table entry "
+    INDEX          { port }
+    ::=            { basicpackettable 1}
+
+BasicPacketEntry::=
+    SEQUENCE {
+        port        DisplayString,
+        rxBytes     Counter64,
+        rxPackets   Counter64,
+        rxDropped   Counter64,
+        rxErrors    Counter64,
+        txBytes     Counter64,
+        txPackets   Counter64,
+        txDropped   Counter64,
+        txErrors    Counter64
+    }
+
+port OBJECT-TYPE
+    SYNTAX         DisplayString
+    MAX-ACCESS     read-only
+    STATUS         current
+    DESCRIPTION    " Port "
+    ::=            { basicpacketEntry 1 }
+
+rxBytes OBJECT-TYPE
+    SYNTAX         Counter64
+    MAX-ACCESS     read-only
+    STATUS         current
+    DESCRIPTION    " rxBytes "
+    ::=            { basicpacketEntry 2 }
+
+rxPackets OBJECT-TYPE
+    SYNTAX         Counter64
+    MAX-ACCESS     read-only
+    STATUS         current
+    DESCRIPTION    " rxPackets "
+    ::=            { basicpacketEntry 3 }
+
+rxDropped OBJECT-TYPE
+    SYNTAX         Counter64
+    MAX-ACCESS     read-only
+    STATUS         current
+    DESCRIPTION    " rxDropped "
+    ::=            { basicpacketEntry 4 }
+
+rxErrors OBJECT-TYPE
+    SYNTAX         Counter64
+    MAX-ACCESS     read-only
+    STATUS         current
+    DESCRIPTION    " rxErrors "
+    ::=            { basicpacketEntry 5 }
+
+txBytes OBJECT-TYPE
+    SYNTAX         Counter64
+    MAX-ACCESS     read-only
+    STATUS         current
+    DESCRIPTION    " txBytes "
+    ::=            { basicpacketEntry 6 }
+
+txPackets OBJECT-TYPE
+    SYNTAX         Counter64
+    MAX-ACCESS     read-only
+    STATUS         current
+    DESCRIPTION    " txPackets "
+    ::=            { basicpacketEntry 7 }
+
+txDropped OBJECT-TYPE
+    SYNTAX         Counter64
+    MAX-ACCESS     read-only
+    STATUS         current
+    DESCRIPTION    " txDropped "
+    ::=            { basicpacketEntry 8 }
+
+txErrors OBJECT-TYPE
+    SYNTAX         Counter64
+    MAX-ACCESS     read-only
+    STATUS         current
+    DESCRIPTION    " txErrors "
+    ::=            { basicpacketEntry 9 }
+
+-- enterprises.36000.1.2.2 enterprises vendor systemInfo packetInfo 2
+detailpackettable  OBJECT-TYPE
+    SYNTAX         SEQUENCE OF DetailPacketEntry
+    MAX-ACCESS     not-accessible
+    STATUS         current
+    DESCRIPTION    " detailpackettable description table "
+    ::=            { packetInfo  2 }
+
+detailpacketEntry OBJECT-TYPE
+    SYNTAX         DetailPacketEntry
+    MAX-ACCESS     not-accessible
+    STATUS         current
+    DESCRIPTION    " detailpacket table status description table entry "
+    INDEX          { port }
+    ::=            { detailpackettable 1}
+
+DetailPacketEntry::=
+    SEQUENCE {
+        port                DisplayString,
+        rxBytes             Counter64,
+        rxUcastPkts         Counter64,
+        rxMulticast         Counter64,
+        rxBroadcast         Counter64,
+        txUcastPkts         Counter64,
+        txMulticast         Counter64,
+        txBroadcast         Counter64,
+        delayExceedDiscard  Counter64,
+        mtuExceedDiscard    Counter64,
+        tpPortDiscard       Counter64
+    }
+
+port OBJECT-TYPE
+    SYNTAX         DisplayString
+    MAX-ACCESS     read-only
+    STATUS         current
+    DESCRIPTION    " Port "
+    ::=            { detailpacketEntry 1 }
+
+rxBytes OBJECT-TYPE
+    SYNTAX         Counter64
+    MAX-ACCESS     read-only
+    STATUS         current
+    DESCRIPTION    " rxBytes "
+    ::=            { detailpacketEntry 2 }
+
+rxUcastPkts OBJECT-TYPE
+    SYNTAX         Counter64
+    MAX-ACCESS     read-only
+    STATUS         current
+    DESCRIPTION    " rxUcastPkts "
+    ::=            { detailpacketEntry 3 }
+
+rxMulticast OBJECT-TYPE
+    SYNTAX         Counter64
+    MAX-ACCESS     read-only
+    STATUS         current
+    DESCRIPTION    " rxMulticast "
+    ::=            { detailpacketEntry 4 }
+
+rxBroadcast OBJECT-TYPE
+    SYNTAX         Counter64
+    MAX-ACCESS     read-only
+    STATUS         current
+    DESCRIPTION    " rxBroadcast "
+    ::=            { detailpacketEntry 5 }
+
+txUcastPkts OBJECT-TYPE
+    SYNTAX         Counter64
+    MAX-ACCESS     read-only
+    STATUS         current
+    DESCRIPTION    " txUcastPkts "
+    ::=            { detailpacketEntry 6 }
+
+txMulticast OBJECT-TYPE
+    SYNTAX         Counter64
+    MAX-ACCESS     read-only
+    STATUS         current
+    DESCRIPTION    " txMulticast "
+    ::=            { detailpacketEntry 7 }
+
+txBroadcast OBJECT-TYPE
+    SYNTAX         Counter64
+    MAX-ACCESS     read-only
+    STATUS         current
+    DESCRIPTION    " txBroadcast "
+    ::=            { detailpacketEntry 8 }
+
+delayExceedDiscard OBJECT-TYPE
+    SYNTAX         Counter64
+    MAX-ACCESS     read-only
+    STATUS         current
+    DESCRIPTION    " delayExceedDiscard "
+    ::=            { detailpacketEntry 9 }
+
+mtuExceedDiscard OBJECT-TYPE
+    SYNTAX         Counter64
+    MAX-ACCESS     read-only
+    STATUS         current
+    DESCRIPTION    " mtuExceedDiscard "
+    ::=            { detailpacketEntry 10 }
+
+tpPortDiscard OBJECT-TYPE
+    SYNTAX         Counter64
+    MAX-ACCESS     read-only
+    STATUS         current
+    DESCRIPTION    " tpPortDiscard "
+    ::=            { detailpacketEntry 11 }
+
+-- enterprises.36000.1.3.1 enterprises vendor systemInfo macFrameInfo 1
+macframelenthtable  OBJECT-TYPE
+    SYNTAX         SEQUENCE OF MacFrameLenthEntry
+    MAX-ACCESS     not-accessible
+    STATUS         current
+    DESCRIPTION    " macframelenthtable description table "
+    ::=            { macFrameInfo  1 }
+
+macframelenthEntry OBJECT-TYPE
+    SYNTAX         MacFrameLenthEntry
+    MAX-ACCESS     not-accessible
+    STATUS         current
+    DESCRIPTION    " macframelenth table status description table entry "
+    INDEX          { port }
+    ::=            { macframelenthtable 1}
+
+MacFrameLenthEntry::=
+    SEQUENCE {
+        port                    DisplayString,
+        undersizeFrame          Counter64,
+        BytesFrame64            Counter64,
+        BytesFrame64to127       Counter64,
+        BytesFrame128to255      Counter64,
+        BytesFrame256to511      Counter64,
+        BytesFrame512to1023     Counter64,
+        BytesFrame1024to1518    Counter64,
+        oversizeFrame           Counter64,
+        jabberFrame             Counter64
+    }
+
+port OBJECT-TYPE
+    SYNTAX         DisplayString
+    MAX-ACCESS     read-only
+    STATUS         current
+    DESCRIPTION    " Port "
+    ::=            { macframelenthEntry 1 }
+
+undersizeFrame OBJECT-TYPE
+    SYNTAX         Counter64
+    MAX-ACCESS     read-only
+    STATUS         current
+    DESCRIPTION    " undersizeFrame "
+    ::=            { macframelenthEntry 2 }
+
+BytesFrame64 OBJECT-TYPE
+    SYNTAX         Counter64
+    MAX-ACCESS     read-only
+    STATUS         current
+    DESCRIPTION    " BytesFrame64 "
+    ::=            { macframelenthEntry 3 }
+
+BytesFrame64to127 OBJECT-TYPE
+    SYNTAX         Counter64
+    MAX-ACCESS     read-only
+    STATUS         current
+    DESCRIPTION    " BytesFrame64to127 "
+    ::=            { macframelenthEntry 4 }
+
+BytesFrame128to255 OBJECT-TYPE
+    SYNTAX         Counter64
+    MAX-ACCESS     read-only
+    STATUS         current
+    DESCRIPTION    " BytesFrame128to255 "
+    ::=            { macframelenthEntry 5 }
+
+BytesFrame256to511 OBJECT-TYPE
+    SYNTAX         Counter64
+    MAX-ACCESS     read-only
+    STATUS         current
+    DESCRIPTION    " BytesFrame256to511 "
+    ::=            { macframelenthEntry 6 }
+
+BytesFrame512to1023 OBJECT-TYPE
+    SYNTAX         Counter64
+    MAX-ACCESS     read-only
+    STATUS         current
+    DESCRIPTION    " BytesFrame512to1023 "
+    ::=            { macframelenthEntry 7 }
+
+BytesFrame1024to1518 OBJECT-TYPE
+    SYNTAX         Counter64
+    MAX-ACCESS     read-only
+    STATUS         current
+    DESCRIPTION    " BytesFrame1024to1518 "
+    ::=            { macframelenthEntry 8 }
+
+oversizeFrame OBJECT-TYPE
+    SYNTAX         Counter64
+    MAX-ACCESS     read-only
+    STATUS         current
+    DESCRIPTION    " oversizeFrame "
+    ::=            { macframelenthEntry 9 }
+
+jabberFrame OBJECT-TYPE
+    SYNTAX         Counter64
+    MAX-ACCESS     read-only
+    STATUS         current
+    DESCRIPTION    " jabberFrame "
+    ::=            { macframelenthEntry 10 }
+
+-- enterprises.36000.1.3.2 enterprises vendor systemInfo macFrameInfo 2
+macframeerrortable  OBJECT-TYPE
+    SYNTAX         SEQUENCE OF MacFrameErrorEntry
+    MAX-ACCESS     not-accessible
+    STATUS         current
+    DESCRIPTION    " macframeerrortable description table "
+    ::=            { macFrameInfo  2 }
+
+macframeerrorEntry OBJECT-TYPE
+    SYNTAX         MacFrameErrorEntry
+    MAX-ACCESS     not-accessible
+    STATUS         current
+    DESCRIPTION    " macframeerror table status description table entry "
+    INDEX          { port }
+    ::=            { macframeerrortable 1}
+
+MacFrameErrorEntry::=
+    SEQUENCE {
+        port                DisplayString,
+        alignmentError      Counter64,
+        crcError            Counter64,
+        excessiveCollisions Counter64,
+        internalMacTrError  Counter64,
+        carrierSenseError   Counter64,
+        internalMacRxError  Counter64,
+        inPauseFrame        Counter64,
+        outPauseFrame       Counter64
+    }
+
+port OBJECT-TYPE
+    SYNTAX         DisplayString
+    MAX-ACCESS     read-only
+    STATUS         current
+    DESCRIPTION    " Port "
+    ::=            { macframeerrorEntry 1 }
+
+alignmentError OBJECT-TYPE
+    SYNTAX         Counter64
+    MAX-ACCESS     read-only
+    STATUS         current
+    DESCRIPTION    " alignmentError "
+    ::=            { macframeerrorEntry 2 }
+
+crcError OBJECT-TYPE
+    SYNTAX         Counter64
+    MAX-ACCESS     read-only
+    STATUS         current
+    DESCRIPTION    " crcError "
+    ::=            { macframeerrorEntry 3 }
+
+excessiveCollisions OBJECT-TYPE
+    SYNTAX         Counter64
+    MAX-ACCESS     read-only
+    STATUS         current
+    DESCRIPTION    " excessiveCollisions "
+    ::=            { macframeerrorEntry 4 }
+
+internalMacTrError OBJECT-TYPE
+    SYNTAX         Counter64
+    MAX-ACCESS     read-only
+    STATUS         current
+    DESCRIPTION    " internalMacTrError "
+    ::=            { macframeerrorEntry 5 }
+
+carrierSenseError OBJECT-TYPE
+    SYNTAX         Counter64
+    MAX-ACCESS     read-only
+    STATUS         current
+    DESCRIPTION    " carrierSenseError "
+    ::=            { macframeerrorEntry 6 }
+
+internalMacRxError OBJECT-TYPE
+    SYNTAX         Counter64
+    MAX-ACCESS     read-only
+    STATUS         current
+    DESCRIPTION    " internalMacRxError "
+    ::=            { macframeerrorEntry 7 }
+
+inPauseFrame OBJECT-TYPE
+    SYNTAX         Counter64
+    MAX-ACCESS     read-only
+    STATUS         current
+    DESCRIPTION    " inPauseFrame "
+    ::=            { macframeerrorEntry 8 }
+
+outPauseFrame OBJECT-TYPE
+    SYNTAX         Counter64
+    MAX-ACCESS     read-only
+    STATUS         current
+    DESCRIPTION    " outPauseFrame "
+    ::=            { macframeerrorEntry 9 }
+
+-- enterprises.36000.2.1 enterprises vendor macTable 1
+mactable           OBJECT-TYPE
+    SYNTAX         SEQUENCE OF MacEntry
+    MAX-ACCESS     read-create
+    STATUS         current
+    DESCRIPTION    " macTable description table "
+    ::=            { macTable  1 }
+ 
+ 
+macEntry OBJECT-TYPE
+    SYNTAX         MacEntry
+    MAX-ACCESS     read-create
+    STATUS         current
+    DESCRIPTION    " Mac table status description table entry "
+    INDEX          { macID }
+    ::=            { mactable 1}
+ 
+ 
+MacEntry::=
+    SEQUENCE {
+        macID        Integer32,
+        macVlan      Integer32,
+        macType      Integer32,
+        macPort      DisplayString,
+        macAddress   DisplayString,
+        macRowStatus RowStatus
+    }
+ 
+macID OBJECT-TYPE
+    SYNTAX         Integer32
+    MAX-ACCESS     read-only
+    STATUS         current
+    DESCRIPTION    " Mac ID "
+    ::=            { macEntry 1 }
+
+macVlan OBJECT-TYPE
+    SYNTAX         Integer32
+    MAX-ACCESS     read-write
+    STATUS         current
+    DESCRIPTION    " Mac Vlan "
+    ::=            { macEntry 2 }
+
+macType  OBJECT-TYPE
+    SYNTAX         Integer32
+    MAX-ACCESS     read-only
+    STATUS         current
+    DESCRIPTION    " Mac Type 0-dynamic 1-static"
+    ::=            { macEntry 3 }
+
+macPort OBJECT-TYPE
+    SYNTAX         DisplayString
+    MAX-ACCESS     read-write
+    STATUS         current
+    DESCRIPTION    " Mac Port "
+    ::=            { macEntry 4 }
+
+macAddress OBJECT-TYPE
+    SYNTAX         DisplayString
+    MAX-ACCESS     read-write
+    STATUS         current
+    DESCRIPTION    " Mac Address "
+    ::=            { macEntry 5 }
+
+macRowStatus OBJECT-TYPE
+    SYNTAX         RowStatus
+    MAX-ACCESS     read-create
+    STATUS         current
+    DESCRIPTION    " Mac RowStatus to support create and delete "
+    ::=            { macEntry 6 }
+
+-- enterprises.36000.3.1 enterprises vendor vlanTable 1
+vlanstatetable OBJECT-TYPE
+    SYNTAX         SEQUENCE OF VlanStateEntry
+    MAX-ACCESS     not-accessible
+    STATUS         current
+    DESCRIPTION    " vlan state table description table "
+    ::=            { vlanTable  1 }
+
+vlanstateEntry OBJECT-TYPE
+    SYNTAX         VlanStateEntry
+    MAX-ACCESS     not-accessible
+    STATUS         current
+    DESCRIPTION    " vlan state table status description table entry "
+    INDEX          { vlanID }
+    ::=            { vlanstatetable 1}
+
+VlanStateEntry::=
+    SEQUENCE {
+        vlanID        Integer32,
+        vlanTagPort   DisplayString,
+        vlanUntagPort DisplayString
+    }
+
+vlanID OBJECT-TYPE
+    SYNTAX         Integer32
+    MAX-ACCESS     read-only
+    STATUS         current
+    DESCRIPTION    " Vlan ID "
+    ::=            { vlanstateEntry 1 }
+
+vlanTagPort OBJECT-TYPE
+    SYNTAX         DisplayString
+    MAX-ACCESS     read-only
+    STATUS         current
+    DESCRIPTION    " Vlan Tag Port "
+    ::=            { vlanstateEntry 2 }
+
+vlanUntagPort OBJECT-TYPE
+    SYNTAX         DisplayString
+    MAX-ACCESS     read-only
+    STATUS         current
+    DESCRIPTION    " Vlan Untag Port "
+    ::=            { vlanstateEntry 3 }
+
+-- enterprises.36000.3.2 enterprises vendor vlanTable 2
+vlanconfigtable OBJECT-TYPE
+    SYNTAX         SEQUENCE OF VlanConfigEntry
+    MAX-ACCESS     not-accessible
+    STATUS         current
+    DESCRIPTION    " vlan config table description table "
+    ::=            { vlanTable  2 }
+
+vlanconfigEntry OBJECT-TYPE
+    SYNTAX         VlanConfigEntry
+    MAX-ACCESS     not-accessible
+    STATUS         current
+    DESCRIPTION    " vlan config table status description table entry "
+    INDEX          { vlanID }
+    ::=            { vlanconfigtable 1}
+
+VlanConfigEntry::=
+    SEQUENCE {
+        vlanID      nteger32,
+        vlanMode    nteger32,
+        vlanPort    isplayString,
+        vlanTag     isplayString,
+        vlanUntag   isplayString
+    }
+
+vlanID OBJECT-TYPE
+    SYNTAX          Integer32
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION     " Vlan ID "
+    ::=             { vlanconfigEntry 1 }
+
+vlanMode OBJECT-TYPE
+    SYNTAX          Integer32
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION     " Vlan Mode "
+    ::=             { vlanconfigEntry 2 }
+
+vlanPort OBJECT-TYPE
+    SYNTAX          DisplayString
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION     " Vlan Port "
+    ::=             { vlanconfigEntry 3 }
+
+vlanTag OBJECT-TYPE
+    SYNTAX          DisplayString
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION     " Vlan Tag "
+    ::=             { vlanconfigEntry 4 }
+
+vlanUntag OBJECT-TYPE
+    SYNTAX          DisplayString
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION     " Vlan Untag "
+    ::=             { vlanconfigEntry 5 }
 
 END

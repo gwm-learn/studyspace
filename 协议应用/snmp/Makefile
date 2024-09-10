@@ -10,8 +10,8 @@ EXEC = snmpd
 
 CFLAGS +=	-I$(CURR_DIR)/../../../include \
 			-I$(CURR_DIR)/../../../system/include \
-			-I$(CURR_DIR)/src/bl_vendor \
-			-I$(CURR_DIR)/src/ipc_client 
+			-I$(CURR_DIR)/../diag_v2/include \
+			-I$(CURR_DIR)/src/bl_vendor
 
 SNMP_MIB_OUT_MODULES :=	snmpv3mibs \
 						notification \
@@ -25,7 +25,12 @@ SNMP_MIB_OUT_MODULES :=	snmpv3mibs \
 
 SNMP_MIB_VENDOR_MODULES :=	../../bl_vendor/vendor \
 							../../bl_vendor/ipc_client \
-							../../bl_vendor/util
+							../../bl_vendor/util \
+							../../bl_vendor/system_info \
+							../../bl_vendor/packet_table \
+							../../bl_vendor/mac_frame_table \
+							../../bl_vendor/mac_table \
+							../../bl_vendor/vlan_table
 
 CONFIGURE_ARGS := \
 	--prefix=/var/net-snmp \

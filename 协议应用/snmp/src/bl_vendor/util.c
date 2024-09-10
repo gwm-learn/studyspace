@@ -48,3 +48,97 @@ int mac_str_check(char *mac_in)
     }
     return 1;
 }
+
+void *malloc_in_comm_list_tail(void **listhead, int size)
+{
+    if (listhead && size > sizeof(void *))
+    {
+        COMM_LIST_HEAD *pCurr = (COMM_LIST_HEAD *)malloc(size);
+        if (pCurr)
+        {
+            memset(pCurr, 0x0, size);
+            if (*listhead)
+            {
+                COMM_LIST_HEAD *pTail = (COMM_LIST_HEAD *)(*listhead);
+                while(pTail->next)
+                {
+                    pTail = pTail->next;
+                }
+                pTail->next = pCurr;
+            }
+            else
+            {
+                *listhead = pCurr;
+            }
+            pCurr->next = NULL;
+        }
+        return pCurr;
+    }
+    return NULL;
+}
+
+void free_whole_comm_list(void **listhead)
+{
+    if (listhead && *listhead)
+    {
+        COMM_LIST_HEAD *pCurr = ((COMM_LIST_HEAD *)(*listhead));
+        COMM_LIST_HEAD *pNext = pCurr->next;
+        *listhead = NULL;
+        while(pCurr)
+        {
+            free(pCurr);
+            pCurr = pNext;
+            if (pNext) { pNext = pNext->next; }
+        }
+    }
+}
+
+void free_in_comm_list(void **listhead, void *listNode)
+{
+    if (listhead && *listhead && listNode)
+    {
+        COMM_LIST_HEAD *pPre = ((COMM_LIST_HEAD *)(*listhead));
+        COMM_LIST_HEAD *pTmp = pPre->next;
+
+        if (*listhead == listNode)
+        {
+            *listhead = pTmp;
+            free(listNode);
+        }
+        else
+        {
+            while(pTmp)
+            {
+                if (pTmp == listNode)
+                {
+                    pPre->next = pTmp->next;
+                    free(listNode);
+                    break;
+                }
+                pPre = pTmp;
+                pTmp = pTmp->next;
+            }
+        }
+    }
+}
+
+void del_spec_in_str(char spec, char *str, int str_len)
+{
+    int i = 0;
+    int j = 0;
+
+    if (str == NULL)
+        return;
+
+    for (i = 0; str[i] != '\0' && i < str_len; i++)
+    {
+        if (str[i] == spec)
+        {
+            for (j = i; str[j] != '\0' && str[j+1] != '\0' && j+1 < str_len; j++)
+            {
+                str[j] = str[j+1];
+            }
+            str[j] = '\0';
+        }
+    }
+}
