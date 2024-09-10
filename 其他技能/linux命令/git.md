@@ -55,3 +55,10 @@ git branch -a
 # 取远程分支并分化一个新分支：
 git checkout -b mybranch origin/mybranch   
 ```
+
+# git出现Your branch and ‘origin/master‘ have diverged
+```SHELL
+git rebase origin/master
+git pull --rebase
+git push origin master
+```

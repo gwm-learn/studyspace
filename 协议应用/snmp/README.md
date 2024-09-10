@@ -151,9 +151,15 @@ MIB Browser
 # 添加trap
 运行snmptrapd接收trap消息   
 ```
-snmptrapd -C -c /var/net-snmp/conf/snmptrapd.conf -df &
+snmptrapd -C -c conf/snmptrapd.conf -f -Lo &
 ```
 snmptrapd.conf 配置
 ```
 authCommunity log,execute,net secret
+```
+
+6. get set
+```
+snmpget -v 2c 192.168.100.158 -c private enterprises.36000.3.0
+snmpset -v 2c -c private 192.168.100.158 SNMPv2-SMI::enterprises.36000.3.0 s "123456789987"
 ```
