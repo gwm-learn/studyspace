@@ -84,3 +84,40 @@ svn diff -c r12347
 ```SHELL
 svn merge -r r18434:r18432 broadlink/package/dongle-mngr/files/led.sh # led.sh 从r18434退回到r18432
 ```
+
+# 免密输入
+1. 修改~/.subversion/config   
+```
+password-stores = simple
+```
+
+2. 修改~/.subversion/servers   
+```
+store-passwords = no
+```
+
+3. 更新用户密码   
+```
+svn up --username gaoweiming --password gaoweiming   
+rm -rf ~/.subversion/auth/
+```
+修改~/.subversion/auth/svn.simple/0f7c0bbf674d451ea011dd52f9f1e743
+```
+K 15
+svn:realmstring
+V 50
+<http://120.76.175.235:8090> Subversion Repository
+K 8
+username
+V 10
+gaoweiming
+K 8
+password
+V 10
+gaoweiming
+K 8
+passtype
+V 6
+simple
+END
+```
