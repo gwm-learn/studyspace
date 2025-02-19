@@ -6,6 +6,7 @@ OPTION_NUM=0
 NUM_ONE=1
 OPTION_TYPE=
 USER="gwm"
+PASSWORD="123"
 
 usage_info(){
 	echo "----------------------------- info ---------------------------------------------------------"
@@ -14,26 +15,6 @@ usage_info(){
 	echo "|option:-p [pathname] or --path [pathname] to specifies the permission file in this path   |"
 	echo "|option:-h or --help to see this shell script info                                         |"
 	echo "------------------------ author: gaoweiming ------------------------------------------------"
-}
-
-all_file_in_path(){
-	while [ $# -ne 0 ]
-	do
-	file_in_path $1;
-		shift
-	done
-}
-
-file_in_path(){
-	if [ -d $1 ]; then
-		for file in `ls $1 `
-		do
-			file_in_path $1"/"$file
-		done
-	elif [ -f $1 ]; then
-		CMD_FILE=$CMD_FILE" $1"
-		echo "PATH:"$1
-	fi
 }
 
 deal_input_param(){
@@ -99,17 +80,13 @@ if [ $OPTION_NUM != 1 ]; then
 fi
 
 if [ $OPTION_TYPE = "file" ]; then
-	sudo chown $USER $OPTION_PARAM
-	sudo chgrp $USER $OPTION_PARAM
+	echo $PASSWORD | sudo -S chown $USER $OPTION_PARAM
+	echo $PASSWORD | sudo -S chgrp $USER $OPTION_PARAM
 elif [ $OPTION_TYPE = "path" ]; then
-#	all_file_in_path $OPTION_PARAM
-#	sudo chown $USER $CMD_FILE
-#	sudo chgrp $USER $CMD_FILE
 	echo "chown $USER -R $OPTION_PARAM"
-	sudo chown $USER -R $OPTION_PARAM
+	echo $PASSWORD | sudo -S chown $USER -R $OPTION_PARAM
 	echo "chgrp $USER -R $OPTION_PARAM"
-	sudo chgrp $USER -R $OPTION_PARAM
+	echo $PASSWORD | sudo -S chgrp $USER -R $OPTION_PARAM
 else
 	usage_info
 fi
-
