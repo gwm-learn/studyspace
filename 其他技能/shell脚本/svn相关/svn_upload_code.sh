@@ -33,6 +33,7 @@ upload_file(){
     done
 
     echo "========== svn upload success =========="
+    svn update
 }
 
 file_in_path(){
