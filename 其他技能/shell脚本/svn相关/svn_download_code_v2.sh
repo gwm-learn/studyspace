@@ -1,5 +1,6 @@
 #!/bin/bash
 
+LOG_FILE="./svn.log"
 SVN_CODE_REPO_URL=
 SVN_CODE_REPO_LOCAL_NAME=
 SVN_CODE_REPO_USERNAME=
@@ -55,31 +56,37 @@ cleanup_retry() {
 monitor_activity() {
     local pid=$1
     local activity_timeout=$2
-    local last_activity=$(date +%s)
-    
+    local timestamp_file=$(mktemp)
+    echo $(date +%s) > "$timestamp_file"
+
     # 启动输出监控后台进程
     {
         while read -r line; do
-            last_activity=$(date +%s)
+            echo $(date +%s) > "$timestamp_file"
         done
-    } < <(tail -f "$LOG_FILE" 2>/dev/null) &
+    } < <(tail -F "$LOG_FILE" 2>/dev/null) &
     local monitor_pid=$!
-    
+
     # 活动检测循环
     while kill -0 $pid 2>/dev/null; do
         sleep $MONITOR_INTERVAL
+        local last_activity=$(< "$timestamp_file")
         local now=$(date +%s)
         local time_diff=$((now - last_activity))
-        
+
         if [ $time_diff -ge $activity_timeout ]; then
             echo "========== 检测到操作停滞超过${activity_timeout}秒 =========="
             kill -TERM $pid 2>/dev/null
             kill $monitor_pid 2>/dev/null
+            rm -f "$timestamp_file"
             return 1
+        else
+            echo -ne "\rtimeout:$time_diff/$activity_timeout s..."
         fi
     done
-    
+
     kill $monitor_pid 2>/dev/null
+    rm -f "$timestamp_file"
     wait $pid
     return $?
 }
@@ -88,20 +95,18 @@ download_with_retry() {
     local retry_delay=$INITIAL_RETRY_DELAY
     local attempt=0
     local current_timeout=$INITIAL_TIMEOUT
-    LOG_FILE=$(mktemp)
-    
-    trap 'rm -f "$LOG_FILE"; exit' EXIT
-    
+
     while true; do
         ((attempt++))
+        if [ -e $LOG_FILE ]; then
+            rm -f $LOG_FILE
+        fi
         echo "========== 第 ${attempt} 次尝试：开始检出代码（超时时间：${current_timeout}秒） =========="
-        
+
         cleanup_retry
-        rm -f "$LOG_FILE"
-        touch "$LOG_FILE"
-        
+
         # 启动SVN进程
-        svn co "${SVN_DOWNLOAD_CODE_PARA[@]}" > >(tee -a "$LOG_FILE") 2>&1 &
+        svn co "${SVN_DOWNLOAD_CODE_PARA[@]}" | tee -a $LOG_FILE 2>&1 &
         local svn_pid=$!
         
         # 启动活动监控
