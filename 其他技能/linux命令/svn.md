@@ -121,3 +121,11 @@ V 6
 simple
 END
 ```
+
+# 重构元数据
+```
+rm -rf /path/to/local_repo/.svn
+svn checkout --depth=empty http://svn-server/repo/trunk /path/to/local_repo 
+cd /path/to/local_repo 
+svn update --set-depth=infinity --force
+```
