@@ -9,13 +9,15 @@
 5. linux网络
 6. linux防火墙
 7. openwrt
-8. lte/5G
-9. 路由与交换
+8. 路由与交换
+9. lte/5G相关
 
 ## 编程技能
 1. C语言
 2. C++语言
 3. 数据结构
+4. qt4
+5. web
 
 ## 协议应用
 1. tr069
@@ -27,12 +29,13 @@
 7. tr369
 8. upnp
 9. wireguard
-10. oma dm
-11. web
-12. yocto
+10. L2TP
+11. oma dm
 
 ## 其他技能
 1. docker
-2. shell脚本
-3. linux命令
-4. linux 技巧
+2. shell
+3. linux
+4. make
+5. wsl
+6. yocto
