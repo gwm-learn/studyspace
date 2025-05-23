@@ -1,0 +1,2 @@
+gcc -o r fifo_read.c
+gcc -o w fifo_write.c

@@ -1,0 +1,4 @@
+gcc -o wait wait_signal.c
+gcc -o send send_signal.c
+gcc -o alarm alarm.c
+gcc -o mysignal mysignal.c

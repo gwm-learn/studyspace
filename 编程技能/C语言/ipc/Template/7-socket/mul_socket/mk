@@ -1,0 +1,6 @@
+#gcc -o server server.c
+#gcc -o client client.c
+#gcc -o server -Wall -Werror -pthread server.c 
+#gcc -o client -Wall -Werror -pthread client.c
+gcc -o server -pthread server.c 
+gcc -o client -pthread client.c

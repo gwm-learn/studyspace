@@ -1,0 +1,1 @@
+gcc  -Werror -pthread -o c c.c

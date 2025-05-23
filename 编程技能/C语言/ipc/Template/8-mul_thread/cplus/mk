@@ -1,0 +1,1 @@
+g++  -Werror -pthread -o cplus cplus.cpp

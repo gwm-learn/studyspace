@@ -1,0 +1,5 @@
+gcc -o cre_msg cre_msg.c
+gcc -o send_msg send_msg.c
+gcc -o receiv_msg receiv_msg.c
+gcc -o del_msg del_msg.c
+

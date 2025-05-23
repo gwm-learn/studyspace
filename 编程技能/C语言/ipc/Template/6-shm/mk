@@ -1,0 +1,2 @@
+gcc -o w shm_write.c
+gcc -o r shm_read.c

@@ -1,0 +1,1 @@
+gcc -o pipe_fork pipe_fork.c
