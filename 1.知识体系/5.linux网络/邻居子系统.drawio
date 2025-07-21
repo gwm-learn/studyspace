@@ -1,0 +1,76 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/28.0.4 Chrome/138.0.7204.97 Electron/37.2.1 Safari/537.36" version="28.0.4">
+  <diagram name="第 1 页" id="B59e0eoIq9sb6REvHKyb">
+    <mxGraphModel dx="1426" dy="859" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="#ffffff" math="0" shadow="1">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="9YbZsnLNYBI_3LjZlf6w-1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="270" y="310" width="240" height="210" as="geometry" />
+        </mxCell>
+        <mxCell id="9YbZsnLNYBI_3LjZlf6w-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="9YbZsnLNYBI_3LjZlf6w-3" target="9YbZsnLNYBI_3LjZlf6w-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="9YbZsnLNYBI_3LjZlf6w-3" value="__neigh_create" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="290" y="350" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="9YbZsnLNYBI_3LjZlf6w-5" value="neigh_resolve_output" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="290" y="440" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="9YbZsnLNYBI_3LjZlf6w-9" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="270" y="555" width="240" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="9YbZsnLNYBI_3LjZlf6w-10" value="dev_queue_xmit" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="290" y="570" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="9YbZsnLNYBI_3LjZlf6w-11" value="邻居子系统" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="180" y="440" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="9YbZsnLNYBI_3LjZlf6w-12" value="网络设备子系统" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="165" y="570" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="9YbZsnLNYBI_3LjZlf6w-14" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="9YbZsnLNYBI_3LjZlf6w-5" target="9YbZsnLNYBI_3LjZlf6w-10">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="350" y="590" as="sourcePoint" />
+            <mxPoint x="590" y="480" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9YbZsnLNYBI_3LjZlf6w-15" value="1. 创建邻居项" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="325" y="380" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="9YbZsnLNYBI_3LjZlf6w-16" value="2. 添加哈希表" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="340" y="400" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="9YbZsnLNYBI_3LjZlf6w-21" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="270" y="220" width="240" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="9YbZsnLNYBI_3LjZlf6w-22" value="ip_finish_output2" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="290" y="235" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="9YbZsnLNYBI_3LjZlf6w-23" value="网络层" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="190" y="235" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="9YbZsnLNYBI_3LjZlf6w-24" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="9YbZsnLNYBI_3LjZlf6w-22" target="9YbZsnLNYBI_3LjZlf6w-3">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="390" y="610" as="sourcePoint" />
+            <mxPoint x="440" y="560" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9YbZsnLNYBI_3LjZlf6w-26" value="1. 查找邻居项，&lt;br&gt;找不到就创建" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="330" y="310" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="9YbZsnLNYBI_3LjZlf6w-28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="354" y="470" as="sourcePoint" />
+            <mxPoint x="354" y="530" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9YbZsnLNYBI_3LjZlf6w-29" value="1. 发送arp请求" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="340" y="470" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="9YbZsnLNYBI_3LjZlf6w-30" value="2. 封装MAC头" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="344" y="490" width="126" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
