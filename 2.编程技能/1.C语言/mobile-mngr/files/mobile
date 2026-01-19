@@ -1,0 +1,291 @@
+config basic
+    option enable '1'
+    option mtu '1500'
+    option dialNumber '*99#'
+    option password 'any'
+    option apn 'internet'
+    option userName 'any'
+    option netType 'AUTO'
+    option netSubType 'AUTO'
+    option authType 'AUTO'
+    option ipVersion 'IPV4V6'
+    option natEnable '1'
+    option bridgeEnable '0'
+    option voiceMode 'VoLTE'
+    option manualApnEnable '0'
+    option apn 'internet'
+    option mapnnum '0'
+    option delegate '1'
+    option lastlockType '0'
+    option pinEnable '0'
+    option pinAutoUnlock '0'
+    option simType '1'
+    option imsEnable '1'
+    option cellLockType '1'
+    option log_level '4'
+    option log_file '/tmp/mobile/log'
+    option log_size '10'
+
+config mapn
+    option vlan '2'
+    option interface 'wan5g01'
+    option userName 'any'
+    option password 'any'
+    option dialNumber '*99#'
+    option authType 'AUTO'
+    option enable '0'
+    option apn 'internet1'
+    option delegate '0'
+    option natEnable '0'
+    option bridgeEnable '0'
+    option ipVersion 'IPV4V6'
+
+config mapn
+    option vlan '3'
+    option interface 'wan5g02'
+    option userName 'any'
+    option password 'any'
+    option dialNumber '*99#'
+    option authType 'AUTO'
+    option enable '0'
+    option apn 'internet2'
+    option delegate '0'
+    option natEnable '0'
+    option bridgeEnable '0'
+    option ipVersion 'IPV4V6'
+
+config mapn
+    option vlan '4'
+    option interface 'wan5g03'
+    option userName 'any'
+    option password 'any'
+    option dialNumber '*99#'
+    option authType 'AUTO'
+    option enable '0'
+    option apn 'internet3'
+    option delegate '0'
+    option natEnable '0'
+    option bridgeEnable '0'
+    option ipVersion 'IPV4V6'
+
+config mapn
+    option vlan '5'
+    option interface 'wan5g04'
+    option userName 'any'
+    option password 'any'
+    option dialNumber '*99#'
+    option authType 'AUTO'
+    option enable '0'
+    option apn 'internet4'
+    option delegate '0'
+    option natEnable '0'
+    option bridgeEnable '0'
+    option ipVersion 'IPV4V6'
+
+config service failover
+    option enable '0'
+
+config service simlock
+    option enable '0'
+
+config service bandlock
+    option enable '0'
+
+config celllock
+    option inited '0'
+    option state 'None'
+    option entries '0'
+    option firstactive '0'
+
+config service pcidlock0
+    option enable '0'
+
+config service pcidlock1
+    option enable '0'
+    
+config service pcidlock2
+    option enable '0'
+    
+config service pcidlock3
+    option enable '0'
+    
+config service pcidlock4
+    option enable '0'
+    
+config service pcidlock5
+    option enable '0'
+    
+config service pcidlock6
+    option enable '0'
+    
+config service pcidlock7
+    option enable '0'
+    
+config service pcidlock8
+    option enable '0'
+    
+config service pcidlock9
+    option enable '0'
+    
+config service pcidlock10
+    option enable '0'
+    
+config service pcidlock11
+    option enable '0'
+    
+config service pcidlock12
+    option enable '0'
+    
+config service pcidlock13
+    option enable '0'
+    
+config service pcidlock14
+    option enable '0'
+    
+config service pcidlock15
+    option enable '0'
+    
+config service pcidlock16
+    option enable '0'
+    
+config service pcidlock17
+    option enable '0'
+    
+config service pcidlock18
+    option enable '0'
+    
+config service pcidlock19
+    option enable '0'
+    
+config service pcidlock20
+    option enable '0'
+    
+config service pcidlock21
+    option enable '0'
+    
+config service pcidlock22
+    option enable '0'
+    
+config service pcidlock23
+    option enable '0'
+    
+config service pcidlock24
+    option enable '0'
+    
+config service pcidlock25
+    option enable '0'
+    
+config service pcidlock26
+    option enable '0'
+    
+config service pcidlock27
+    option enable '0'
+    
+config service pcidlock28
+    option enable '0'
+    
+config service pcidlock29
+    option enable '0'
+    
+config service pcidlock30
+    option enable '0'
+    
+config service pcidlock31
+    option enable '0'
+    
+config service pcidlock32
+    option enable '0'
+    
+config service pcidlock33
+    option enable '0'
+    
+config service pcidlock34
+    option enable '0'
+    
+config service pcidlock35
+    option enable '0'
+    
+config service pcidlock36
+    option enable '0'
+    
+config service pcidlock37
+    option enable '0'
+    
+config service pcidlock38
+    option enable '0'
+    
+config service pcidlock39
+    option enable '0'
+    
+config service pcidlock40
+    option enable '0'
+    
+config service pcidlock41
+    option enable '0'
+    
+config service pcidlock42
+    option enable '0'
+    
+config service pcidlock43
+    option enable '0'
+    
+config service pcidlock44
+    option enable '0'
+    
+config service pcidlock45
+    option enable '0'
+    
+config service pcidlock46
+    option enable '0'
+    
+config service pcidlock47
+    option enable '0'
+    
+config service pcidlock48
+    option enable '0'
+    
+config service pcidlock49
+    option enable '0'
+    
+config service pcidlock50
+    option enable '0'
+    
+config service pcidlock51
+    option enable '0'
+    
+config service pcidlock52
+    option enable '0'
+    
+config service pcidlock53
+    option enable '0'
+    
+config service pcidlock54
+    option enable '0'
+    
+config service pcidlock55
+    option enable '0'
+    
+config service pcidlock56
+    option enable '0'
+    
+config service pcidlock57
+    option enable '0'
+    
+config service pcidlock58
+    option enable '0'
+    
+config service pcidlock59
+    option enable '0'
+    
+config service pcidlock60
+    option enable '0'
+    
+config service pcidlock61
+    option enable '0'
+    
+config service pcidlock62
+    option enable '0'
+    
+config service pcidlock63
+    option enable '0'
+    
