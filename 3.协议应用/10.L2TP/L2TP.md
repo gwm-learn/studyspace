@@ -1,5 +1,5 @@
 # 概念
-二层隧道协议L2TP（Layer 2 Tunneling Protocol）是虚拟私有拨号网VPDN（Virtual Private Dial-up Network）隧道协议的一种，它扩展了点到点协议[PPP](./../../知识体系/路由与交换/m-2-PPP.md)（Point-to-Point Protocol）的应用，是应用于远程办公场景中为出差员工远程访问企业内网资源提供接入服务的一种重要VPN技术。   
+二层隧道协议L2TP（Layer 2 Tunneling Protocol）是虚拟私有拨号网VPDN（Virtual Private Dial-up Network）隧道协议的一种，它扩展了点到点协议[PPP](./../../1.知识体系/8.路由与交换/m-2-PPP.md)（Point-to-Point Protocol）的应用，是应用于远程办公场景中为出差员工远程访问企业内网资源提供接入服务的一种重要VPN技术。   
 ![L2TP](./L2TP.png)   
 
 ## PPP 终端

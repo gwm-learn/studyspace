@@ -46,4 +46,4 @@ PPP协议一般用于用户拨号接入ISP，工作流程如下
 网络控制协议(Network Control Protocol, NCP)：这实际是一个协议组合，有多个NCP协议。因为PPP协议支持多种网络层协议，比如IP协议，Xerox协议等，每一种网络层协议在发送数据报之前，都需要对应的网络控制协议为其配置相关信息。比如IP数据报在链路层传输前，就需要IPCP协议配置好用来承载IP数据报的链路。   
 
 # PPPoE
-[协议应用PPPoE](./../../协议应用/pppoe/pppoe.md)   
+[协议应用PPPoE](./../../3.协议应用/6.pppoe/pppoe.md)   
