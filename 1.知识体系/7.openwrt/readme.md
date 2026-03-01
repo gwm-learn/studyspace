@@ -12,23 +12,16 @@ jiuqu@192 7.openwrt % tree
 │   │   │   ├── 2.DHCP Client.md
 │   │   │   ├── 3.5G拨号.md
 │   │   │   └── 4.StaticIP.md
-│   │   ├── 2.LAN
-│   │   │   ├── 1.DHCP Server.md
-│   │   │   ├── 2.网桥.md
-│   │   │   └── 3.网段.md
-│   │   └── 3.WIFI
-│   │       ├── 1.AP.md
-│   │       ├── 2.Sta.md
-│   │       └── 3.Mesh.md
+│   │   └── 2.LAN
+│   │       ├── 1.DHCP Server.md
+│   │       ├── 2.网桥.md
+│   │       └── 3.网段.md
 │   └── 2.关键组件服务
 │       ├── 1.网络管理
 │       │   ├── 1.netifd.md
 │       │   ├── 2.bridge.md
 │       │   └── 3.vlan.md
-│       ├── 2.拨号接入
-│       │   ├── 1.PPPoE.md
-│       │   ├── 2.5G.md
-│       │   └── 3.路由.md
+│       ├── 2.路由
 │       ├── 3.NAT&防火墙
 │       │   ├── 1.iptables&nftables.md
 │       │   ├── 2.NAT源地址转换.md
@@ -60,10 +53,9 @@ jiuqu@192 7.openwrt % tree
 ├── 5.驱动
 │   ├── 1.以太网switch驱动
 │   ├── 2.wifi驱动
-│   ├── 3.5G模块
-│   └── 驱动通用知识点
-└── 6.其他
-    ├── procd.md
-    ├── ubus.md
-    └── 故障排查.md
-
+│   └── 3.驱动通用知识点
+├── 6.其他
+│   ├── procd.md
+│   ├── ubus.md
+│   └── 故障排查.md
+└── readme.md
