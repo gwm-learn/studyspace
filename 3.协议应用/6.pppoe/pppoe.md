@@ -17,4 +17,4 @@ PPPOE拨号分为三个阶段，Discovery阶段、Session阶段和Terminate阶�
 PPP通信双方可以使用PPP协议自身来结束PPPOE会话，当无法使用PPP协议结束会话时可以只用PADT报文，进入PPPOE session阶段后，PPPOE client和PPPOE server都可以通过发送PADT报文的方式结束PPPOE连接，PADT数据包可在会话建立以后的任意时刻单播发送，发送或者接受PADT后，就不允许再使用该会话发送PPP流量
 
 # PPP
-[PPP](./../../知识体系/路由与交换/m-2-PPP.md)   
+[PPP](./../../1.知识体系/8.路由与交换/m-2-PPP.md)   
