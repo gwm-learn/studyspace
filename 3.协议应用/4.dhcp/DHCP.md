@@ -26,4 +26,42 @@ DHCP客户端收到DHCP服务器ACK应答报文后，通过地址冲突检测发
 8. Inform   
 DHCP客户端如果需要从DHCP服务器端获取更为详细的配置信息，则向DHCP服务器发送Inform请求报文；DHCP服务器在收到该报文后，将根据租约进行查找到相应的配置信息后，向DHCP客户端发送ACK应答报文。目前基本上不用了。
 
+# DHCP流程
+
+DHCP客户端与服务器之间的交互遵循典型的“四次握手”过程，如下图所示：
+
+```mermaid
+sequenceDiagram
+    participant Client as DHCP Client
+    participant Server as DHCP Server
+
+    Note over Client,Server: 初始IP地址获取 (DORA)
+    Client->>Server: Discover (广播)
+    Server->>Client: Offer (单播)
+    Client->>Server: Request (广播)
+    Server->>Client: ACK (单播)
+
+    Note over Client,Server: 租约续期 (T1=50%, T2=87.5%)
+    Client->>Server: Request (单播，T1)
+    alt 收到ACK
+        Server->>Client: ACK
+    else 超时
+        Client->>Server: Request (广播，T2)
+        Server->>Client: ACK
+    end
+
+    Note over Client,Server: 释放IP地址
+    Client->>Server: Release (单播)
+```
+
+**说明**：
+1. **发现阶段（Discover）**：客户端广播Discover报文，寻找可用的DHCP服务器。
+2. **提供阶段（Offer）**：服务器响应Offer报文，提供IP地址等配置信息。
+3. **请求阶段（Request）**：客户端广播Request报文，正式请求使用该IP地址。
+4. **确认阶段（ACK）**：服务器发送ACK报文，确认租约生效。
+
+租约续期过程中，客户端在租期达到50%（T1）时尝试单播续租，若失败则在87.5%（T2）时广播续租请求。
+
+当客户端不再需要IP地址时，可发送Release报文主动释放。
+
 
