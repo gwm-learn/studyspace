@@ -451,7 +451,7 @@ stateDiagram-v2
         CHECK_LINK --> LINK_UP: carrier=1
     }
     
-    DEV_PRESENT --> DEV_ACTIVE: 接口声明设备<br/>device_claim()<br/>device.c:600
+    DEV_PRESENT --> DEV_ACTIVE: 接口声明设备<br/>device_claim()<br/>device.c
     
     state DEV_ACTIVE {
         [*] --> ACTIVE_IDLE
@@ -667,16 +667,6 @@ flowchart TD
     F --> G[创建wireless_driver结构]
     G --> H[加入wireless_drivers AVL树]
     
-    subgraph "驱动脚本JSON输出"
-        I[{
-            "name": "驱动名",
-            "device": [...],  // 设备参数
-            "iface": [...],   // 接口参数
-            "vlan": [...],    // VLAN参数
-            "station": [...]  // 站点参数
-        }]
-    end
-    
     E --> I
     F --> I
 ```
@@ -686,7 +676,7 @@ flowchart TD
 ```mermaid
 flowchart TD
     A[UCI配置解析<br/>config_parse_wireless_interface] --> B[wireless_interface_create]
-    B --> C[分配VIF名称 (如 "0", "1")]
+    B --> C[分配VIF名称]
     C --> D[初始化vlans和stations vlist_tree]
     D --> E[添加到设备的interfaces列表]
     E --> F[vif_update回调]
@@ -733,17 +723,17 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-    A[config_init_all<br/>config.c:744] --> B[config_init_package("network")]
-    B --> C[解析"interface"和"alias"节]
+    A[config_init_all<br/>config.c:744] --> B[config_init_package network]
+    B --> C[解析interface和alias节]
     C --> D[interface_alloc创建接口]
-    D --> E[解析"device"节]
+    D --> E[解析device节]
     E --> F[device_create创建设备]
-    F --> G[解析"globals"节]
+    F --> G[解析globals节]
     G --> H[设置全局参数]
     
-    H --> I[config_init_devices(true)<br/>第一阶段设备初始化]
+    H --> I[config_init_devices<br/>第一阶段设备初始化]
     I --> J[config_init_vlans<br/>初始化VLAN]
-    J --> K[config_init_devices(false)<br/>第二阶段设备初始化]
+    J --> K[config_init_devices<br/>第二阶段设备初始化]
     K --> L[config_init_interfaces<br/>初始化接口]
     L --> M[config_init_ip<br/>初始化IP配置]
     M --> N[config_init_rules<br/>初始化路由规则]
