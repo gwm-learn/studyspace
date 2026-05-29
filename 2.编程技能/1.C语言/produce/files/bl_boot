@@ -1,0 +1,80 @@
+#!/bin/sh
+echo **********enter broadlink boot********** > /dev/console
+
+# gen macs file
+produce mactype gen
+
+# write lan mac
+uci get network.@device[0].macaddr &> /dev/null
+if [ $? -ne 0 ]; then
+    lanMac=`produce mactype LANMAC`
+    if [ -n "$lanMac" ]; then
+        uci set network.@device[0].macaddr=$lanMac
+        uci commit network
+        echo set lan mac $lanMac > /dev/console
+    fi
+fi
+
+defwanifname=`uci -q get network.wan.device`
+if [ -n "$defwanifname" ]; then
+    defwanmac=`uci -q get network.wan.macaddr`
+    if [ -z "$defwanmac" ]; then
+        defwanmac=`produce allocwanmac`
+        uci set network.wan.macaddr=$defwanmac
+        uci commit network
+        # try to set wanmac to ifname imediately
+        if [ -e /sys/class/net/$defwanifname ]; then
+            ifconfig $defwanifname down hw ether $defwanmac up &>/dev/null
+        fi
+        echo set wan $defwanifname mac $defwanmac > /dev/console
+    fi
+fi
+
+# sync used mac to allocedwanmac list
+sectionlist=`cat /etc/config/network | grep interface | grep wan | awk -F "'" '{print $2}'`
+for currsection in $sectionlist
+do
+    currmac=`uci -q get network.$currsection.macaddr`
+    echo $currsection $currmac
+    if [ -n "$currmac" ]; then
+        echo sync used mac $currmac to allocedwanmac list > /dev/console
+        produce addallocedwanmac $currmac
+    fi
+done
+
+# write wifi0 mac
+wifi_2g_datconf_file="/etc/wireless/mediatek/mt7981.dbdc.b0.dat"
+wifi_5g_datconf_file="/etc/wireless/mediatek/mt7981.dbdc.b1.dat"
+wlanMac01=`produce mactype WLANMAC01`
+wlanOrigMac=`datconf -f $wifi_2g_datconf_file get MacAddress`
+if [ -n "$wlanMac01" ] && [ "$wlanOrigMac" != "$wlanMac01" ]; then
+    datconf -f  $wifi_2g_datconf_file set MacAddress $wlanMac01
+    echo set 2G wifi mac $wlanMac01 > /dev/console
+fi
+
+# write wifi1 mac
+wlanMac02=`produce mactype WLANMAC02`
+wlanOrigMac=`datconf -f  $wifi_5g_datconf_file get MacAddress`
+if [ -n "$wlanMac02" ] && [ "$wlanOrigMac" != "$wlanMac02" ]; then
+    datconf -f  $wifi_5g_datconf_file set MacAddress $wlanMac02
+    echo set 5G wifi1 mac $wlanMac02 > /dev/console
+fi
+
+# do all other factory params write to config
+resetflag=`produce resetflag`
+if [ $resetflag -ne 0 ]; then 
+    echo reset factory params > /dev/console
+    produce configwrite
+    produce resetflag 0
+fi
+
+currUsername=`uci -q get system.auth.username`
+if [ "$currUsername" != "" ]; then
+    if [ ! -d /home/$currUsername ]; then 
+        mkdir /home/$currUsername
+        chown $currUsername:root /home/$currUsername
+        echo "create DIR: /home/$currUsername" > /dev/console
+    fi
+fi
+
+echo **********leave broadlink boot********** > /dev/console

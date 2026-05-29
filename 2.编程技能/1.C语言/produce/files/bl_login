@@ -1,0 +1,57 @@
+#!/bin/sh
+
+# show welcome words
+cat /etc/banner
+
+# ask command record to flash
+HISTFILE="/data/.cmd_history"
+HISTFILESIZE=1024
+export HISTFILE
+export HISTFILESIZE
+
+# if factorytelnet, no need auth
+if [ -f /var/factorytelnet ]; then
+	/bin/ash
+	exit 0
+fi
+
+authOK=0
+authTimes=0
+authMaxTimes=3
+authUsername=`uci -q get system.auth.username`
+authPassword=`uci -q get system.auth.password`
+currUsername=
+currPassword=
+
+while [ $authOK -eq 0 ]
+do
+
+	# end with '\n', means press 'Ctrl + Enter' at the same times 
+	read -p "Login Name:" currUsername
+	read -s -p "Login Pass:" currPassword
+	# make a new line
+	echo ""
+
+	authTimes=$(( $authTimes+1 ))
+
+	# encrypt password
+	encrPassword=`produce encryptPass $currPassword`
+	if [ "$currUsername" = "$authUsername" ] && [ "$encrPassword" = "$authPassword" ]; then
+		authOK=1
+	else
+		if [ $authTimes -lt $authMaxTimes ]; then
+			echo "Auth Failed, Try Again!"
+			sleep 1
+		else
+			echo "Auth Failed, Exit Abnormally(Try Over $authMaxTimes Times)!"
+			exit 255
+		fi
+	fi
+done
+
+# auth success
+if [ $authOK -eq 1 ]; then
+	echo "Auth Successful."
+	/bin/ash
+fi
+

@@ -1,0 +1,103 @@
+#!/bin/sh
+
+echo "bl WPS" > /dev/console
+
+radio="$1"
+action="$2"
+
+trigger_radio2g_wps()
+{
+    iwpriv ra0 set WscConfMode=7
+    iwpriv ra0 set WscConfStatus=2
+    iwpriv ra0 set WscMode=2
+    iwpriv ra0 set WscGetConf=1
+}
+
+stop_radio2g_wps()
+{
+    iwpriv ra0 set WscConfMode=0
+}
+
+trigger_radio5g_wps()
+{
+    iwpriv rax0 set WscConfMode=7
+    iwpriv rax0 set WscConfStatus=2
+    iwpriv rax0 set WscMode=2
+    iwpriv rax0 set WscGetConf=1
+}
+
+stop_radio5g_wps()
+{
+    iwpriv rax0 set WscConfMode=0
+}
+
+wait_wps_single() {
+    local band="$1"
+    local max_try=120
+    local try=0
+
+    while [ $try -lt $max_try ]; do
+        status=$(produce wps_status "$band" 2>/dev/null)
+        if [ "$status" = "Success" ]; then
+            echo "WPS success on $band, turning off LED" > /dev/console
+            produce ledoff led_wps
+            return 0
+        fi
+        sleep 1
+        try=$((try + 1))
+    done
+    echo "WPS timeout on $band, turning off LED" > /dev/console
+    produce ledoff led_wps
+    return 1
+}
+
+wait_wps_dual() {
+    local max_try=120
+    local try=0
+
+    while [ $try -lt $max_try ]; do
+        status_2g=$(produce wps_status 2g 2>/dev/null)
+        status_5g=$(produce wps_status 5g 2>/dev/null)
+        if [ "$status_2g" = "Success" ] || [ "$status_5g" = "Success" ]; then
+            echo "WPS success on at least one band, turning off LED" > /dev/console
+            produce ledoff led_wps
+            return 0
+        fi
+        sleep 1
+        try=$((try + 1))
+    done
+    echo "WPS timeout on both bands, turning off LED" > /dev/console
+    produce ledoff led_wps
+    return 1
+}
+
+if [ "$radio" = "1" ]; then
+    if [ "$action" = "0" ]; then
+        produce ledoff led_wps
+        stop_radio2g_wps
+    else
+        produce ledblink led_wps
+        trigger_radio2g_wps
+        wait_wps_single "2g"
+    fi
+elif [ "$radio" = "2" ]; then
+    if [ "$action" = "0" ]; then
+        produce ledoff led_wps
+        stop_radio5g_wps
+    else
+        produce ledblink led_wps
+        trigger_radio5g_wps
+        wait_wps_single "5g"
+    fi
+elif [ "$radio" = "3" ]; then
+    if [ "$action" = "0" ]; then
+        produce ledoff led_wps
+        stop_radio2g_wps
+        stop_radio5g_wps
+    else
+        produce ledblink led_wps
+        trigger_radio5g_wps
+        trigger_radio2g_wps
+        wait_wps_dual
+    fi
+fi

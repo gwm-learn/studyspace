@@ -1,0 +1,24 @@
+#!/bin/sh
+
+while :
+do
+	if [ ! -f /var/factoryMode ]; then
+		port_status=`swconfig dev switch0 port 4 get link | awk '{print $2}'`
+		led_status=`cat /sys/class/leds/internet/brightness`
+		if [ "$port_status" == "link:up" ]; then 
+			network=`ping 8.8.8.8 -c 2 | grep time | wc -l`
+			if [ "$network" == "2" ]; then 
+				if [ "$led_status" != "1" ]; then 
+					echo 1 > /sys/class/leds/internet/brightness
+				fi
+			else
+				echo 0 > /sys/class/leds/internet/brightness
+			fi
+		else                                                                                   
+			echo 0 > /sys/class/leds/internet/brightness
+			echo "wan down" > /dev/console
+			exit 0
+		fi
+	fi
+	sleep 5
+done

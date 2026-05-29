@@ -1,0 +1,17 @@
+#!/bin/sh
+
+dir_telnet_tty=/dev/pts
+
+for file in `ls $dir_telnet_tty`
+do
+	if [ "$file" = "ptmx" ]
+	then
+		true
+	elif [ -c "$dir_telnet_tty/$file" ]
+	then
+#		echo "notify $dir_telnet_tty/$file"
+		echo $1 > $dir_telnet_tty/$file
+	fi
+done
+
+

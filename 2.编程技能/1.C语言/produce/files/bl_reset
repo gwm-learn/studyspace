@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# do excute produce restoredefault
+
+echo "bl FACTORY RESET" > /dev/console
+produce restoredefault
+

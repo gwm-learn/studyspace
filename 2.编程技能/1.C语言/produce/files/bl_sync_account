@@ -1,0 +1,43 @@
+#!/bin/sh
+
+# validate params
+if [ $# -lt 2 ]; then
+        echo "Usage: $0 USERNAME PASSWORD [RESTART]"
+        exit 255
+fi
+
+# JUST FOR DEBUG
+# $1 is USERNAME
+# S2 is PASSWORD
+# echo $1 $2
+
+# check account exist or not
+existUser=`cat /etc/passwd | grep "$1:"`
+if [ $? -ne 0 ]; then
+	# add new account for username
+	#user count not allowd ssh
+	if [ "$1" == "user" ]; then 
+		adduser -G root -D "$1"
+	else
+		adduser -s /bin/ash -G root -D "$1"
+	fi
+fi
+
+# change new password for STD linux
+passwd -f -n "$2" -c "$2" "$1"
+# change new password for samba
+if [ ! -f /etc/samba/smbpasswd ]; then
+	touch /etc/samba/smbpasswd
+fi
+echo -e "$2\n$2\n" | smbpasswd -as $1 >/dev/null
+
+if [ $# -ge 3 ]; then
+	# restart same apps is neccessary, need to ask client use new auth info to login
+	/etc/init.d/samba restart
+	/etc/init.d/vsftpd restart
+	/etc/init.d/minidlna restart
+fi
+
+# force write to flash in last
+sync
+
