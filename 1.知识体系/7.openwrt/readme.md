@@ -21,26 +21,30 @@ jiuqu@192 7.openwrt % tree
 │       │   ├── 1.netifd.md
 │       │   ├── 2.bridge.md
 │       │   └── 3.vlan.md
-│       ├── 2.路由
-│       ├── 3.NAT&防火墙
+│       ├── 2.路由
+│       │   └── 1.路由表管理.md
+│       ├── 3.NAT&防火墙
 │       │   ├── 1.iptables&nftables.md
 │       │   ├── 2.NAT源地址转换.md
 │       │   ├── 3.端口映射.md
 │       │   └── 4.DMZ.md
-│       ├── 4.DHCP&DNS
-│       │   ├── 1.dnsmasq
-│       │   │   ├── dnsmasq_script.sh
-│       │   │   └── dnsmasq.md
-│       │   └── 2.静态地址绑定&DNS转发
+│       ├── 4.DHCP&DNS
+│       │   ├── 1.dns
+│       │   │   ├── dns.md
+│       │   │   └── dnsmasq.md
+│       │   └── 2.dhcp
+│       │       └── dhcp.md
 │       ├── 5.WiFi子系统
 │       │   ├── 1.cfg80211.md
 │       │   ├── 2.nl80211.md
 │       │   └── 2.wifi相关概念.md
-│       └── 6.CPE专属业务
-│           ├── 1.TR069&TR369.md
-│           ├── 2.Qos.md
-│           ├── 3.流量控制.md
-│           └── 4.端口限速.md
+│       ├── 6.CPE专属业务
+│       │   ├── 1.TR069&TR369.md
+│       │   ├── 2.Qos.md
+│       │   ├── 3.流量控制.md
+│       │   └── 4.端口限速.md
+│       └── 7.5G拨号
+│           └── 5G拨号.md
 ├── 4.内核网络
 │   ├── 1.linux网络栈
 │   │   ├── 1.收发包流程.md
@@ -51,9 +55,7 @@ jiuqu@192 7.openwrt % tree
 │       ├── 3.PPP协议栈.md
 │       └── 4.USB子系统.md
 ├── 5.驱动
-│   ├── 1.以太网switch驱动
-│   ├── 2.wifi驱动
-│   └── 3.驱动通用知识点
+│   └── 1.以太网switch驱动.md
 ├── 6.其他
 │   ├── procd.md
 │   ├── ubus.md
