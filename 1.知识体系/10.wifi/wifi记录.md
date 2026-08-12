@@ -1,5 +1,5 @@
 # WLAN
-WLAN即Wireless(无线局域网)，是指通过无线技术构建的无线局域网络。这里的无线技术包括wifi、红外、蓝牙等等。   
+WLAN即Wireless Local Area Network（无线局域网），是指通过无线技术构建的无线局域网络。这里的无线技术包括wifi、红外、蓝牙等等。   
 
 ## WLAN与wifi
 wifi是一个基于IEEE 802.11标准的无线局域网技术。IEEE 802.11是一种WLAN标准，而wifi是802.11标准的一种实现。   
@@ -56,7 +56,7 @@ AP的身份标识，也就是MAC地址。
 
 # 用户接入
 1. 主动扫描   
-由STA在每个信道上发送探测请求（Probe request）帧，寻找与STA所属有相同SSID的AP。AP发送探测响应（Probe responce）帧回应，其中包含的信息和信标帧类似。若找不到相同SSID的AP，则一直扫描。   
+由STA在每个信道上发送探测请求（Probe request）帧，寻找与STA所属有相同SSID的AP。AP发送探测响应（Probe response）帧回应，其中包含的信息和信标帧类似。若找不到相同SSID的AP，则一直扫描。   
 2. 被动扫描   
 AP周期性地发送信标（Beacon）帧，其中包含AP的MAC地址、网络名称（SSID）、支持的速率、认证方式、加密算法等。STA扫描信道，找出可能位于该区域的所有AP发出的信标帧。   
 
