@@ -47,3 +47,39 @@ PPP协议一般用于用户拨号接入ISP，工作流程如下
 
 # PPPoE
 [协议应用PPPoE](./../../3.协议应用/6.pppoe/pppoe.md)   
+
+PPPoE（PPP over Ethernet）把 PPP 会话承载在以太网上，是宽带拨号上网的标准方式。PPPoE 分为**发现阶段**和**会话阶段**：
+
+## PPPoE 发现阶段
+
+发现阶段的目标是找到对端并确定会话 ID，报文都以广播或单播方式在以太网帧中传输（帧类型 0x8863）：
+
+| 报文 | 全称 | 方向 | 作用 |
+|------|------|------|------|
+| PADI | PPPoE Active Discovery Initiation | Client → 广播 | 客户端发起请求，携带想要的服务类型 |
+| PADO | PPPoE Active Discovery Offer | Server → 单播 | 服务端确认可提供服务 |
+| PADR | PPPoE Active Discovery Request | Client → 单播 | 客户端选定一个 Server，正式请求建立会话 |
+| PADS | PPPoE Active Discovery Session-confirmation | Server → 单播 | 服务端分配唯一的 Session ID，进入会话阶段 |
+| PADT | PPPoE Active Discovery Terminate | 双向单播 | 任意时刻终止会话 |
+
+发现阶段只负责建立二层会话，不传任何 PPP 数据。Session ID 由 Server 分配，后续所有 PPP 帧（类型 0x8864）都必须携带该 ID。
+
+## PPPoE 会话阶段
+
+会话建立后，进入 PPP 的完整协商流程：
+
+1. **LCP 阶段**：协商链路参数（最大接收单元 MRU、认证协议 PAP/CHAP 等）。
+2. **认证阶段**：按 LCP 协商结果执行 PAP 或 CHAP 认证。
+3. **NCP 阶段**：运行 IPCP 协商 IP 地址、DNS 等网络层参数。
+4. 协商完成后进入数据通信阶段，直到任一方发送 PADT 或 PPP 层终结。
+
+PPPoE 常见故障点：PADI 广播被 VLAN 隔离、Session ID 丢失导致 PPP 帧被丢弃、LCP 的 MRU 协商不一致导致大数据包丢包。
+
+# PPPoE 与 PPP 的异同
+
+| 项目 | PPP | PPPoE |
+|------|-----|-------|
+| 承载介质 | 串行链路（拨号/专线） | 以太网 |
+| 链路建立 | LCP 直接协商 | 先 PPPoE 发现阶段，再 LCP |
+| 帧封装 | HDLC 类似帧 | 以太网帧 + PPPoE 头 + PPP 帧 |
+| 典型场景 | 专线、老式拨号 | 家庭宽带、FTTH、DSL
