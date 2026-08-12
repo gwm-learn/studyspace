@@ -323,7 +323,7 @@ DHCPv6 客户端的状态迁移（文本描述）：
 
 | RFC | 标题 | 与本主题的关系 |
 |-----|------|----------------|
-| **RFC 8415** | Dynamic Host Configuration Protocol for IPv6 (DHCPv6) | DHCPv6 主规范，替代 RFC 3315 与 RFC 3736 的部分内容，定义全部报文类型与状态机 |
+| **RFC 8415** | Dynamic Host Configuration Protocol for IPv6 (DHCPv6) | DHCPv6 主规范，替代 RFC 3315，并完整合并 RFC 3736 的内容，定义全部报文类型与状态机 |
 | **RFC 3633** | IPv6 Prefix Options for DHCPv6 (Prefix Delegation) | 定义 IA_PD / IAPREFIX 选项与前缀代理机制 |
 | **RFC 4861** | Neighbor Discovery for IP version 6 (IPv6) | NDP 基础，定义 RS/RA/NS/NA 报文与 M/O/A 标志位 |
 | **RFC 4862** | IPv6 Stateless Address Autoconfiguration | SLAAC 地址生成与 DAD 流程 |
