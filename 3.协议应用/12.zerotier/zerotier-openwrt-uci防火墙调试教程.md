@@ -103,7 +103,7 @@ uci commit firewall
 ### 4.1 先找 zt 网卡名
 
 ```sh
-ls /sys/class/net | grep zt        # 例如 zt0
+ls /sys/class/net | grep zt        # 例如 ztdiysk6pz
 # 或用脚本同款动态探测：
 ifconfig | grep zt | awk '{print $1}'
 ```
@@ -112,16 +112,16 @@ ifconfig | grep zt | awk '{print $1}'
 
 **fw3（iptables）：**
 ```sh
-iptables -I FORWARD -i zt0 -j ACCEPT
-iptables -I FORWARD -o zt0 -j ACCEPT
-iptables -t nat -I POSTROUTING -o zt0 -j MASQUERADE
+iptables -I FORWARD -i ztdiysk6pz -j ACCEPT
+iptables -I FORWARD -o ztdiysk6pz -j ACCEPT
+iptables -t nat -I POSTROUTING -o ztdiysk6pz -j MASQUERADE
 ```
 
 **fw4（nftables）：**
 ```sh
-nft insert rule inet fw4 forward iifname "zt0" accept
-nft insert rule inet fw4 forward oifname "zt0" accept
-nft insert rule inet fw4 srcnat oifname "zt0" counter masquerade
+nft insert rule inet fw4 forward iifname "ztdiysk6pz" accept
+nft insert rule inet fw4 forward oifname "ztdiysk6pz" accept
+nft insert rule inet fw4 srcnat oifname "ztdiysk6pz" counter masquerade
 ```
 
 ### 4.3 持久化（= 要替代 luci-app-zerotier 的实现，动态等 zt 网卡）
