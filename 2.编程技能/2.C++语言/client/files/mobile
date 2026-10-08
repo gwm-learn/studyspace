@@ -1,0 +1,46 @@
+config interface 'wan5g'
+        option iptype '10'
+        option apn 'apn1'
+        option username 'any'
+        option password 'any'
+        option auth 'NONE'
+        option manualApn '0'
+        option nettype 'AUTO'
+        option subnettype 'AUTO'
+        option pinAutoUnlock '0'
+        option pinEnable '0'
+        option natEnable '1'
+        option bridgeEnable '0'
+        option defaultroute "1"
+
+config interface 'wan5g2'
+        option iptype '10'
+        option apn 'apn2'
+        option username 'any'
+        option password 'any'
+        option auth 'NONE'
+        option defaultroute "0"
+
+config interface 'wan5g3'
+        option iptype '10'
+        option apn 'apn3'
+        option username 'any'
+        option password 'any'
+        option auth 'NONE'
+        option defaultroute "0"
+
+config celllock
+        option inited '0'
+        option state 'None'
+        option entries '0'
+        option firstactive '0'
+
+config service bandlock
+        option enable '0'
+        option netType '5G'
+
+config service simlock
+        option enable '0'
+
+config service pcidlock
+        option enable '0'

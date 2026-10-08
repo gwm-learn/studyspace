@@ -1,0 +1,68 @@
+#!/bin/sh /etc/rc.common  
+# Copyright (C) 2006-2011 OpenWrt.org  
+ 
+START=40 
+USE_PROCD=1 
+BIN=qcmap_mngr 
+PID_FILE="/var/run/${BIN}.pid"
+DIR_MOBILE_PATH=/var/mobile 
+ 
+start_service() { 
+    echo "Starting $BIN" > /dev/console 
+    [ -f "/tmp/dial_end_from_signal" ] && rm -f "/tmp/dial_end_from_signal" 
+
+    [ ! -d ${DIR_MOBILE_PATH} ] && mkdir ${DIR_MOBILE_PATH}
+    [ ! -f ${DIR_MOBILE_PATH}/simlock_support ] && touch ${DIR_MOBILE_PATH}/simlock_support
+    [ ! -f ${DIR_MOBILE_PATH}/bandlock_support ] && touch ${DIR_MOBILE_PATH}/bandlock_support
+    [ ! -f ${DIR_MOBILE_PATH}/celllock_support ] && touch ${DIR_MOBILE_PATH}/celllock_support
+
+    procd_open_instance 
+    procd_set_param respawn 
+    procd_set_param command "$BIN" 
+    procd_set_param pidfile "$PID_FILE"  # 关键：明确指定PID文件 
+    procd_set_param stdout 1 
+    procd_set_param stderr 1 
+    procd_close_instance 
+} 
+ 
+stop_service() { 
+    echo "Stopping $BIN" > /dev/console 
+    
+    # 检查进程是否存在 
+    local pid=$(cat "$PID_FILE" 2>/dev/null) 
+    if [ -z "$pid" ] || ! kill -0 $pid 2>/dev/null; then 
+        echo "Process $BIN is not running. Skipping wait." > /dev/console 
+        # 直接调用procd的终止逻辑 
+        echo "Invoking procd kill" > /dev/console 
+        procd_kill "$PID_FILE"  # 触发procd的SIGTERM/SIGKILL流程 
+        return 
+    fi 
+ 
+    # 1. 发送自定义信号 SIGUSR1 
+    echo "Sending SIGUSR1 to PID:$pid" > /dev/console 
+    kill -USR1 $pid 
+ 
+    # 2. 等待文件生成（绕过procd默认超时） 
+    local wait_time=0 
+    while [ $wait_time -lt 30 ]; do 
+        if [ -f "/tmp/dial_end_from_signal" ]; then 
+            rm -f "/tmp/dial_end_from_signal" 
+            echo "" > /dev/console
+            echo "Signal file processed" > /dev/console 
+            break 
+        fi 
+        echo -ne "\rWaiting for signal file... $wait_time/30" > /dev/console
+        sleep 1 
+        wait_time=$((wait_time + 1)) 
+    done 
+    echo "" > /dev/console
+    # 3. 手动调用procd的终止逻辑 
+    echo "Invoking procd kill" > /dev/console 
+    procd_kill "$PID_FILE"  # 触发procd的SIGTERM/SIGKILL流程 
+} 
+ 
+restart() { 
+    stop 
+    sleep 1 
+    start 
+} 
